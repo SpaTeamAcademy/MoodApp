@@ -13,4 +13,10 @@ In der folgenden Datei befindet sich eine erste Vision, wie diese App gestaltet 
 
 [Design StimmungsApp.pdf](https://github.com/SpaTeamAcademy/MoodApp/files/12273598/Design.StimmungsApp.pdf)
 
+
 H.C.
+
+L.S.
+
+K.H.
+
