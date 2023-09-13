@@ -1,12 +1,16 @@
 /*general*/
-body {
+
+/*coordinate system*/
+#coordinateSystem {
     background-image: url(system_square_vector.svg);
     background-size: 50%;
     background-repeat: no-repeat;
     background-position: center;
-    margin-top: 50%;
-  }
-
+    padding-top: 15%;
+    padding-bottom: 25%;
+    margin-top: 5%;
+}  
+  
 
 /*buttons*/
 .colorbutton {
@@ -58,17 +62,17 @@ body {
 /*text*/
 #energyHigh{
     position: absolute;
-    top: 10%;
+    top: 9%;
     left: 47%;
 }
 #negativ{
     position: absolute;
-    top: 50%;
+    top: 49%;
     left: 26.5%;
 }
 #positiv{
     position: absolute;
-    top: 50%;
+    top: 49%;
     left: 70%;
 }
 #energyLow{
