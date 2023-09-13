@@ -1,3 +1,64 @@
 .colorbutton {
     cursor: pointer;
+    border-width:2px;
+    border-style:solid;
+    border-color:grey;
+    padding: 5px;
+    text-align: center;
+    width: 70px;
+    height: 25px;
 }
+
+#violet, #red, #orange, #yellow{
+    margin: 10px;
+    position: absolute;
+    top: 40%;
+}
+
+#violet{
+    left: 32%;
+}
+
+#red{
+    left: 40%;
+}
+
+#orange{
+    left: 53%;
+}
+
+#yellow{
+    left: 61%;
+}
+
+#indigo, #blue, #turquoise, #green{
+    margin: 10px;
+    position: absolute;
+    top: 60%;
+}
+
+#indigo{
+    left: 32%;
+}
+
+#blue{
+    left: 40%;
+}
+
+#turquoise{
+    left: 53%;
+}
+
+#green{
+    left: 61%;
+}
+
+
+
+body {
+    background-image: url(system_square_vector.svg);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 50%;
+  }
