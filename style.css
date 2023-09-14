@@ -28,35 +28,24 @@
     position: absolute;
     top: 40%;
 }
-#violet{
-    left: 32%;
-}
-#red{
-    left: 40%;
-}
-#orange{
-    left: 53%;
-}
-#yellow{
-    left: 61%;
-}
 #indigo, #blue, #turquoise, #green{
     margin: 10px;
     position: absolute;
     top: 60%;
 }
-#indigo{
+#violet, #indigo{
     left: 32%;
 }
-#blue{
+#red, #blue{
     left: 40%;
 }
-#turquoise{
+#orange, #turquoise{
     left: 53%;
 }
-#green{
+#yellow, #green{
     left: 61%;
 }
+
 
 
 /*text*/
