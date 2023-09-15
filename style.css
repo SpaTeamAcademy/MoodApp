@@ -33,16 +33,16 @@
     position: absolute;
     top: 60%;
 }
-#violet, #indigo/*, #violetKeywords, #indigoKeywords*/{
+#violet, #indigo, #violetKeywords, #indigoKeywords{
     left: 32%;
 }
-#red, #blue/*, #redKeywords, #blueKeywords*/{
+#red, #blue, #redKeywords, #blueKeywords{
     left: 40%;
 }
-#orange, #turquoise/*, #orangeKeywords, #turquoiseKeywords*/{
+#orange, #turquoise, #orangeKeywords, #turquoiseKeywords{
     left: 53%;
 }
-#yellow, #green/*, #yellowKeywords, #greenKeywords*/{
+#yellow, #green, #yellowKeywords, #greenKeywords{
     left: 61%;
 }
 
@@ -69,7 +69,7 @@
     left: 47%;
 }
 
-/*keywords*//*
+/*keywords*/
 #violetKeywords, #redKeywords, #orangeKeywords, #yellowKeywords{
     position: absolute;
     top: 35%;
