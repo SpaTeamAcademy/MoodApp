@@ -9,7 +9,7 @@ fetch("./moods.json")
     return response.json();
     })
     .then(function (data){ //do something with the data
-        const moodList = document.getElementById("moodList");
+        const moodList = document.getElementById("moodList"); //there has to be an HTML Element with ID="moodList"!
 
         for (let i = 0; i < data.Moods.length; i++) {
             let moodItem = data.Moods[i].keywords[0];
