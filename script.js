@@ -45,6 +45,8 @@ function display(color){ //bekommt in color die ID übergeben
     moodList.innerHTML = "";
     examples.innerHTML = "";
     body.innerHTML = "";
+    mind.innerHTML = "";
+    strategy.innerHTML = "";
     fetch('moods.json')
     .then(res => res.json())
     .then(function(data){
