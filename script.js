@@ -37,10 +37,12 @@ closeModal.addEventListener("click", () => {
 
 const moodList = document.getElementById("moodList"); //HTML Liste mit den Keywords
 const examples = document.getElementById("examples");
+const body = document.getElementById("body");
 
 function display(color){ //bekommt in color die ID übergeben
     moodList.innerHTML = "";
     examples.innerHTML = "";
+    body.innerHTML = "";
     fetch('moods.json')
     .then(res => res.json())
     .then(function(data){
@@ -58,6 +60,11 @@ function display(color){ //bekommt in color die ID übergeben
                   let el = document.createElement('li');
                   el.innerText = data.Moods[i].examples[j];
                   examples.appendChild(el);
+                }
+                for(let j in data.Moods[i].body){
+                  let el = document.createElement('li');
+                  el.innerText = data.Moods[i].body[j];
+                  body.appendChild(el);
                 }
             }
         }
