@@ -35,14 +35,14 @@ closeModal.addEventListener("click", () => {
 });
 
 
-const moodList = document.getElementById("moodList"); //HTML Liste mit den Keywords
+const moodList = document.getElementById("moodList"); //HTML lists that are filled with the corresponding text each time display is called
 const examples = document.getElementById("examples");
 const body = document.getElementById("body");
 const mind = document.getElementById("mind");
 const strategy = document.getElementById("strategy");
 
-function display(color){ //bekommt in color die ID übergeben
-    moodList.innerHTML = "";
+function display(color){ //is called using onclick for now, gets the button's ID as a parameter
+    moodList.innerHTML = ""; //all lists are emptied first
     examples.innerHTML = "";
     body.innerHTML = "";
     mind.innerHTML = "";
@@ -52,10 +52,9 @@ function display(color){ //bekommt in color die ID übergeben
     .then(function(data){
       document.getElementById("colorName").innerText = color;
       
-        for(let i in data.Moods){
+        for(let i in data.Moods){ //each for loop within this one fills one of the lists
             if(data.Moods[i].color === color){
                 for(let j in data.Moods[i].keywords){
-                  //console.log(data.Moods[i].keywords[j]);
                   let el = document.createElement('li');
                   el.innerText = data.Moods[i].keywords[j];
                   moodList.appendChild(el);
