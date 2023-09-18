@@ -33,19 +33,19 @@
     position: absolute;
     top: 60%;
 }
-#violet, #indigo/*, #violetKeywords, #indigoKeywords*/{
+
+#violet, #indigo, #yellowKeywords, #indigoKeywords{
     left: 32%;
 }
-#red, #blue/*, #redKeywords, #blueKeywords*/{
+#red, #blue, #orangeKeywords, #blueKeywords{
     left: 40%;
 }
-#orange, #turquoise/*, #orangeKeywords, #turquoiseKeywords*/{
+#orange, #turquoise, #redKeywords, #turquoiseKeywords{
     left: 53%;
 }
-#yellow, #green/*, #yellowKeywords, #greenKeywords*/{
+#yellow, #green, #violetKeywords, #greenKeywords{
     left: 61%;
 }
-
 
 /*text*/
 #energyHigh{
@@ -69,7 +69,7 @@
     left: 47%;
 }
 
-/*keywords*//*
+/*keywords*/
 #violetKeywords, #redKeywords, #orangeKeywords, #yellowKeywords{
     position: absolute;
     top: 35%;
@@ -77,7 +77,7 @@
 #indigoKeywords, #blueKeywords, #turquoiseKeywords, #greenKeywords{
     position: absolute;
     top: 55%;
-}*/
+}
 
 /* pop up*/
 .keywords {
