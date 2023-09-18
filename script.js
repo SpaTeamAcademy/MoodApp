@@ -14,3 +14,15 @@ openModal.addEventListener("click", () => {
 closeModal.addEventListener("click", () => {
   modal.close();
 });
+
+
+
+
+//accordion//
+const accordion = document.getElementsByClassName('accordionSection');
+
+for (let i=0; i<accordion.length; i++) {
+  accordion[i].addEventListener('click', function () {
+    this.classList.toggle('active')
+  })
+}

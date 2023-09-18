@@ -1,5 +1,6 @@
 /*general*/
 
+
 /*coordinate system*/
 #coordinateSystem {
     background-image: url(system_square_vector.svg);
@@ -69,6 +70,7 @@
     left: 47%;
 }
 
+
 /*keywords*//*
 #violetKeywords, #redKeywords, #orangeKeywords, #yellowKeywords{
     position: absolute;
@@ -78,6 +80,7 @@
     position: absolute;
     top: 55%;
 }*/
+
 
 /* pop up*/
 .keywords {
@@ -105,4 +108,23 @@
 }
 .button:hover {
  background: lightgray;
+}
+
+
+/*accordion*/
+.accordionBtn{
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    background-color: aliceblue;
+    border-radius: 8px;
+}
+.accordionContent {
+  height: 0;
+  text-align: block;
+  overflow: hidden;
+  transition: height 0.8s;
+}
+.accordionSection.active .accordionContent {
+  height: 100px;
 }
