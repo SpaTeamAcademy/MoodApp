@@ -87,7 +87,7 @@
  border-radius: 20px;
  box-shadow: 30 px;
  transition: width 2s;
- background-color: #ffff66;
+ background-color: lightgray;
  box-shadow: 5px 5px 5px 5px gray;
 }
 .keywords::backdrop {
