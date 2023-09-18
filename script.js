@@ -38,6 +38,7 @@ closeModal.addEventListener("click", () => {
 const moodList = document.getElementById("moodList"); //HTML Liste mit den Keywords
 const examples = document.getElementById("examples");
 const body = document.getElementById("body");
+const mind = document.getElementById("mind");
 
 function display(color){ //bekommt in color die ID übergeben
     moodList.innerHTML = "";
@@ -65,6 +66,11 @@ function display(color){ //bekommt in color die ID übergeben
                   let el = document.createElement('li');
                   el.innerText = data.Moods[i].body[j];
                   body.appendChild(el);
+                }
+                for(let j in data.Moods[i].mind){
+                  let el = document.createElement('li');
+                  el.innerText = data.Moods[i].mind[j];
+                  mind.appendChild(el);
                 }
             }
         }
