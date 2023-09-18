@@ -1,5 +1,12 @@
 /*general*/
 
+h1 {
+    font-size: 40px;
+    text-align: center;
+}
+footer{
+    text-align: center;
+}
 
 /*coordinate system*/
 #coordinateSystem {
@@ -19,10 +26,11 @@
     border-width:2px;
     border-style:solid;
     border-color:grey;
+    border-radius: 50%;
     padding: 5px;
     text-align: center;
     width: 70px;
-    height: 25px;
+    height: 70px;
 }
 #violet, #red, #orange, #yellow{
     margin: 10px;
@@ -34,19 +42,19 @@
     position: absolute;
     top: 60%;
 }
-#violet, #indigo/*, #violetKeywords, #indigoKeywords*/{
+
+#violet, #indigo, #yellowKeywords, #indigoKeywords{
     left: 32%;
 }
-#red, #blue/*, #redKeywords, #blueKeywords*/{
+#red, #blue, #orangeKeywords, #blueKeywords{
     left: 40%;
 }
-#orange, #turquoise/*, #orangeKeywords, #turquoiseKeywords*/{
+#orange, #turquoise, #redKeywords, #turquoiseKeywords{
     left: 53%;
 }
-#yellow, #green/*, #yellowKeywords, #greenKeywords*/{
+#yellow, #green, #violetKeywords, #greenKeywords{
     left: 61%;
 }
-
 
 /*text*/
 #energyHigh{
@@ -70,8 +78,7 @@
     left: 47%;
 }
 
-
-/*keywords*//*
+/*keywords*/
 #violetKeywords, #redKeywords, #orangeKeywords, #yellowKeywords{
     position: absolute;
     top: 35%;
@@ -79,21 +86,21 @@
 #indigoKeywords, #blueKeywords, #turquoiseKeywords, #greenKeywords{
     position: absolute;
     top: 55%;
-}*/
+}
 
 
 /* pop up*/
-.keywords {
+.keywordPopup {
  padding: 20px;
  max-width: 50ch;
  border: solid 5px white;
  border-radius: 20px;
  box-shadow: 30 px;
  transition: width 2s;
- background-color: #ffff66;
+ background-color: lightgray;
  box-shadow: 5px 5px 5px 5px gray;
 }
-.keywords::backdrop {
+.keywordPopup::backdrop {
  background: gray;
  opacity: 0.7;
 
