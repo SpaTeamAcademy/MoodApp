@@ -33,6 +33,7 @@
     position: absolute;
     top: 60%;
 }
+
 #violet, #indigo, #yellowKeywords, #indigoKeywords{
     left: 32%;
 }
@@ -45,7 +46,6 @@
 #yellow, #green, #violetKeywords, #greenKeywords{
     left: 61%;
 }
-
 
 /*text*/
 #energyHigh{
@@ -77,4 +77,32 @@
 #indigoKeywords, #blueKeywords, #turquoiseKeywords, #greenKeywords{
     position: absolute;
     top: 55%;
+}
+
+/* pop up*/
+.keywords {
+ padding: 20px;
+ max-width: 50ch;
+ border: solid 5px white;
+ border-radius: 20px;
+ box-shadow: 30 px;
+ transition: width 2s;
+ background-color: lightgray;
+ box-shadow: 5px 5px 5px 5px gray;
+}
+.keywords::backdrop {
+ background: gray;
+ opacity: 0.7;
+
+}
+.close-button {
+ border: solid 5px white;
+ padding: 10px;
+ cursor: pointer;
+ border-radius: 8px;
+ background-color: white;
+ border: solid 2px gray;
+}
+.button:hover {
+ background: lightgray;
 }

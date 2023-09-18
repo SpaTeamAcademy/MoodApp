@@ -13,9 +13,21 @@ fetch("./moods.json")
                 listItem.textContent = moodItem;
                 moodElements[i].appendChild(listItem);
             }
-
     })
     .catch(function (error){
     console.error("Something went wrong with retrieving the moods.");
     console.error(error);
     })
+
+/*opens and closes pop up*/
+const modal = document.querySelector(".keywords");
+const openModal = document.querySelector(".colorbutton");
+const closeModal = document.querySelector(".close-button");
+
+openModal.addEventListener("click", () => {
+  modal.showModal();
+});
+
+closeModal.addEventListener("click", () => {
+  modal.close();
+});
