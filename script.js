@@ -24,8 +24,6 @@ const modal = document.querySelector(".keywordPopup");
 const openModal = document.querySelectorAll(".colorbutton");
 const closeModal = document.querySelector(".close-button");
 
-console.log(openModal);
-
 for(i of openModal){
   i.addEventListener("click", () => {
     modal.showModal();
@@ -44,6 +42,7 @@ function display(color){ //bekommt in color die ID übergeben
     fetch('moods.json')
     .then(res => res.json())
     .then(function(data){
+      document.getElementById("colorName").innerText = color;
         for(let i in data.Moods){
             if(data.Moods[i].color === color){
                 for(let j in data.Moods[i].keywords){
