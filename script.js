@@ -31,3 +31,24 @@ openModal.addEventListener("click", () => {
 closeModal.addEventListener("click", () => {
   modal.close();
 });
+
+
+const moodList = document.getElementById("moodList"); //HTML Liste mit den Keywords
+
+function display(color){ //bekommt in color die ID übergeben
+    moodList.innerHTML = "";
+    fetch('moods.json')
+    .then(res => res.json())
+    .then(function(data){
+        for(let i in data.Moods){
+            if(data.Moods[i].color === color){
+                for(let j in data.Moods[i].keywords){
+                    console.log(data.Moods[i].keywords[j]);
+                    let el = document.createElement('li');
+                    el.innerText = data.Moods[i].keywords[j];
+                    moodList.appendChild(el);
+                }
+            }
+        }
+    });
+}
