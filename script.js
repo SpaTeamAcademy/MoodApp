@@ -1,22 +1,19 @@
-function display() {
-    //console.log to test function//
-    console.log("hello i am a color");
-}
-
 //fetches moods.json so we can access the data
 fetch("./moods.json")
     .then(function (response) {
     return response.json();
     })
-    .then(function (data){ //do something with the data
-        const moodList = document.getElementById("moodList"); //there has to be an HTML Element with ID="moodList"!
+    .then(function (data){ //now: do something with the data
 
-        for (let i = 0; i < data.Moods.length; i++) {
-            let moodItem = data.Moods[i].keywords[0];
-            let listItem = document.createElement("li");
-            listItem.textContent = moodItem;
-            moodList.appendChild(listItem);
-          };
+        let moodElements = document.querySelectorAll(".keywords"); // selects all elements with the class="keywords"
+
+        for (let i in data.Moods) { //iterates thru data.Moods and appends the first keyword of each mood to "p"
+                let moodItem = data.Moods[i].keywords[0];
+                let listItem = document.createElement("p");
+                listItem.textContent = moodItem;
+                moodElements[i].appendChild(listItem);
+            }
+
     })
     .catch(function (error){
     console.error("Something went wrong with retrieving the moods.");
