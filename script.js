@@ -39,6 +39,7 @@ const moodList = document.getElementById("moodList"); //HTML Liste mit den Keywo
 const examples = document.getElementById("examples");
 const body = document.getElementById("body");
 const mind = document.getElementById("mind");
+const strategy = document.getElementById("strategy");
 
 function display(color){ //bekommt in color die ID übergeben
     moodList.innerHTML = "";
@@ -71,6 +72,11 @@ function display(color){ //bekommt in color die ID übergeben
                   let el = document.createElement('li');
                   el.innerText = data.Moods[i].mind[j];
                   mind.appendChild(el);
+                }
+                for(let j in data.Moods[i].strategy){
+                  let el = document.createElement('li');
+                  el.innerText = data.Moods[i].strategy[j];
+                  strategy.appendChild(el);
                 }
             }
         }
