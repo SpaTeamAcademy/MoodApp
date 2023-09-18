@@ -36,20 +36,28 @@ closeModal.addEventListener("click", () => {
 
 
 const moodList = document.getElementById("moodList"); //HTML Liste mit den Keywords
+const examples = document.getElementById("examples");
 
 function display(color){ //bekommt in color die ID übergeben
     moodList.innerHTML = "";
+    examples.innerHTML = "";
     fetch('moods.json')
     .then(res => res.json())
     .then(function(data){
       document.getElementById("colorName").innerText = color;
+      
         for(let i in data.Moods){
             if(data.Moods[i].color === color){
                 for(let j in data.Moods[i].keywords){
-                    //console.log(data.Moods[i].keywords[j]);
-                    let el = document.createElement('li');
-                    el.innerText = data.Moods[i].keywords[j];
-                    moodList.appendChild(el);
+                  //console.log(data.Moods[i].keywords[j]);
+                  let el = document.createElement('li');
+                  el.innerText = data.Moods[i].keywords[j];
+                  moodList.appendChild(el);
+                }
+                for(let j in data.Moods[i].examples){
+                  let el = document.createElement('li');
+                  el.innerText = data.Moods[i].examples[j];
+                  examples.appendChild(el);
                 }
             }
         }
