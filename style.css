@@ -1,5 +1,13 @@
 /*general*/
 
+h1 {
+    font-size: 40px;
+    text-align: center;
+}
+footer{
+    text-align: center;
+}
+
 /*coordinate system*/
 #coordinateSystem {
     background-image: url(system_square_vector.svg);
@@ -18,10 +26,11 @@
     border-width:2px;
     border-style:solid;
     border-color:grey;
+    border-radius: 50%;
     padding: 5px;
     text-align: center;
     width: 70px;
-    height: 25px;
+    height: 70px;
 }
 #violet, #red, #orange, #yellow{
     margin: 10px;
@@ -80,7 +89,7 @@
 }
 
 /* pop up*/
-.keywords {
+.keywordPopup {
  padding: 20px;
  max-width: 50ch;
  border: solid 5px white;
@@ -90,7 +99,7 @@
  background-color: lightgray;
  box-shadow: 5px 5px 5px 5px gray;
 }
-.keywords::backdrop {
+.keywordPopup::backdrop {
  background: gray;
  opacity: 0.7;
 

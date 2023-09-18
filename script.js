@@ -20,7 +20,7 @@ fetch("./moods.json")
     })
 
 /*opens and closes pop up*/
-const modal = document.querySelector(".keywords");
+const modal = document.querySelector(".keywordPopup");
 const openModal = document.querySelector(".colorbutton");
 const closeModal = document.querySelector(".close-button");
 
