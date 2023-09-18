@@ -1,5 +1,4 @@
 /*general*/
-
 h1 {
     font-size: 40px;
     text-align: center;
@@ -42,7 +41,6 @@ footer{
     position: absolute;
     top: 60%;
 }
-
 #violet, #indigo, #yellowKeywords, #indigoKeywords{
     left: 32%;
 }
@@ -112,6 +110,8 @@ footer{
  border-radius: 8px;
  background-color: white;
  border: solid 2px gray;
+
+ margin-top: 15px;/*added during styling for accordion*/
 }
 .button:hover {
  background: lightgray;
@@ -120,18 +120,46 @@ footer{
 
 /*accordion*/
 .accordionBtn{
-    border: none;
-    width: 100%;
     cursor: pointer;
-    background-color: aliceblue;
     border-radius: 8px;
+    text-align: center;
+    padding-bottom: 20px;
+    height: 35px;
+    margin: 4px;
+    background-color: white;
+    border: solid 1px gray;
 }
 .accordionContent {
-  height: 0;
-  text-align: block;
-  overflow: hidden;
-  transition: height 0.8s;
+    height: 0;
+    text-align: block;
+    overflow: hidden;
+    transition: 0.8s;
 }
 .accordionSection.active .accordionContent {
-  height: 100px;
+    height: 100px;
 }
+
+
+
+.accordionBtn:after {
+    position: relative;
+    content: '\02795'; 
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+    right: 35px;
+    top: -40px;
+}
+
+.active:after {
+    content: "\2796";
+    position: relative;
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+    right: 35px;
+    top: -40px;
+}
+  
