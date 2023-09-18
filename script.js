@@ -21,12 +21,16 @@ fetch("./moods.json")
 
 /*opens and closes pop up*/
 const modal = document.querySelector(".keywordPopup");
-const openModal = document.querySelector(".colorbutton");
+const openModal = document.querySelectorAll(".colorbutton");
 const closeModal = document.querySelector(".close-button");
 
-openModal.addEventListener("click", () => {
-  modal.showModal();
-});
+console.log(openModal);
+
+for(i of openModal){
+  i.addEventListener("click", () => {
+    modal.showModal();
+  });
+}
 
 closeModal.addEventListener("click", () => {
   modal.close();
@@ -43,7 +47,7 @@ function display(color){ //bekommt in color die ID übergeben
         for(let i in data.Moods){
             if(data.Moods[i].color === color){
                 for(let j in data.Moods[i].keywords){
-                    console.log(data.Moods[i].keywords[j]);
+                    //console.log(data.Moods[i].keywords[j]);
                     let el = document.createElement('li');
                     el.innerText = data.Moods[i].keywords[j];
                     moodList.appendChild(el);
