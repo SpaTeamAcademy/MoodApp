@@ -1,3 +1,13 @@
+let moodsData;
+
+fetch("./moods.json")
+.then(res => res.json())
+.then(data =>{
+    moodsData = data;
+}).then(() => {
+    console.log(moodsData);
+});
+
 //fetches moods.json so we can access the data
 fetch("./moods.json")
     .then(function (response) {
