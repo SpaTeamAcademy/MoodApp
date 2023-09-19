@@ -139,29 +139,18 @@ footer{
     height: 100px;
 }
 
-
-
-.accordionBtn:after {
+  .accordionBtn:after {
+    content: '\25B7';
     position: relative;
-   /* content: '\02795'; */
-    content: "\25B7";
-    font-size: 13px;
-    color: #777;
     float: right;
-    margin-left: 5px;
-    right: 35px;
     top: -40px;
-}
-
-.active:after {
-    content: "\25BD";
-    /*content: "\2796";*/
-    position: fixed;
-    font-size: 13px;
-    color: #777;
-    float: right;
-    margin-left: 5px;
-    right: 35px;
-    top: -40px;
-}
+    right: 20px;
+    transition: 0.8s;
+  }
+  
+  .accordionBtn.active:after {
+    transition: 1s;
+    transform: rotate(90deg);
+  }
+  
   

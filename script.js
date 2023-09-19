@@ -36,10 +36,16 @@ closeModal.addEventListener("click", () => {
 
 
 //accordion//
-const accordion = document.getElementsByClassName('accordionSection');
+const accordionSection = document.getElementsByClassName('accordionSection');
+const accordionBtn = document.getElementsByClassName('accordionBtn');
 
-for (let i=0; i<accordion.length; i++) {
-  accordion[i].addEventListener('click', function () {
-    this.classList.toggle('active')
-  })
+function accordionSwitch(which){
+  for (let i=0; i<which.length; i++) {
+    which[i].addEventListener('click', function () {
+      this.classList.toggle('active')
+    })
+  }
 }
+
+accordionSwitch(accordionSection)
+accordionSwitch(accordionBtn)
