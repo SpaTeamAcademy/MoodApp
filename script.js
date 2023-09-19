@@ -60,7 +60,9 @@ function display(color){ //is called using onclick for now, gets the button's ID
 }
 
 function fillList(mood, list){ //fills the specified HTML list with correct content from the specified mood
+
     document.getElementById(list).innerHTML = "";
+    
     for(let i in mood[list]){
         let el = document.createElement('li');
         el.innerText = mood[list][i];
