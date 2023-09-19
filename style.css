@@ -1,9 +1,16 @@
 /*general*/
+
+body {
+    font-family: "Montserrat", sans-serif;
+}
 h1 {
     font-size: 40px;
     text-align: center;
 }
 footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     text-align: center;
 }
 
@@ -30,6 +37,10 @@ footer{
     text-align: center;
     width: 70px;
     height: 70px;
+    opacity: 0.5;
+}
+.colorbutton:hover{
+    opacity: 1.0;
 }
 #violet, #red, #orange, #yellow{
     margin: 10px;
@@ -52,6 +63,30 @@ footer{
 }
 #yellow, #green, #violetKeywords, #greenKeywords{
     left: 61%;
+}
+#violet{
+    background-color: violet;
+}
+#red{
+    background-color: red;
+}
+#orange{
+    background-color: orange;
+}
+#yellow{
+    background-color: yellow;
+}
+#indigo{
+    background-color: indigo;
+}
+#blue{
+    background-color: blue;
+}
+#turquoise{
+    background-color: turquoise;
+}
+#green{
+    background-color: green;
 }
 
 /*text*/
@@ -77,6 +112,15 @@ footer{
 }
 
 /*keywords*/
+.keywords {
+    display:none;
+    position: absolute;
+  
+
+}
+.colorbutton:hover .keywords{
+    display: block;
+}
 #violetKeywords, #redKeywords, #orangeKeywords, #yellowKeywords{
     position: absolute;
     top: 35%;
