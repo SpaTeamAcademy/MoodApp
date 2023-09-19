@@ -43,47 +43,27 @@ closeModal.addEventListener("click", () => {
 });
 
 
-const moodList = document.getElementById("moodList"); //HTML lists that are filled with the corresponding text each time display is called
-const examples = document.getElementById("examples");
-const body = document.getElementById("body");
-const mind = document.getElementById("mind");
-const strategy = document.getElementById("strategy");
 
 function display(color){ //is called using onclick for now, gets the button's ID as a parameter
-    moodList.innerHTML = ""; //all lists are emptied first
-    examples.innerHTML = "";
-    body.innerHTML = "";
-    mind.innerHTML = "";
-    strategy.innerHTML = "";
+
     document.getElementById("colorName").innerText = color;
 
-    for(let i in moodsData.Moods){ //each for loop within this one fills one of the lists
+    for(let i in moodsData.Moods){
         if(moodsData.Moods[i].color === color){
-            for(let j in moodsData.Moods[i].keywords){
-              let el = document.createElement('li');
-              el.innerText = moodsData.Moods[i].keywords[j];
-              moodList.appendChild(el);
-            }
-            for(let j in moodsData.Moods[i].examples){
-              let el = document.createElement('li');
-              el.innerText = moodsData.Moods[i].examples[j];
-              examples.appendChild(el);
-            }
-            for(let j in moodsData.Moods[i].body){
-              let el = document.createElement('li');
-              el.innerText = moodsData.Moods[i].body[j];
-              body.appendChild(el);
-            }
-            for(let j in moodsData.Moods[i].mind){
-              let el = document.createElement('li');
-              el.innerText = moodsData.Moods[i].mind[j];
-              mind.appendChild(el);
-            }
-            for(let j in moodsData.Moods[i].strategy){
-              let el = document.createElement('li');
-              el.innerText = moodsData.Moods[i].strategy[j];
-              strategy.appendChild(el);
-            }
+            fillList(moodsData.Moods[i], "keywords");
+            fillList(moodsData.Moods[i], "examples");
+            fillList(moodsData.Moods[i], "body");
+            fillList(moodsData.Moods[i], "mind");
+            fillList(moodsData.Moods[i], "strategy");
         }
+    }
+}
+
+function fillList(mood, list){ //fills the specified HTML list with correct content from the specified mood
+    document.getElementById(list).innerHTML = "";
+    for(let i in mood[list]){
+        let el = document.createElement('li');
+        el.innerText = mood[list][i];
+        document.getElementById(list).appendChild(el);
     }
 }
