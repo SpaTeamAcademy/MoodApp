@@ -22,23 +22,26 @@ fetch("./moods.json")
 /*opens and closes pop up*/
 const modal = document.querySelector(".keywordPopup");
 const openModal = document.querySelectorAll(".colorbutton");
-const closeModal = document.querySelector(".close-button");
+//const closeModal = document.querySelector(".close-button");
 
 for(i of openModal){
-  i.addEventListener("click", () => {
+  i.addEventListener("click", (e) => {
     modal.showModal();
   });
 }
-
-closeModal.addEventListener("click", () => {
+//close function for button and clicking outside modal//
+function closeDialog() {
   modal.close();
-
-  //closing accordions when closing modal//
-  accordionSwitch(accordionSection,"off")
-  accordionSwitch(accordionBtn,"off")
-
+//closing modal by clicking outside//
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+  closeDialog();
+   //closing accordions when closing modal//
+  accordionSwitch(accordionSection,"off");
+  accordionSwitch(accordionBtn,"off")};
 });
-
+//close modal by using button//
+//closeModal.addEventListener("click", closeDialog);
 
 
 

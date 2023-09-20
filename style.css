@@ -147,6 +147,7 @@ footer{
  opacity: 0.7;
 
 }
+/*the close button itself is commented out but styles are necessary for accordion*/
 .close-button {
  border: solid 5px white;
  padding: 10px;
@@ -154,12 +155,11 @@ footer{
  border-radius: 8px;
  background-color: white;
  border: solid 2px gray;
-
- margin-top: 15px;/*added during styling for accordion*/
+ margin-top: 15px;
 }
-.button:hover {
+/*.button:hover {
  background: lightgray;
-}
+}*/
 
 
 /*accordion*/
