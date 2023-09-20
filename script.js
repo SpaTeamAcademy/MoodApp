@@ -22,19 +22,58 @@ fetch("./moods.json")
 /*opens and closes pop up*/
 const modal = document.querySelector(".keywordPopup");
 const openModal = document.querySelectorAll(".colorbutton");
-const closeModal = document.querySelector(".close-button");
+//const closeModal = document.querySelector(".close-button");
 
 for(i of openModal){
-  i.addEventListener("click", () => {
+  i.addEventListener("click", (e) => {
     modal.showModal();
   });
 }
-
-closeModal.addEventListener("click", () => {
+//close function for button and clicking outside modal//
+function closeDialog() {
   modal.close();
+}
+//closing modal by clicking outside//
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+  closeDialog();
+   //closing accordions when closing modal//
+  accordionSwitch(accordionSection,"off");
+  accordionSwitch(accordionBtn,"off")};
 });
+//close modal by using button//
+//closeModal.addEventListener("click", closeDialog);
 
 
+
+
+//accordion//
+const accordionSection = document.getElementsByClassName('accordionSection');
+const accordionBtn = document.getElementsByClassName('accordionBtn');
+
+function accordionSwitch(which,mode){
+  if(mode==="on"){
+    for (let i=0; i<which.length; i++) {
+      which[i].addEventListener('click', function () {
+      this.classList.toggle('active')
+      })
+    }
+  }
+  if(mode==="off"){
+    for(let i=0; i<which.length; i++){
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+    }
+  }
+}
+
+accordionSwitch(accordionSection,"on")
+accordionSwitch(accordionBtn,"on")
+
+
+
+
+//json//
 const moodList = document.getElementById("moodList"); //HTML lists that are filled with the corresponding text each time display is called
 const examples = document.getElementById("examples");
 const body = document.getElementById("body");
