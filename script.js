@@ -39,38 +39,42 @@ for(i of openModal){
 }
 
 function display(color){ //is called using onclick for now, gets the button's ID as a parameter
+  const popup = document.getElementById("popup");
+  let info = document.createElement('div');
+  popup.innerHTML = "";
+  let btn = document.createElement('button');
+  btn.className = "button close-button";
+  btn.innerHTML = "schließen";
 
-    let space = document.createElement('div');
+  for(let i in moodsData.Moods){
+      if(moodsData.Moods[i].color === color){
+          info.append(fillList(moodsData.Moods[i], "keywords"));
+          info.append(fillList(moodsData.Moods[i], "examples"));
+          info.append(fillList(moodsData.Moods[i], "body"));
+          info.append(fillList(moodsData.Moods[i], "mind"));
+          info.append(fillList(moodsData.Moods[i], "strategy"));
+      }
+  }
 
-    for(let i in moodsData.Moods){
-        if(moodsData.Moods[i].color === color){
-            space.append(fillList(moodsData.Moods[i], "keywords"));
-            //fillList(moodsData.Moods[i], "examples");
-            //fillList(moodsData.Moods[i], "body");
-            //fillList(moodsData.Moods[i], "mind");
-            //fillList(moodsData.Moods[i], "strategy");
-        }
-    }
+  info.append(btn);
+  popup.append(info);
 
-    popup.append(space);
-
-    const closeModal = document.querySelector(".close-button");
-    closeModal.addEventListener("click", () => {
-        modal.close();
-    });
+  const closeModal = document.querySelector(".close-button");
+  closeModal.addEventListener("click", () => {
+      modal.close();
+  });
 }
 
 
 function fillList(mood, listId){ //fills the specified HTML list with correct content from the specified mood
 
-    const popup = document.getElementById("popup");
-    let list = document.createElement('ul');
+  let list = document.createElement('ul');
 
-    for(let i in mood[listId]){
-        let el = document.createElement('li');
-        el.innerText = mood[listId][i];
-        list.appendChild(el);
-    }
+  for(let i in mood[listId]){
+      let el = document.createElement('li');
+      el.innerText = mood[listId][i];
+      list.appendChild(el);
+  }
     
-    return list;
+  return list;
 }
