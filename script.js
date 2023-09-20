@@ -6,7 +6,7 @@ fetch("./moods.json")
 .then(data =>{
     moodsData = data;
 }).then(() => {
-    console.log(moodsData);
+    //console.log(moodsData);
     showKeywords();
 })
 .catch(function (error){
@@ -48,11 +48,13 @@ function display(color){ //is called using onclick for now, gets the button's ID
 
   for(let i in moodsData.Moods){
       if(moodsData.Moods[i].color === color){
-          info.append(fillList(moodsData.Moods[i], "keywords"));
-          info.append(fillList(moodsData.Moods[i], "examples"));
-          info.append(fillList(moodsData.Moods[i], "body"));
-          info.append(fillList(moodsData.Moods[i], "mind"));
-          info.append(fillList(moodsData.Moods[i], "strategy"));
+          const keys = Object.keys(moodsData.Moods[i]);
+          //console.log(moodsData.Moods[i]);
+          for(let j = 1; j < keys.length; ++j){
+            //console.log(keys[j]);
+
+            info.append(fillList(moodsData.Moods[i], keys[j]));
+          }
       }
   }
 
@@ -61,19 +63,21 @@ function display(color){ //is called using onclick for now, gets the button's ID
 
   const closeModal = document.querySelector(".close-button");
   closeModal.addEventListener("click", () => {
-      modal.close();
+    modal.close();
   });
 }
 
 
 function fillList(mood, listId){ //fills the specified HTML list with correct content from the specified mood
 
+  console.log(listId);
   let list = document.createElement('ul');
 
   for(let i in mood[listId]){
-      let el = document.createElement('li');
-      el.innerText = mood[listId][i];
-      list.appendChild(el);
+    let el = document.createElement('li');
+    el.innerText = mood[listId][i];
+    console.log(el);
+    list.appendChild(el);
   }
     
   return list;
