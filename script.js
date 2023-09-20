@@ -72,6 +72,9 @@ function display(color){ //is called using onclick for now, gets the button's ID
   accordion.append(closeBtn);
   popup.append(accordion);
 
+  accordionSwitch(accordionSection,"on")
+  accordionSwitch(accordionBtn,"on")
+
   const closeModal = document.querySelector(".close-button");
   closeModal.addEventListener("click", () => {
     modal.close();
@@ -81,7 +84,6 @@ function display(color){ //is called using onclick for now, gets the button's ID
 
 function fillList(mood, listId){ //fills the specified HTML list with correct content from the specified mood
 
-  console.log(listId);
   let content = document.createElement('div');
   content.className = "accordionContent";
   let list = document.createElement('ul');
@@ -89,7 +91,6 @@ function fillList(mood, listId){ //fills the specified HTML list with correct co
   for(let i in mood[listId]){
     let el = document.createElement('li');
     el.innerText = mood[listId][i];
-    console.log(el);
     list.appendChild(el);
   }
 
@@ -117,6 +118,3 @@ function accordionSwitch(which,mode){
     }
   }
 }
-
-accordionSwitch(accordionSection,"on")
-accordionSwitch(accordionBtn,"on")
