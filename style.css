@@ -1,10 +1,16 @@
 /*general*/
 
+body {
+    font-family: "Montserrat", sans-serif;
+}
 h1 {
     font-size: 40px;
     text-align: center;
 }
 footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     text-align: center;
 }
 
@@ -31,6 +37,10 @@ footer{
     text-align: center;
     width: 70px;
     height: 70px;
+    opacity: 0.5;
+}
+.colorbutton:hover{
+    opacity: 1.0;
 }
 #violet, #red, #orange, #yellow{
     margin: 10px;
@@ -42,7 +52,6 @@ footer{
     position: absolute;
     top: 60%;
 }
-
 #violet, #indigo, #yellowKeywords, #indigoKeywords{
     left: 32%;
 }
@@ -54,6 +63,30 @@ footer{
 }
 #yellow, #green, #violetKeywords, #greenKeywords{
     left: 61%;
+}
+#violet{
+    background-color: violet;
+}
+#red{
+    background-color: red;
+}
+#orange{
+    background-color: orange;
+}
+#yellow{
+    background-color: yellow;
+}
+#indigo{
+    background-color: indigo;
+}
+#blue{
+    background-color: blue;
+}
+#turquoise{
+    background-color: turquoise;
+}
+#green{
+    background-color: green;
 }
 
 /*text*/
@@ -79,6 +112,15 @@ footer{
 }
 
 /*keywords*/
+.keywords {
+    display:none;
+    position: absolute;
+  
+
+}
+.colorbutton:hover .keywords{
+    display: block;
+}
 #violetKeywords, #redKeywords, #orangeKeywords, #yellowKeywords{
     position: absolute;
     top: 35%;
@@ -87,6 +129,7 @@ footer{
     position: absolute;
     top: 55%;
 }
+
 
 /* pop up*/
 .keywordPopup {
@@ -111,7 +154,45 @@ footer{
  border-radius: 8px;
  background-color: white;
  border: solid 2px gray;
+
+ margin-top: 15px;/*added during styling for accordion*/
 }
 .button:hover {
  background: lightgray;
 }
+
+
+/*accordion*/
+.accordionBtn{
+    cursor: pointer;
+    border-radius: 8px;
+    text-align: center;
+    padding-bottom: 20px;
+    height: 35px;
+    margin: 4px;
+    background-color: white;
+    border: solid 1px gray;
+}
+.accordionContent {
+    height: 0;
+    text-align: block;
+    overflow: hidden;
+    transition: 0.8s;
+}
+.accordionSection.active .accordionContent {
+    height: 150px;
+}
+.accordionBtn:after {
+    content: '\25B7';
+    position: relative;
+    float: right;
+    top: -40px;
+    right: 20px;
+    transition: 0.4s;
+  } 
+.accordionBtn.active:after {
+    transition: 0.8s;
+    transform: rotate(90deg);
+  }
+  
+  

@@ -82,4 +82,27 @@ function fillList(mood, listId){ //fills the specified HTML list with correct co
   }
     
   return list;
+}  
+
+//accordion//
+const accordionSection = document.getElementsByClassName('accordionSection');
+const accordionBtn = document.getElementsByClassName('accordionBtn');
+
+function accordionSwitch(which,mode){
+  if(mode==="on"){
+    for (let i=0; i<which.length; i++) {
+      which[i].addEventListener('click', function () {
+      this.classList.toggle('active')
+      })
+    }
+  }
+  if(mode==="off"){
+    for(let i=0; i<which.length; i++){
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+    }
+  }
 }
+
+accordionSwitch(accordionSection,"on")
+accordionSwitch(accordionBtn,"on")
