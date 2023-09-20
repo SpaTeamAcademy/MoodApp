@@ -1,70 +1,86 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-
-    <title>MoodApp</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <title>MoodApp</title>
 </head>
 <body>
-    <h1>MoodApp</h1>
+  <h1>MoodApp</h1>
 
     
 
-    <div id="coordinateSystem">
-        <p id="energyHigh">Energie hoch</p>
+  <div id="coordinateSystem">
+    <p id="energyHigh">Energie hoch</p>
         
-        <div class="colorbutton" id="violet" onclick="display('violet')">
-          <p class="keywords" id="violetKeywords"></p>
-        </div>
-        <div class="colorbutton" id="red" onclick="display('red')">
-          <p class="keywords" id="redKeywords"></p>
-        </div>
-        <div class="colorbutton" id="orange" onclick="display('orange')">
-          <p class="keywords" id="orangeKeywords"></p>
-        </div>
-        <div class="colorbutton" id="yellow" onclick="display('yellow')">
-          <p class="keywords" id="yellowKeywords"></p>
-        </div><br>
+    <div class="colorbutton" id="violet" onclick="display('violet')">
+      <p class="keywords" id="violetKeywords"></p>
+    </div>
+    <div class="colorbutton" id="red" onclick="display('red')">
+      <p class="keywords" id="redKeywords"></p>
+    </div>
+    <div class="colorbutton" id="orange" onclick="display('orange')">
+      <p class="keywords" id="orangeKeywords"></p>
+    </div>
+    <div class="colorbutton" id="yellow" onclick="display('yellow')">
+      <p class="keywords" id="yellowKeywords"></p>
+    </div><br>
 
 
-        <p id="negativ">Negativ</p>
-        <p id="positiv">Positiv</p>
+    <p id="negativ">Negativ</p>
+    <p id="positiv">Positiv</p>
 
-        <div class="colorbutton" id="indigo" onclick="display('indigo')">
-          <p class="keywords" id="indigoKeywords"></p>
-        </div>
-        <div class="colorbutton" id="blue" onclick="display('blue')">
-          <p class="keywords" id="blueKeywords"></p>
-        </div>
-        <div class="colorbutton" id="turquoise" onclick="display('turquoise')">
-          <p class="keywords" id="turquoiseKeywords"></p>
-        </div>
-        <div class="colorbutton" id="green" onclick="display('green')">
-        <p class="keywords" id="greenKeywords"></p>
-      </div>
-
-       <p id="energyLow">Energie niedrig</p>
+    <div class="colorbutton" id="indigo" onclick="display('indigo')">
+      <p class="keywords" id="indigoKeywords"></p>
+    </div>
+    <div class="colorbutton" id="blue" onclick="display('blue')">
+      <p class="keywords" id="blueKeywords"></p>
+    </div>
+    <div class="colorbutton" id="turquoise" onclick="display('turquoise')">
+      <p class="keywords" id="turquoiseKeywords"></p>
+    </div>
+    <div class="colorbutton" id="green" onclick="display('green')">
+      <p class="keywords" id="greenKeywords"></p>
     </div>
 
+    <p id="energyLow">Energie niedrig</p>
+  </div>
 
-    <!--the code below is just for demonstration of popup-->
-    <dialog class="keywordPopup" id="popup">
-      <h2 id="colorName">Gelb</h2>
-      <h3>Gefühle:</h3>
-      <ul id="moodList"></ul>
-      <h3>Beispiele:</h3>
-      <ul id="examples"></ul>
-      <h3>Körperliches:</h3>
-      <ul id="body"></ul>
-      <h3>Mentales:</h3>
-      <ul id="mind"></ul>
-      <h3>Mögliche Strategien:</h3>
-      <ul id="strategy"></ul>
-      <button class="button close-button">schließen</button>
-     </dialog> 
+
+  <dialog class="keywordPopup" id="popup">
+    <h2 id="colorName">Gelb</h2>
+
+    <h3>Gefühle:</h3>
+    <ul id="moodList"></ul>
+
+    <div class="accordion">
+
+      <div class="accordionSection">
+        <div class="accordionBtn"><h4>Bespiele:</h4></div>
+        <div class="accordionContent"><ul id="examples"></ul></div>
+      </div>
+                
+      <div class="accordionSection">
+        <div class="accordionBtn"><h4>Körper:</h4></div>
+        <div class="accordionContent"><ul id="body"></ul></div>
+      </div>
+                
+      <div class="accordionSection">
+        <div class="accordionBtn"><h4>Gedanken</h4></div>
+        <div class="accordionContent"> <ul id="mind"></ul></div>
+      </div>
+
+      <div class="accordionSection">
+        <div class="accordionBtn"> <h4>Mögliche Strategien:</h4> </div>
+        <div class="accordionContent"> <ul id="strategy"></ul> </div>
+      </div>
+
+    </div>
+      
+    <button class="button close-button">schließen</button>
+  </dialog> 
 </body>
 <footer>Specialisterne 2023</footer>
 <script src="script.js"></script>
