@@ -40,6 +40,7 @@ for(i of openModal){
 
 function display(color){ //is called using onclick for now, gets the button's ID as a parameter
   const popup = document.getElementById("popup");
+  const entries = ["Gefühle", "Beispiele", "Körperliches", "Mentales", "Mögliche Strategien"];
   let info = document.createElement('div');
   popup.innerHTML = "";
   let btn = document.createElement('button');
@@ -49,10 +50,10 @@ function display(color){ //is called using onclick for now, gets the button's ID
   for(let i in moodsData.Moods){
       if(moodsData.Moods[i].color === color){
           const keys = Object.keys(moodsData.Moods[i]);
-          //console.log(moodsData.Moods[i]);
           for(let j = 1; j < keys.length; ++j){
-            //console.log(keys[j]);
-
+            let headline = document.createElement('h3');
+            headline.innerHTML = entries[j-1];
+            info.append(headline);
             info.append(fillList(moodsData.Moods[i], keys[j]));
           }
       }
