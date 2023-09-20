@@ -38,29 +38,39 @@ for(i of openModal){
   });
 }
 
+
 function display(color){ //is called using onclick for now, gets the button's ID as a parameter
   const popup = document.getElementById("popup");
-  const entries = ["Gefühle", "Beispiele", "Körperliches", "Mentales", "Mögliche Strategien"];
-  let info = document.createElement('div');
+  let accordion = document.createElement('div');
+  accordion.className = "accordion";
   popup.innerHTML = "";
-  let btn = document.createElement('button');
-  btn.className = "button close-button";
-  btn.innerHTML = "schließen";
+  const entries = ["Gefühle", "Beispiele", "Körperliches", "Mentales", "Mögliche Strategien"];
+  let closeBtn = document.createElement('button');
+  closeBtn.className = "button close-button";
+  closeBtn.innerHTML = "schließen";
 
   for(let i in moodsData.Moods){
       if(moodsData.Moods[i].color === color){
           const keys = Object.keys(moodsData.Moods[i]);
           for(let j = 1; j < keys.length; ++j){
+            let section = document.createElement('div');
+            section.className = "accordionSection";
+            let accordionBtn = document.createElement('div');
+            accordionBtn.className = "accordionBtn";
             let headline = document.createElement('h3');
             headline.innerHTML = entries[j-1];
-            info.append(headline);
-            info.append(fillList(moodsData.Moods[i], keys[j]));
+            accordionBtn.append(headline);
+            section.append(accordionBtn);
+            section.append(fillList(moodsData.Moods[i], keys[j]));
+            accordion.append(section);
           }
       }
   }
 
-  info.append(btn);
-  popup.append(info);
+  
+
+  accordion.append(closeBtn);
+  popup.append(accordion);
 
   const closeModal = document.querySelector(".close-button");
   closeModal.addEventListener("click", () => {
@@ -72,6 +82,8 @@ function display(color){ //is called using onclick for now, gets the button's ID
 function fillList(mood, listId){ //fills the specified HTML list with correct content from the specified mood
 
   console.log(listId);
+  let content = document.createElement('div');
+  content.className = "accordionContent";
   let list = document.createElement('ul');
 
   for(let i in mood[listId]){
@@ -80,8 +92,10 @@ function fillList(mood, listId){ //fills the specified HTML list with correct co
     console.log(el);
     list.appendChild(el);
   }
+
+  content.append(list);
     
-  return list;
+  return content;
 }  
 
 //accordion//
