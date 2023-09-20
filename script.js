@@ -55,13 +55,20 @@ function display(color){ //is called using onclick for now, gets the button's ID
           for(let j = 1; j < keys.length; ++j){
             let section = document.createElement('div');
             section.className = "accordionSection";
+
             let accordionBtn = document.createElement('div');
             accordionBtn.className = "accordionBtn";
+
             let headline = document.createElement('h3');
             headline.innerHTML = entries[j-1];
+
+            let content = document.createElement('div');
+            content.className = "accordionContent";
+            content.append(fillList(moodsData.Moods[i], keys[j]));
+
             accordionBtn.append(headline);
             section.append(accordionBtn);
-            section.append(fillList(moodsData.Moods[i], keys[j]));
+            section.append(content);
             accordion.append(section);
           }
       }
@@ -83,9 +90,6 @@ function display(color){ //is called using onclick for now, gets the button's ID
 
 
 function fillList(mood, listId){ //fills the specified HTML list with correct content from the specified mood
-
-  let content = document.createElement('div');
-  content.className = "accordionContent";
   let list = document.createElement('ul');
 
   for(let i in mood[listId]){
@@ -93,10 +97,8 @@ function fillList(mood, listId){ //fills the specified HTML list with correct co
     el.innerText = mood[listId][i];
     list.appendChild(el);
   }
-
-  content.append(list);
     
-  return content;
+  return list;
 }  
 
 //accordion//
