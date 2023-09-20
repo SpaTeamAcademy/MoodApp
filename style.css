@@ -180,20 +180,18 @@ footer{
     transition: 0.8s;
 }
 .accordionSection.active .accordionContent {
-    height: 100px;
+    height: 150px;
 }
-
-  .accordionBtn:after {
+.accordionBtn:after {
     content: '\25B7';
     position: relative;
     float: right;
     top: -40px;
     right: 20px;
+    transition: 0.4s;
+  } 
+.accordionBtn.active:after {
     transition: 0.8s;
-  }
-  
-  .accordionBtn.active:after {
-    transition: 1s;
     transform: rotate(90deg);
   }
   
