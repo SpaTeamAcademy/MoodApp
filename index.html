@@ -10,48 +10,51 @@
 <body>
   <h1>MoodApp</h1>
 
+    <div class="coordinate-system">
+    <div class="x-axis"></div>
+    <div class="y-axis"></div>
     
-
-  <div id="coordinateSystem">
-    <p id="energyHigh">Energie hoch</p>
+        <p class="axis-label" id="energyHigh">Energie hoch</p>
         
-    <div class="colorbutton" id="violet" onclick="display('violet')">
-      <p class="keywords" id="violetKeywords"></p>
-    </div>
-    <div class="colorbutton" id="red" onclick="display('red')">
-      <p class="keywords" id="redKeywords"></p>
-    </div>
-    <div class="colorbutton" id="orange" onclick="display('orange')">
-      <p class="keywords" id="orangeKeywords"></p>
-    </div>
-    <div class="colorbutton" id="yellow" onclick="display('yellow')">
-      <p class="keywords" id="yellowKeywords"></p>
-    </div><br>
+        <div class="colorbutton top-line-grid column-4" id="violet" onclick="display('violet')">
+          <p class="keywords column-1" id="violetKeywords"></p>
+        </div>
 
+        <div class="colorbutton top-line-grid column-3" id="red" onclick="display('red')">
+          <p class="keywords column-2" id="redKeywords"></p>
+        </div>
 
-    <p id="negativ">Negativ</p>
-    <p id="positiv">Positiv</p>
+        <div class="colorbutton top-line-grid column-2" id="orange" onclick="display('orange')">
+          <p class="keywords column-3" id="orangeKeywords"></p>
+        </div>
 
-    <div class="colorbutton" id="indigo" onclick="display('indigo')">
-      <p class="keywords" id="indigoKeywords"></p>
-    </div>
-    <div class="colorbutton" id="blue" onclick="display('blue')">
-      <p class="keywords" id="blueKeywords"></p>
-    </div>
-    <div class="colorbutton" id="turquoise" onclick="display('turquoise')">
-      <p class="keywords" id="turquoiseKeywords"></p>
-    </div>
-    <div class="colorbutton" id="green" onclick="display('green')">
-      <p class="keywords" id="greenKeywords"></p>
-    </div>
+        <div class="colorbutton top-line-grid column-1" id="yellow" onclick="display('yellow')">
+          <p class="keywords column-4" id="yellowKeywords"></p>
+        </div><br>
 
-    <p id="energyLow">Energie niedrig</p>
-  </div>
+        <p class="axis-label" id="negativ">Negativ</p>
+        <p class="axis-label" id="positiv">Positiv</p>
 
-    <!--the code below is just for demonstration of popup-->
-    <dialog class="keywordPopup" id="popup">
-      <button class="button close-button">schließen</button>
-     </dialog> 
+        <div class="colorbutton bottom-line-grid column-1" id="indigo" onclick="display('indigo')">
+          <p class="keywords column-1" id="indigoKeywords"></p>
+        </div>
+
+        <div class="colorbutton bottom-line-grid column-2" id="blue" onclick="display('blue')">
+          <p class="keywords column-2" id="blueKeywords"></p>
+        </div>
+
+        <div class="colorbutton bottom-line-grid column-3" id="turquoise" onclick="display('turquoise')">
+          <p class="keywords column-3" id="turquoiseKeywords"></p>
+        </div>
+
+        <div class="colorbutton bottom-line-grid column-4" id="green" onclick="display('green')">
+        <p class="keywords column-4" id="greenKeywords"></p>
+      </div>
+
+       <p class="axis-label" id="energyLow">Energie niedrig</p>
+    </div>
+  
+
 
   <dialog class="keywordPopup" id="popup">
     <h2 id="colorName">Gelb</h2>
@@ -83,8 +86,8 @@
       </div>
 
     </div>
-      
-    <button class="button close-button">schließen</button>
+
+    <!--<button class="button close-button">schließen</button>-->
   </dialog> 
 </body>
 <footer>Specialisterne 2023</footer>

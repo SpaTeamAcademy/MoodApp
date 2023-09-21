@@ -31,12 +31,27 @@ function showKeywords(){
 const modal = document.querySelector(".keywordPopup");
 const openModal = document.querySelectorAll(".colorbutton");
 
-
 for(i of openModal){
-  i.addEventListener("click", () => {
+  i.addEventListener("click", (e) => {
     modal.showModal();
   });
 }
+
+//close function for button and clicking outside modal//
+function closeDialog() {
+  modal.close();
+}
+//closing modal by clicking outside//
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+  closeDialog();
+   //closing accordions when closing modal//
+  accordionSwitch(accordionSection,"off");
+  accordionSwitch(accordionBtn,"off")};
+});
+//close modal by using button//
+//closeModal.addEventListener("click", closeDialog);
+
 
 /*dymamic popup generation*/
 function display(color){ //is called using onclick for now, gets the button's ID as a parameter
@@ -45,9 +60,9 @@ function display(color){ //is called using onclick for now, gets the button's ID
   accordion.className = "accordion";
   popup.innerHTML = "";
   const entries = ["Gefühle", "Beispiele", "Körperliches", "Mentales", "Mögliche Strategien"]; //used for headlines
-  let closeBtn = document.createElement('button');
+  /*let closeBtn = document.createElement('button');
   closeBtn.className = "button close-button";
-  closeBtn.innerHTML = "schließen";
+  closeBtn.innerHTML = "schließen";*/
 
   for(let i in moodsData.Moods){
       if(moodsData.Moods[i].color === color){ //checks which of the objects matches the ID
@@ -83,15 +98,16 @@ function display(color){ //is called using onclick for now, gets the button's ID
   }
 
   popup.append(accordion); //the accordion and the close button are appended to the dialog
-  popup.append(closeBtn);
+  //popup.append(closeBtn);
 
   accordionSwitch(accordionSection,"on");
   accordionSwitch(accordionBtn,"on");
-
-  const closeModal = document.querySelector(".close-button");
+  
+  //for dynamically generating a close button
+  /*const closeModal = document.querySelector(".close-button");
   closeModal.addEventListener("click", () => {
     modal.close();
-  });
+  });*/
 }
 
 
