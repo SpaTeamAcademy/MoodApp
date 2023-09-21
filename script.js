@@ -38,29 +38,29 @@ for(i of openModal){
   });
 }
 
-
+/*dymamic popup generation*/
 function display(color){ //is called using onclick for now, gets the button's ID as a parameter
   const popup = document.getElementById("popup");
   let accordion = document.createElement('div');
   accordion.className = "accordion";
   popup.innerHTML = "";
-  const entries = ["Gefühle", "Beispiele", "Körperliches", "Mentales", "Mögliche Strategien"];
+  const entries = ["Gefühle", "Beispiele", "Körperliches", "Mentales", "Mögliche Strategien"]; //used for headlines
   let closeBtn = document.createElement('button');
   closeBtn.className = "button close-button";
   closeBtn.innerHTML = "schließen";
 
   for(let i in moodsData.Moods){
-      if(moodsData.Moods[i].color === color){
+      if(moodsData.Moods[i].color === color){ //checks which of the objects matches the ID
           const keys = Object.keys(moodsData.Moods[i]);
 
-          let kwHeadline = document.createElement('h3');
+          let kwHeadline = document.createElement('h3');  //the keywords list is created, which is not an accordion
           kwHeadline.innerHTML = entries[0];
           let keywords = document.createElement('ul');
-          keywords.append(fillList(moodsData.Moods[i], "keywords"));
-          popup.append(kwHeadline);
+          keywords.append(createList(moodsData.Moods[i], "keywords"));
+          popup.append(kwHeadline); //both the list and the headline are appended to the dialog element
           popup.append(keywords);
 
-          for(let j = 2; j < keys.length; ++j){
+          for(let j = 2; j < keys.length; ++j){ //the 4 accordions are created. the for loop iterates the object itself
             let section = document.createElement('div');
             section.className = "accordionSection";
 
@@ -72,9 +72,9 @@ function display(color){ //is called using onclick for now, gets the button's ID
 
             let content = document.createElement('div');
             content.className = "accordionContent";
-            content.append(fillList(moodsData.Moods[i], keys[j]));
+            content.append(createList(moodsData.Moods[i], keys[j]));
 
-            accordionBtn.append(headline);
+            accordionBtn.append(headline); //all the accordions are appended to an accordion container
             section.append(accordionBtn);
             section.append(content);
             accordion.append(section);
@@ -82,13 +82,11 @@ function display(color){ //is called using onclick for now, gets the button's ID
       }
   }
 
-  
+  popup.append(accordion); //the accordion and the close button are appended to the dialog
+  popup.append(closeBtn);
 
-  accordion.append(closeBtn);
-  popup.append(accordion);
-
-  accordionSwitch(accordionSection,"on")
-  accordionSwitch(accordionBtn,"on")
+  accordionSwitch(accordionSection,"on");
+  accordionSwitch(accordionBtn,"on");
 
   const closeModal = document.querySelector(".close-button");
   closeModal.addEventListener("click", () => {
@@ -97,7 +95,7 @@ function display(color){ //is called using onclick for now, gets the button's ID
 }
 
 
-function fillList(mood, listId){ //fills the specified HTML list with correct content from the specified mood
+function createList(mood, listId){ //creates an unordered list and fills it using the specified values
   let list = document.createElement('ul');
 
   for(let i in mood[listId]){
