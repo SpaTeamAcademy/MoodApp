@@ -1,34 +1,42 @@
+let moodsData;
+
 //fetches moods.json so we can access the data
 fetch("./moods.json")
-    .then(function (response) {
-    return response.json();
-    })
-    .then(function (data){ //now: do something with the data
-
-        let moodElements = document.querySelectorAll(".keywords"); // selects all elements with the class="keywords"
-
-        for (let i in data.Moods) { //iterates thru data.Moods and appends the first keyword of each mood to "p"
-                let moodItem = data.Moods[i].keywords[0];
-                let listItem = document.createElement("p");
-                listItem.textContent = moodItem;
-                moodElements[i].appendChild(listItem);
-            }
-    })
-    .catch(function (error){
+.then(res => res.json())
+.then(data =>{
+    moodsData = data;
+}).then(() => {
+    //console.log(moodsData);
+    showKeywords();
+})
+.catch(function (error){
     console.error("Something went wrong with retrieving the moods.");
     console.error(error);
-    })
+});
+
+
+function showKeywords(){
+    let moodElements = document.querySelectorAll(".keywords"); // selects all elements with the class="keywords"
+
+    for (let i in moodsData.Moods) { //iterates thru data.Moods and appends the first keyword of each mood to "p"
+        let moodItem = moodsData.Moods[i].keywords[0];
+        let listItem = document.createElement("p");
+        listItem.textContent = moodItem;
+        moodElements[i].appendChild(listItem);
+    }
+}
+
 
 /*opens and closes pop up*/
 const modal = document.querySelector(".keywordPopup");
 const openModal = document.querySelectorAll(".colorbutton");
-//const closeModal = document.querySelector(".close-button");
 
 for(i of openModal){
   i.addEventListener("click", (e) => {
     modal.showModal();
   });
 }
+
 //close function for button and clicking outside modal//
 function closeDialog() {
   modal.close();
@@ -45,7 +53,75 @@ modal.addEventListener("click", (e) => {
 //closeModal.addEventListener("click", closeDialog);
 
 
+/*dymamic popup generation*/
+function display(color){ //is called using onclick for now, gets the button's ID as a parameter
+  const popup = document.getElementById("popup");
+  let accordion = document.createElement('div');
+  accordion.className = "accordion";
+  popup.innerHTML = "";
+  const entries = ["Gefühle", "Beispiele", "Körperliches", "Mentales", "Mögliche Strategien"]; //used for headlines
+  /*let closeBtn = document.createElement('button');
+  closeBtn.className = "button close-button";
+  closeBtn.innerHTML = "schließen";*/
 
+  for(let i in moodsData.Moods){
+      if(moodsData.Moods[i].color === color){ //checks which of the objects matches the ID
+          const keys = Object.keys(moodsData.Moods[i]);
+
+          let kwHeadline = document.createElement('h3');  //the keywords list is created, which is not an accordion
+          kwHeadline.innerHTML = entries[0];
+          let keywords = document.createElement('ul');
+          keywords.append(createList(moodsData.Moods[i], "keywords"));
+          popup.append(kwHeadline); //both the list and the headline are appended to the dialog element
+          popup.append(keywords);
+
+          for(let j = 2; j < keys.length; ++j){ //the 4 accordions are created. the for loop iterates the object itself
+            let section = document.createElement('div');
+            section.className = "accordionSection";
+
+            let accordionBtn = document.createElement('div');
+            accordionBtn.className = "accordionBtn";
+
+            let headline = document.createElement('h3');
+            headline.innerHTML = entries[j-1];
+
+            let content = document.createElement('div');
+            content.className = "accordionContent";
+            content.append(createList(moodsData.Moods[i], keys[j]));
+
+            accordionBtn.append(headline); //all the accordions are appended to an accordion container
+            section.append(accordionBtn);
+            section.append(content);
+            accordion.append(section);
+          }
+      }
+  }
+
+  popup.append(accordion); //the accordion and the close button are appended to the dialog
+  //popup.append(closeBtn);
+
+  accordionSwitch(accordionSection,"on");
+  accordionSwitch(accordionBtn,"on");
+  
+  //for dynamically generating a close button
+  /*const closeModal = document.querySelector(".close-button");
+  closeModal.addEventListener("click", () => {
+    modal.close();
+  });*/
+}
+
+
+function createList(mood, listId){ //creates an unordered list and fills it using the specified values
+  let list = document.createElement('ul');
+
+  for(let i in mood[listId]){
+    let el = document.createElement('li');
+    el.innerText = mood[listId][i];
+    list.appendChild(el);
+  }
+    
+  return list;
+}  
 
 //accordion//
 const accordionSection = document.getElementsByClassName('accordionSection');
@@ -65,60 +141,4 @@ function accordionSwitch(which,mode){
       current[0].className = current[0].className.replace(" active", "");
     }
   }
-}
-
-accordionSwitch(accordionSection,"on")
-accordionSwitch(accordionBtn,"on")
-
-
-
-
-//json//
-const moodList = document.getElementById("moodList"); //HTML lists that are filled with the corresponding text each time display is called
-const examples = document.getElementById("examples");
-const body = document.getElementById("body");
-const mind = document.getElementById("mind");
-const strategy = document.getElementById("strategy");
-
-function display(color){ //is called using onclick for now, gets the button's ID as a parameter
-    moodList.innerHTML = ""; //all lists are emptied first
-    examples.innerHTML = "";
-    body.innerHTML = "";
-    mind.innerHTML = "";
-    strategy.innerHTML = "";
-    fetch('moods.json')
-    .then(res => res.json())
-    .then(function(data){
-      document.getElementById("colorName").innerText = color;
-      
-        for(let i in data.Moods){ //each for loop within this one fills one of the lists
-            if(data.Moods[i].color === color){
-                for(let j in data.Moods[i].keywords){
-                  let el = document.createElement('li');
-                  el.innerText = data.Moods[i].keywords[j];
-                  moodList.appendChild(el);
-                }
-                for(let j in data.Moods[i].examples){
-                  let el = document.createElement('li');
-                  el.innerText = data.Moods[i].examples[j];
-                  examples.appendChild(el);
-                }
-                for(let j in data.Moods[i].body){
-                  let el = document.createElement('li');
-                  el.innerText = data.Moods[i].body[j];
-                  body.appendChild(el);
-                }
-                for(let j in data.Moods[i].mind){
-                  let el = document.createElement('li');
-                  el.innerText = data.Moods[i].mind[j];
-                  mind.appendChild(el);
-                }
-                for(let j in data.Moods[i].strategy){
-                  let el = document.createElement('li');
-                  el.innerText = data.Moods[i].strategy[j];
-                  strategy.appendChild(el);
-                }
-            }
-        }
-    });
 }
