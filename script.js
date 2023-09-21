@@ -144,6 +144,18 @@ function accordionSwitch(which,mode){
 }
 
 //navigation
-let colors = [["violet", "red", "orange", "yellow"],["indigo", "blue", "turquoise", "green"]];
+const colors = [["violet", "red", "orange", "yellow"],["indigo", "blue", "turquoise", "green"]];
+const row = 2;
+const col = 4;
+let x = 0;
+let y = 0;
 
-function position(){}
+function position(color){
+  for(let i = 0; i < row; ++i){
+    for(let j = 0; j < col; ++j){
+      if(color = colors[i][j]){
+        x = j, y = i;
+      }
+    }
+  }
+}
