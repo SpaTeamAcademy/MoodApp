@@ -32,6 +32,7 @@ for(i of openModal){
 //close function for button and clicking outside modal//
 function closeDialog() {
   modal.close();
+}
 //closing modal by clicking outside//
 modal.addEventListener("click", (e) => {
   if (e.target === modal) {

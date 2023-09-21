@@ -1,5 +1,4 @@
 /*general*/
-
 body {
     font-family: "Montserrat", sans-serif;
 }
@@ -15,17 +14,129 @@ footer{
 }
 
 /*coordinate system*/
-#coordinateSystem {
-    background-image: url(system_square_vector.svg);
-    background-size: 50%;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding-top: 15%;
-    padding-bottom: 25%;
-    margin-top: 5%;
-}  
-  
+.coordinate-system {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    justify-content: center;
+    align-items: space-between;
+    position: relative; 
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 10%;
+}
 
+/* Style for X and Y axis */
+.x-axis {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    top: 50%;
+  }
+
+.y-axis {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background-color: black;
+  left: 50%;
+}
+
+/* Style for arrowheads */
+.x-axis::before,
+.x-axis::after,
+.y-axis::before,
+.y-axis::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+/* X-axis arrowheads */
+.x-axis::before,
+.x-axis::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.x-axis::before { /*left arrowhead*/
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 15px solid black;
+  left: 0;
+  transform: translateY(-50%) translateX(-50%) rotate(90deg);
+}
+
+.x-axis::after { /*right arrowhead*/
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 15px solid black;
+  right: 0;
+  transform: translateY(-50%) translateX(50%) rotate(90deg);
+}
+
+/* Y-axis arrowheads */
+.y-axis::before,
+.y-axis::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.y-axis::before { /*top arrowhead*/
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid black;
+  top: 0;
+  transform: translateY(-50%) translateX(-50%) rotate(-90deg);
+}
+
+.y-axis::after { /*bottom arrowhead*/
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 15px solid black;
+  bottom: 0;
+  transform: translateY(50%) translateX(-50%) rotate(-90deg);
+}
+
+/*Position on top and bottom line of grid*/
+.top-line-grid {
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.bottom-line-grid {
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+/*Position on four grid columns*/
+.column-1 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+.column-2 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+.column-3 {
+    grid-column-start: -3;
+    grid-column-end: -4;
+}
+.column-4 {
+    grid-column-start: -2;
+    grid-column-end: -3;
+}
+  
 /*buttons*/
 .colorbutton {
     cursor: pointer;
@@ -42,39 +153,18 @@ footer{
 .colorbutton:hover{
     opacity: 1.0;
 }
-#violet, #red, #orange, #yellow{
-    margin: 10px;
-    position: absolute;
-    top: 40%;
-}
-#indigo, #blue, #turquoise, #green{
-    margin: 10px;
-    position: absolute;
-    top: 60%;
-}
-#violet, #indigo, #yellowKeywords, #indigoKeywords{
-    left: 32%;
-}
-#red, #blue, #orangeKeywords, #blueKeywords{
-    left: 40%;
-}
-#orange, #turquoise, #redKeywords, #turquoiseKeywords{
-    left: 53%;
-}
-#yellow, #green, #violetKeywords, #greenKeywords{
-    left: 61%;
-}
+
 #violet{
-    background-color: violet;
+    background-color: yellow;
 }
 #red{
-    background-color: red;
-}
-#orange{
     background-color: orange;
 }
+#orange{
+    background-color: red;
+}
 #yellow{
-    background-color: yellow;
+    background-color: violet;
 }
 #indigo{
     background-color: indigo;
@@ -90,44 +180,58 @@ footer{
 }
 
 /*text*/
-#energyHigh{
-    position: absolute;
-    top: 9%;
-    left: 47%;
+.axis-label {
+    position: relative;
+}
+
+#energyHigh {
+    grid-column: 4/5;
+    grid-row: 1;
+    justify-self: start;
+    align-self: start;
+    transform: translateX(-50%) translateY(-280%);
 }
 #negativ{
-    position: absolute;
-    top: 49%;
-    left: 26.5%;
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+    align-self: end;
+    transform: translateX(-140%) translateY(170%);
 }
 #positiv{
-    position: absolute;
-    top: 49%;
-    left: 70%;
+    grid-column: -2;
+    grid-row: 2;
+    justify-self: end;
+    align-self: end;
+    transform: translateX(140%) translateY(170%);
 }
 #energyLow{
-    position: absolute;
-    top: 93%;
-    left: 47%;
+    grid-column: 4/5;
+    grid-row: 4;
+    justify-self: start;
+    align-self: end;
+    transform: translateX(-50%) translateY(280%);
+}
+
+/*Position of keywords on grid*/
+#violetKeywords, #redKeywords, #orangeKeywords, #yellowKeywords{
+    grid-row: 1/2;
+    justify-self: center;
+    align-self: end;
+}
+#indigoKeywords, #blueKeywords, #turquoiseKeywords, #greenKeywords{
+    grid-row: 4/5;
+    justify-self: center;
+    align-self: start;
 }
 
 /*keywords*/
 .keywords {
     display:none;
     position: absolute;
-  
-
 }
 .colorbutton:hover .keywords{
     display: block;
-}
-#violetKeywords, #redKeywords, #orangeKeywords, #yellowKeywords{
-    position: absolute;
-    top: 35%;
-}
-#indigoKeywords, #blueKeywords, #turquoiseKeywords, #greenKeywords{
-    position: absolute;
-    top: 55%;
 }
 
 
@@ -145,7 +249,6 @@ footer{
 .keywordPopup::backdrop {
  background: gray;
  opacity: 0.7;
-
 }
 /*the close button itself is commented out but styles are necessary for accordion*/
 .close-button {
@@ -194,5 +297,3 @@ footer{
     transition: 0.8s;
     transform: rotate(90deg);
   }
-  
-  
