@@ -52,7 +52,15 @@ function display(color){ //is called using onclick for now, gets the button's ID
   for(let i in moodsData.Moods){
       if(moodsData.Moods[i].color === color){
           const keys = Object.keys(moodsData.Moods[i]);
-          for(let j = 1; j < keys.length; ++j){
+
+          let kwHeadline = document.createElement('h3');
+          kwHeadline.innerHTML = entries[0];
+          let keywords = document.createElement('ul');
+          keywords.append(fillList(moodsData.Moods[i], "keywords"));
+          popup.append(kwHeadline);
+          popup.append(keywords);
+
+          for(let j = 2; j < keys.length; ++j){
             let section = document.createElement('div');
             section.className = "accordionSection";
 
