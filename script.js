@@ -142,3 +142,8 @@ function accordionSwitch(which,mode){
     }
   }
 }
+
+//navigation
+let colors = [["violet", "red", "orange", "yellow"],["indigo", "blue", "turquoise", "green"]];
+
+function position(){}
