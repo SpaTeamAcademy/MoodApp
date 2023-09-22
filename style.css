@@ -297,3 +297,9 @@ footer{
     transition: 0.8s;
     transform: rotate(90deg);
   }
+
+/*Navigation*/
+.nav{
+    display:flex;
+    justify-content: space-between;
+}

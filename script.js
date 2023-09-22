@@ -55,7 +55,7 @@ modal.addEventListener("click", (e) => {
 
 /*dymamic popup generation*/
 function display(color){ //is called using onclick for now, gets the button's ID as a parameter
-  const popup = document.getElementById("popup");
+  const popup = document.getElementById("content");
   let accordion = document.createElement('div');
   accordion.className = "accordion";
   popup.innerHTML = "";
@@ -63,6 +63,9 @@ function display(color){ //is called using onclick for now, gets the button's ID
   /*let closeBtn = document.createElement('button');
   closeBtn.className = "button close-button";
   closeBtn.innerHTML = "schließen";*/
+
+  getPosition(color);
+  labelBtns();
 
   for(let i in moodsData.Moods){
       if(moodsData.Moods[i].color === color){ //checks which of the objects matches the ID
@@ -150,12 +153,25 @@ const col = 4;
 let x = 0;
 let y = 0;
 
-function position(color){
+function getPosition(color){
+  console.log("color: " + color)
   for(let i = 0; i < row; ++i){
     for(let j = 0; j < col; ++j){
-      if(color = colors[i][j]){
+      console.log(j,i);
+      if(color === colors[i][j]){
         x = j, y = i;
+        console.log(colors[y][x]);
       }
     }
   }
+}
+
+function labelBtns(){
+  const prevBtn = document.querySelector(".prevBtn");
+  const nextBtn = document.querySelector(".nextBtn");
+
+  console.log(colors[y][x])
+
+  prevBtn.innerText = colors[y][x-1];
+  nextBtn.innerText = colors[y][x+1];
 }
