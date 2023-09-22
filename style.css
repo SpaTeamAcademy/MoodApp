@@ -155,16 +155,16 @@ footer{
 }
 
 #violet{
-    background-color: #face49;
+    background-color: #9f39ff;
 }
 #red{
-    background-color: orange;
-}
-#orange{
     background-color: red;
 }
+#orange{
+    background-color: orange;
+}
 #yellow{
-    background-color: #9f39ff;
+    background-color: #face49;
 }
 #indigo{
     background-color: #004197;
