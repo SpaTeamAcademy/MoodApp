@@ -172,6 +172,19 @@ function labelBtns(){
 
   console.log(colors[y][x])
 
-  prevBtn.innerText = colors[y][x-1];
-  nextBtn.innerText = colors[y][x+1];
+  if(x === 3){
+    prevBtn.innerText = colors[y][x-1];
+    nextBtn.innerText = colors[y][0];
+  }
+
+  else if (x === 0){
+    prevBtn.innerText = colors[y][3];
+    nextBtn.innerText = colors[y][x+1];
+  }
+
+  else{
+    prevBtn.innerText = colors[y][x-1];
+    nextBtn.innerText = colors[y][x+1];
+  }
+
 }
