@@ -215,19 +215,18 @@ footer{
 
 /*Position of keywords on grid*/
 #violetKeywords, #redKeywords, #orangeKeywords, #yellowKeywords{
-    /*grid-row: 1/2;
+    grid-row: 1/2;
     justify-self: center;
-    align-self: end;*/
+    align-self: end;
 
     /*tooltip*/
     top: -45px;
     left: 50px;
-    /*bottom: -50px;*/
 }
 #indigoKeywords, #blueKeywords, #turquoiseKeywords, #greenKeywords{
- /*   grid-row: 4/5;
+    grid-row: 4/5;
     justify-self: center;
-    align-self: start;*/
+    align-self: start;
 
     /*tooltip*/
     left: 50px;
@@ -236,11 +235,9 @@ footer{
 
 /*keywords*/
 .keywords {
-    display:none;
-   /* position: absolute;*/
+    opacity: 0;
+    transition: opacity 0.4s;
     position: relative; /*needed for positioning*/
-
-    /*tooltip*/
     width: fit-content;
    /* height: fit-content;*/
     height: 30px;
@@ -253,13 +250,14 @@ footer{
     /*work in progress*/
     padding: 0;
     margin: 0;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    /*padding-top: 2px;
+    padding-bottom: 2px;*/
     padding-left: 10px;
     padding-right: 10px;
 }
 .colorbutton:hover .keywords{
-    display: block;
+    opacity: 1;
+    transition: opacity 0.2s;
 }
 
 
