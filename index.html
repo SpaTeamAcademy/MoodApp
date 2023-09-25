@@ -58,42 +58,43 @@
 
 
   <dialog class="keywordPopup" id="popup">
-    <div id="content">
-      <h2 id="colorName">Gelb</h2>
 
-      <h3>Gefühle:</h3>
-      <ul id="moodList"></ul>
+    <button class="prevBtn" id="prevBtn">Previous</button>
+    <div class="popUpBox">
+      <div id="content">
+        <h2 id="colorName">Gelb</h2>
   
-      <!--this div element is not needed with dynamic generation-->
-      <div class="accordion">
-  
-        <div class="accordionSection">
-          <div class="accordionBtn"><h4>Bespiele:</h4></div>
-          <div class="accordionContent"><ul id="examples"></ul></div>
+        <h3>Gefühle:</h3>
+        <ul id="moodList"></ul>
+    
+        <!--this div element is not needed with dynamic generation-->
+        <div class="accordion">
+    
+          <div class="accordionSection">
+            <div class="accordionBtn"><h4>Bespiele:</h4></div>
+            <div class="accordionContent"><ul id="examples"></ul></div>
+          </div>
+                    
+          <div class="accordionSection">
+            <div class="accordionBtn"><h4>Körper:</h4></div>
+            <div class="accordionContent"><ul id="body"></ul></div>
+          </div>
+                    
+          <div class="accordionSection">
+            <div class="accordionBtn"><h4>Gedanken</h4></div>
+            <div class="accordionContent"> <ul id="mind"></ul></div>
+          </div>
+    
+          <div class="accordionSection">
+            <div class="accordionBtn"> <h4>Mögliche Strategien:</h4> </div>
+            <div class="accordionContent"> <ul id="strategy"></ul> </div>
+          </div>
         </div>
-                  
-        <div class="accordionSection">
-          <div class="accordionBtn"><h4>Körper:</h4></div>
-          <div class="accordionContent"><ul id="body"></ul></div>
-        </div>
-                  
-        <div class="accordionSection">
-          <div class="accordionBtn"><h4>Gedanken</h4></div>
-          <div class="accordionContent"> <ul id="mind"></ul></div>
-        </div>
-  
-        <div class="accordionSection">
-          <div class="accordionBtn"> <h4>Mögliche Strategien:</h4> </div>
-          <div class="accordionContent"> <ul id="strategy"></ul> </div>
-        </div>
+    
+        <!--<button class="button close-button">schließen</button>-->
       </div>
-  
-      <!--<button class="button close-button">schließen</button>-->
     </div>
-    <div class="nav">
-      <button class="prevBtn" id="prevBtn">Previous</button>
     <button class="nextBtn" id="nextBtn">Next</button>
-    </div>
     
   </dialog>
 
