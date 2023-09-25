@@ -67,13 +67,10 @@ function display(color){ //is called using onclick for now, gets the button's ID
   for(let i in moodsData.Moods){
       if(moodsData.Moods[i].color === color){ //checks which of the objects matches the ID
           const keys = Object.keys(moodsData.Moods[i]);
-
-          let kwHeadline = document.createElement('h3');  //the keywords list is created, which is not an accordion
-          kwHeadline.innerHTML = entries[0];
-          let keywords = document.createElement('ul');
+  
+          let keywords = document.createElement('ul');//the keywords list is created, which is not an accordion
           keywords.append(createList(moodsData.Moods[i], "keywords"));
-          popup.append(kwHeadline); //both the list and the headline are appended to the dialog element
-          popup.append(keywords);
+          popup.append(keywords); //the list is appended to the dialog element
 
           for(let j = 2; j < keys.length; ++j){ //the 4 accordions are created. the for loop iterates the object itself
             let section = document.createElement('div');
