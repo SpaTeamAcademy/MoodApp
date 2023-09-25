@@ -59,7 +59,7 @@ function display(color){ //is called using onclick for now, gets the button's ID
   let accordion = document.createElement('div');
   accordion.className = "accordion";
   popup.innerHTML = "";
-  const entries = ["Gefühle", "Beispiele", "Körperliches", "Mentales", "Mögliche Strategien"]; //used for headlines
+  const entries = ["Gefühle", "Beispiele", "Körper", "Gedanken", "Strategien"]; //used for headlines
   /*let closeBtn = document.createElement('button');
   closeBtn.className = "button close-button";
   closeBtn.innerHTML = "schließen";*/
