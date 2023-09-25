@@ -34,12 +34,14 @@ const openModal = document.querySelectorAll(".colorbutton");
 for(i of openModal){
   i.addEventListener("click", (e) => {
     modal.showModal();
+    modal.style.display = "flex";
   });
 }
 
 //close function for button and clicking outside modal//
 function closeDialog() {
   modal.close();
+  modal.style.display = "none";
 }
 //closing modal by clicking outside//
 modal.addEventListener("click", (e) => {
