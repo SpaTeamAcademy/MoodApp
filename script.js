@@ -154,13 +154,10 @@ let x = 0;
 let y = 0;
 
 function getPosition(color){
-  console.log("color: " + color)
   for(let i = 0; i < row; ++i){
     for(let j = 0; j < col; ++j){
-      console.log(j,i);
       if(color === colors[i][j]){
         x = j, y = i;
-        console.log(colors[y][x]);
       }
     }
   }
@@ -170,7 +167,6 @@ function labelBtns(){
   const prevBtn = document.querySelector(".prevBtn");
   const nextBtn = document.querySelector(".nextBtn");
 
-  console.log(colors[y][x])
 
   if(x === 3){
     prevBtn.innerText = colors[y][x-1];
