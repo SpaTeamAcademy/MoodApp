@@ -220,8 +220,8 @@ footer{
     align-self: end;
 
     /*tooltip*/
-    top: -45px;
-    left: 50px;
+    top: -80px;
+    left: -12px;
 }
 #indigoKeywords, #blueKeywords, #turquoiseKeywords, #greenKeywords{
     grid-row: 4/5;
@@ -229,9 +229,36 @@ footer{
     align-self: start;
 
     /*tooltip*/
-    left: 50px;
-    bottom: -50px;
+    left: -12px;
+    bottom: -80px;
 }
+#violetKeywords::before, #redKeywords::before, #orangeKeywords:before, #yellowKeywords::before{
+    content: "";
+    color: grey;
+    position: absolute;
+    transform: scale(2,2);
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: grey transparent transparent transparent;
+}
+#indigoKeywords::before, #blueKeywords::before, #turquoiseKeywords::before, #greenKeywords::before{
+    content: "";
+    color: grey;
+    position: absolute;
+    transform: scale(2,2);
+    top: -9px; /* At the top of the tooltip */
+    left: 50%;
+    transform: rotate(-180deg); /*turning it point to the top*/
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: grey transparent transparent transparent;
+}
+
+
 
 /*keywords*/
 .keywords {
@@ -239,19 +266,14 @@ footer{
     transition: opacity 0.4s;
     position: relative; /*needed for positioning*/
     width: fit-content;
-   /* height: fit-content;*/
-    height: 30px;
+    min-width: 70px;
+    height: 24px;
     background-color: gray;
     color: #fff;
     text-align: center;
     border-radius: 8px;
     z-index: 1;/*sets it infront of everything*/
-
-    /*work in progress*/
-    padding: 0;
-    margin: 0;
-    /*padding-top: 2px;
-    padding-bottom: 2px;*/
+    padding-bottom: 0.5px;
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -259,7 +281,6 @@ footer{
     opacity: 1;
     transition: opacity 0.2s;
 }
-
 
 
 /* pop up*/
