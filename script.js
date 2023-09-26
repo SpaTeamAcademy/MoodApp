@@ -57,7 +57,7 @@ modal.addEventListener("click", (e) => {
 
 /*dymamic popup generation*/
 function display(color){ //is called using onclick for now, gets the button's ID as a parameter
-  const popup = document.getElementById("content");
+  const popup = document.querySelector(".popUpBox");
   let accordion = document.createElement('div');
   accordion.className = "accordion";
   popup.innerHTML = "";
@@ -166,22 +166,22 @@ function labelBtns(){ //labels the buttons with the colors left and right of the
   const prevBtn = document.querySelector(".prevBtn");
   const nextBtn = document.querySelector(".nextBtn");
 
-
-  if(x === 3){ //if the color is at the grid's border, the button at the border's side will jump to the color at the other border
+    //if the color is at the grid's border, the button at the border's side will not be displayed
+  if(x === 3){ //checks if the user is at the right border
     nextBtn.style.display = "none";
     prevBtn.style.display = "inline-block";
 
     prevBtn.innerText = colors[y][x-1];
   }
 
-  else if (x === 0){
+  else if (x === 0){ //checks if the user is at the left border
     prevBtn.style.display = "none";
     nextBtn.style.display = "inline-block";
 
     nextBtn.innerText = colors[y][x+1];
   }
 
-  else{
+  else{ //when the user is not at any of the borders, both buttons are displayed
     prevBtn.innerText = colors[y][x-1];
     nextBtn.innerText = colors[y][x+1];
 
