@@ -171,18 +171,25 @@ function labelBtns(){ //labels the buttons with the colors left and right of the
 
 
   if(x === 3){ //if the color is at the grid's border, the button at the border's side will jump to the color at the other border
+    nextBtn.style.display = "none";
+    prevBtn.style.display = "inline-block";
+
     prevBtn.innerText = colors[y][x-1];
-    nextBtn.innerText = colors[y][0];
   }
 
   else if (x === 0){
-    prevBtn.innerText = colors[y][3];
+    prevBtn.style.display = "none";
+    nextBtn.style.display = "inline-block";
+
     nextBtn.innerText = colors[y][x+1];
   }
 
   else{
     prevBtn.innerText = colors[y][x-1];
     nextBtn.innerText = colors[y][x+1];
+
+    prevBtn.style.display = "inline-block";
+    nextBtn.style.display = "inline-block";
   }
 
 }
