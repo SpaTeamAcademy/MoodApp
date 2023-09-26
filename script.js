@@ -147,6 +147,7 @@ function accordionSwitch(which,mode){
 
 //navigation
 const colors = [["violet", "red", "orange", "yellow"],["indigo", "blue", "turquoise", "green"]]; //2 dimensional array containing all the IDs corresponding to the grid positions
+const colorsGer = [["Lila", "Rot", "Orange", "Gelb"],["Dunkelblau", "Blau", "Grün", "Hellgrün"]];
 const row = 2;
 const col = 4;
 let x = 0;
@@ -171,19 +172,19 @@ function labelBtns(){ //labels the buttons with the colors left and right of the
     nextBtn.style.display = "none";
     prevBtn.style.display = "inline-block";
 
-    prevBtn.innerText = colors[y][x-1];
+    prevBtn.innerText = colorsGer[y][x-1];
   }
 
   else if (x === 0){ //checks if the user is at the left border
     prevBtn.style.display = "none";
     nextBtn.style.display = "inline-block";
 
-    nextBtn.innerText = colors[y][x+1];
+    nextBtn.innerText = colorsGer[y][x+1];
   }
 
   else{ //when the user is not at any of the borders, both buttons are displayed
-    prevBtn.innerText = colors[y][x-1];
-    nextBtn.innerText = colors[y][x+1];
+    prevBtn.innerText = colorsGer[y][x-1];
+    nextBtn.innerText = colorsGer[y][x+1];
 
     prevBtn.style.display = "inline-block";
     nextBtn.style.display = "inline-block";
