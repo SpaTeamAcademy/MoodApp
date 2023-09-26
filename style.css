@@ -285,14 +285,11 @@ footer{
 
 /* pop up*/
 .keywordPopup {
- padding: 20px;
- max-width: 50ch;
- border: solid 5px white;
- border-radius: 20px;
- box-shadow: 30 px;
- transition: width 2s;
- background-color: lightgray;
- box-shadow: 5px 5px 5px 5px gray;
+ border: none;
+ background: transparent;
+ display:none;
+ justify-content: space-between;
+ align-items: center;
 }
 .keywordPopup::backdrop {
  background: gray;
@@ -346,4 +343,19 @@ footer{
     transform: rotate(90deg); /*turns turn icon*/
   }
 
+/*Navigation*/
+.popUpBox{
+    padding: 20px;
+    max-width: 50ch;
+    border: solid 5px white;
+    border-radius: 20px;
+    box-shadow: 30 px;
+    transition: width 2s;
+    background-color: lightgray;
+    box-shadow: 5px 5px 5px 5px gray;
+}
 
+.nextBtn, .prevBtn{
+    height:30px;
+    margin: 20px;
+}

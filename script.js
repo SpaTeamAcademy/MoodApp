@@ -34,12 +34,14 @@ const openModal = document.querySelectorAll(".colorbutton");
 for(i of openModal){
   i.addEventListener("click", (e) => {
     modal.showModal();
+    modal.style.display = "flex";
   });
 }
 
 //close function for button and clicking outside modal//
 function closeDialog() {
   modal.close();
+  modal.style.display = "none";
 }
 //closing modal by clicking outside//
 modal.addEventListener("click", (e) => {
@@ -55,25 +57,25 @@ modal.addEventListener("click", (e) => {
 
 /*dymamic popup generation*/
 function display(color){ //is called using onclick for now, gets the button's ID as a parameter
-  const popup = document.getElementById("popup");
+  const popup = document.querySelector(".popUpBox");
   let accordion = document.createElement('div');
   accordion.className = "accordion";
   popup.innerHTML = "";
-  const entries = ["Gefühle", "Beispiele", "Körperliches", "Mentales", "Mögliche Strategien"]; //used for headlines
+  const entries = ["Gefühle", "Beispiele", "Körper", "Gedanken", "Strategien"]; //used for headlines
   /*let closeBtn = document.createElement('button');
   closeBtn.className = "button close-button";
   closeBtn.innerHTML = "schließen";*/
 
+  getPosition(color);
+  labelBtns();
+
   for(let i in moodsData.Moods){
       if(moodsData.Moods[i].color === color){ //checks which of the objects matches the ID
           const keys = Object.keys(moodsData.Moods[i]);
-
-          let kwHeadline = document.createElement('h3');  //the keywords list is created, which is not an accordion
-          kwHeadline.innerHTML = entries[0];
-          let keywords = document.createElement('ul');
+  
+          let keywords = document.createElement('ul');//the keywords list is created, which is not an accordion
           keywords.append(createList(moodsData.Moods[i], "keywords"));
-          popup.append(kwHeadline); //both the list and the headline are appended to the dialog element
-          popup.append(keywords);
+          popup.append(keywords); //the list is appended to the dialog element
 
           for(let j = 2; j < keys.length; ++j){ //the 4 accordions are created. the for loop iterates the object itself
             let section = document.createElement('div');
@@ -141,4 +143,51 @@ function accordionSwitch(which,mode){
       current[0].className = current[0].className.replace(" active", "");
     }
   }
+}
+
+//navigation
+const colors = [["violet", "red", "orange", "yellow"],["indigo", "blue", "turquoise", "green"]]; //2 dimensional array containing all the IDs corresponding to the grid positions
+const colorsGer = [["Lila", "Rot", "Orange", "Gelb"],["Dunkelblau", "Blau", "Grün", "Hellgrün"]];
+const row = 2;
+const col = 4;
+let x = 0;
+let y = 0;
+
+function getPosition(color){ //checks which position in the grid the color is at
+  for(let i = 0; i < row; ++i){
+    for(let j = 0; j < col; ++j){
+      if(color === colors[i][j]){
+        x = j, y = i;
+      }
+    }
+  }
+}
+
+function labelBtns(){ //labels the buttons with the colors left and right of the current one
+  const prevBtn = document.querySelector(".prevBtn");
+  const nextBtn = document.querySelector(".nextBtn");
+
+    //if the color is at the grid's border, the button at the border's side will not be displayed
+  if(x === 3){ //checks if the user is at the right border
+    nextBtn.style.display = "none";
+    prevBtn.style.display = "inline-block";
+
+    prevBtn.innerText = colorsGer[y][x-1];
+  }
+
+  else if (x === 0){ //checks if the user is at the left border
+    prevBtn.style.display = "none";
+    nextBtn.style.display = "inline-block";
+
+    nextBtn.innerText = colorsGer[y][x+1];
+  }
+
+  else{ //when the user is not at any of the borders, both buttons are displayed
+    prevBtn.innerText = colorsGer[y][x-1];
+    nextBtn.innerText = colorsGer[y][x+1];
+
+    prevBtn.style.display = "inline-block";
+    nextBtn.style.display = "inline-block";
+  }
+
 }
