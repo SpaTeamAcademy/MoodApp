@@ -48,8 +48,8 @@ modal.addEventListener("click", (e) => {
   if (e.target === modal) {
   closeDialog();
    //closing accordions when closing modal//
-  accordionSwitch(accordionSection,"off");
-  accordionSwitch(accordionBtn,"off")};
+   zoomOff()
+ };
 });
 //close modal by using button//
 //closeModal.addEventListener("click", closeDialog);
@@ -57,6 +57,13 @@ modal.addEventListener("click", (e) => {
 
 /*dymamic popup generation*/
 function display(color){ //is called using onclick for now, gets the button's ID as a parameter
+  /*"zoom"*/
+  zoomOn(color)
+  
+
+
+
+  /*dynamic pop-up*/
   const popup = document.querySelector(".popUpBox");
   let accordion = document.createElement('div');
   accordion.className = "accordion";
@@ -102,8 +109,8 @@ function display(color){ //is called using onclick for now, gets the button's ID
   popup.append(accordion); //the accordion and the close button are appended to the dialog
   //popup.append(closeBtn);
 
-  accordionSwitch(accordionSection,"on");
-  accordionSwitch(accordionBtn,"on");
+  accordionSwitch(accordionSection);
+  accordionSwitch(accordionBtn);
   
   //for dynamically generating a close button
   /*const closeModal = document.querySelector(".close-button");
@@ -129,20 +136,12 @@ function createList(mood, listId){ //creates an unordered list and fills it usin
 const accordionSection = document.getElementsByClassName('accordionSection');
 const accordionBtn = document.getElementsByClassName('accordionBtn');
 
-function accordionSwitch(which,mode){
-  if(mode==="on"){
+function accordionSwitch(which){
     for (let i=0; i<which.length; i++) {
       which[i].addEventListener('click', function () {
       this.classList.toggle('active')
       })
     }
-  }
-  if(mode==="off"){
-    for(let i=0; i<which.length; i++){
-      var current = document.getElementsByClassName("active");
-      current[0].className = current[0].className.replace(" active", "");
-    }
-  }
 }
 
 //navigation
@@ -190,4 +189,17 @@ function labelBtns(){ //labels the buttons with the colors left and right of the
     nextBtn.style.display = "inline-block";
   }
 
+}
+
+
+/*zoom*/
+function zoomOn(color){
+    var current = document.getElementById(color)
+    current.classList.toggle("zoom")
+}
+function zoomOff(){
+    var current= document.getElementsByClassName("zoom")
+    for(let i=0;i<current.length;i++){
+    current[i].className = current[i].className.replace(" zoom", "");
+  }
 }
