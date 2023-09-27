@@ -35,7 +35,6 @@ footer{
     background-color: black;
     top: 50%;
   }
-
 .y-axis {
   position: absolute;
   width: 2px;
@@ -65,7 +64,6 @@ footer{
   top: 50%;
   transform: translateY(-50%);
 }
-
 .x-axis::before { /*left arrowhead*/
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
@@ -73,7 +71,6 @@ footer{
   left: 0;
   transform: translateY(-50%) translateX(-50%) rotate(90deg);
 }
-
 .x-axis::after { /*right arrowhead*/
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
@@ -100,7 +97,6 @@ footer{
   top: 0;
   transform: translateY(-50%) translateX(-50%) rotate(-90deg);
 }
-
 .y-axis::after { /*bottom arrowhead*/
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
@@ -153,7 +149,6 @@ footer{
 .colorbutton:hover{
     opacity: 1.0;
 }
-
 #violet{
     background-color: #9f39ff;
 }
@@ -183,7 +178,6 @@ footer{
 .axis-label {
     position: relative;
 }
-
 #energyHigh {
     grid-column: 4/5;
     grid-row: 1;
@@ -305,9 +299,6 @@ footer{
  border: solid 2px gray;
  margin-top: 15px;
 }
-/*.button:hover {
- background: lightgray;
-}*/
 
 
 /*accordion*/
@@ -343,6 +334,7 @@ footer{
     transform: rotate(90deg); /*turns turn icon*/
   }
 
+
 /*Navigation*/
 .popUpBox{
     padding: 20px;
@@ -354,8 +346,32 @@ footer{
     background-color: lightgray;
     box-shadow: 5px 5px 5px 5px gray;
 }
-
 .nextBtn, .prevBtn{
     height:30px;
     margin: 20px;
+}
+
+
+/*zoom*/
+.zoom{
+   /* animation: zoom 4s /*timing-function delay iteration-count direction fill-mode;*/
+    transform: scale(4,4);
+    opacity: 1;
+    z-index: 800;
+    top: 240px;
+    left: 50px;
+
+}
+
+#zoom{
+    opacity: 1;
+    z-index: 800;
+    top: 500px;
+    left: 45%;
+}
+@keyframes zoom {
+    0%{
+        opacity: 0;
+    }
+    100% {opacity: 1;}
 }

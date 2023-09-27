@@ -27,7 +27,7 @@ function showKeywords(){
 }
 
 
-/*opens and closes pop up*/
+/*opens and closes pop up*//*
 const modal = document.querySelector(".keywordPopup");
 const openModal = document.querySelectorAll(".colorbutton");
 
@@ -47,8 +47,7 @@ function closeDialog() {
 modal.addEventListener("click", (e) => {
   if (e.target === modal) {
   closeDialog();
-   //closing accordions when closing modal//
-   zoomOff()
+  /* zoomOff()*//*
  };
 });
 //close modal by using button//
@@ -58,7 +57,7 @@ modal.addEventListener("click", (e) => {
 /*dymamic popup generation*/
 function display(color){ //is called using onclick for now, gets the button's ID as a parameter
   /*"zoom"*/
-  zoomOn(color)
+ /* zoomOn(color)*/
   
 
 
@@ -192,10 +191,20 @@ function labelBtns(){ //labels the buttons with the colors left and right of the
 }
 
 
-/*zoom*/
+/*zoom*//*
+var colorbutton = document.getElementsByClassName("colorbutton");*/
 function zoomOn(color){
-    var current = document.getElementById(color)
-    current.classList.toggle("zoom")
+  var zoomed = document.getElementById(color);
+  zoomed.classList.add('zoom')
+  //zoomed.setAttribute("id","zoom")
+/*  for(let i=0; i<colorbutton.length;i++){
+    colorbutton[i].className = colorbutton[i].className.replace(" hoverable", "")
+  }
+    var current = document.getElementById(color);
+    current.classList.toggle("zoom");
+   // colorbutton.classList.toggle("hoverable");*/
+
+
 }
 function zoomOff(){
     var current= document.getElementsByClassName("zoom")
@@ -203,3 +212,57 @@ function zoomOff(){
     current[i].className = current[i].className.replace(" zoom", "");
   }
 }
+function hoverSwitch(color){
+  let current= document.getElementsByClassName("hoverable");
+  console.log(current.length);
+  let currentL = current.length;
+
+  if(currentL>=1){
+  for(let i=0;i<current.length;i++){
+  current[i].className = current[i].className.replace(" hoverable", "");/*before switching zoom on take away hoverable*/
+    }
+  /*  var zoomed = document.getElementById(color);
+    zoomed.classList.toggle("zoom");*/
+    console.log("more")
+  }
+
+/*if(currentL<1)*/else{
+  console.log("less")
+  
+var colorbutton = document.getElementsByClassName("colorbutton");
+
+for(let i=0; i<colorbutton.length; i++){
+colorbutton[i].classList.toggle("hoverable");
+/*
+var zoomed = document.getElementsByClassName("zoom");
+console.log(zoomed.length + "zoomL")
+    zoomed.className = zoomed.className.replace(" zoom", "");*/
+}
+}
+/*var zoomed = document.getElementById(color);
+zoomed.classList.toggle("zoom");*/
+}
+
+function zoomAll(color){
+ let reset = document.getElementsByClassName("zoom")
+//zoomOn(color);
+ /* reset.className = reset.className.replace(" zoom", "");*/
+/*//hoverSwitch(color)*/
+var zoomed = document.getElementById(color);
+//zoomed.classList.add('zoom')*/
+
+zoomed.classList.toggle("zoom");
+//zoomOn(color);*/
+
+console.log("finished")
+}
+function hover(){
+  console.log("moused");
+}
+
+/*let colorbutton = document.getElementsByClassName("colorbutton");
+console.log(colorbutton.length)
+
+for(let i=0;i<colorbutton.length;i++){
+colorbutton.addEventListener("mouseover", hover())
+}*/
