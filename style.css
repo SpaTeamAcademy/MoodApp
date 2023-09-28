@@ -122,7 +122,7 @@ footer{
 /*Position on four grid columns*/
 .column-1 {
     grid-column-start: 1;
-    grid-column-end: 3;
+    grid-column-end: 2;
 }
 .column-2 {
     grid-column-start: 3;
@@ -149,6 +149,7 @@ footer{
     width: 70px;
     height: 70px;
     opacity: 0.5;
+    margin:auto;
     
 }
 .colorbutton:hover{
