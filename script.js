@@ -148,6 +148,8 @@ function accordionSwitch(which,mode){
 //navigation
 const colors = [["violet", "red", "orange", "yellow"],["indigo", "blue", "turquoise", "green"]]; //2 dimensional array containing all the IDs corresponding to the grid positions
 const colorsGer = [["Lila", "Rot", "Orange", "Gelb"],["Dunkelblau", "Blau", "Grün", "Hellgrün"]];
+const prevBtn = document.querySelector(".prevBtn");
+const nextBtn = document.querySelector(".nextBtn");
 const row = 2;
 const col = 4;
 let x = 0;
@@ -164,8 +166,7 @@ function getPosition(color){ //checks which position in the grid the color is at
 }
 
 function labelBtns(){ //labels the buttons with the colors left and right of the current one
-  const prevBtn = document.querySelector(".prevBtn");
-  const nextBtn = document.querySelector(".nextBtn");
+
 
     //if the color is at the grid's border, the button at the border's side will not be displayed
   if(x === 3){ //checks if the user is at the right border
@@ -191,3 +192,15 @@ function labelBtns(){ //labels the buttons with the colors left and right of the
   }
 
 }
+
+prevBtn.addEventListener("click", () => {
+  x--;
+  display(colors[y][x]);
+  labelBtns
+});
+
+nextBtn.addEventListener("click", () => {
+  x++;
+  display(colors[y][x]);
+  labelBtns;
+});
