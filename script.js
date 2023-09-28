@@ -242,17 +242,15 @@ console.log(zoomed.length + "zoomL")
 /*var zoomed = document.getElementById(color);
 zoomed.classList.toggle("zoom");*/
 }
-
 function zoomAll(color){
  let reset = document.getElementsByClassName("zoom")
 //zoomOn(color);
  /* reset.className = reset.className.replace(" zoom", "");*/
 /*//hoverSwitch(color)*/
 var zoomed = document.getElementById(color);
-//zoomed.classList.add('zoom')*/
 
+//zoomed.classList.add('zoom') maybe better later since you can not do two toggles after each other 
 zoomed.classList.toggle("zoom");
-//zoomOn(color);*/
 
 console.log("finished")
 }
@@ -266,3 +264,7 @@ console.log(colorbutton.length)
 for(let i=0;i<colorbutton.length;i++){
 colorbutton.addEventListener("mouseover", hover())
 }*/
+
+//closing zoom by clicking outside//
+//var zoomed = document.getElementsByClassName("zoom");
+//console.log(zoomed)

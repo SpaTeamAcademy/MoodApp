@@ -146,7 +146,7 @@ footer{
     height: 70px;
     opacity: 0.5;
 }
-.colorbutton:hover{
+.colorbutton.hoverable:hover{
     opacity: 1.0;
 }
 #violet{
@@ -207,20 +207,20 @@ footer{
     transform: translateX(-50%) translateY(280%);
 }
 
-/*Position of keywords on grid*/
+/*Position of keywords on grid*//*tooltip*/
 #violetKeywords, #redKeywords, #orangeKeywords, #yellowKeywords{
-    grid-row: 1/2;
+    /*grid-row: 1/2;
     justify-self: center;
-    align-self: end;
+    align-self: end;*/
 
     /*tooltip*/
     top: -80px;
     left: -12px;
 }
 #indigoKeywords, #blueKeywords, #turquoiseKeywords, #greenKeywords{
-    grid-row: 4/5;
+   /* grid-row: 4/5;
     justify-self: center;
-    align-self: start;
+    align-self: start;*/
 
     /*tooltip*/
     left: -12px;
@@ -271,7 +271,7 @@ footer{
     padding-left: 10px;
     padding-right: 10px;
 }
-.colorbutton:hover .keywords{
+.colorbutton.hoverable:hover .keywords{
     opacity: 1;
     transition: opacity 0.2s;
 }
@@ -354,20 +354,23 @@ footer{
 
 /*zoom*/
 .zoom{
-   /* animation: zoom 4s /*timing-function delay iteration-count direction fill-mode;*/
+    animation: zoom 4s; /*timing-function delay iteration-count direction fill-mode;*/
     transform: scale(4,4);
     opacity: 1;
     z-index: 800;
-    top: 240px;
-    left: 50px;
-
+   
+    display: flex;
+    grid-area: 2/3/4/5;
+    vertical-align: bottom;
+    align-content: center;
+    justify-self: center;
+    align-self: center;
 }
 
 #zoom{
     opacity: 1;
     z-index: 800;
-    top: 500px;
-    left: 45%;
+  
 }
 @keyframes zoom {
     0%{
