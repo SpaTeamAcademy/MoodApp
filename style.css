@@ -12,9 +12,6 @@ footer{
     width: 100%;
     text-align: center;
 }
-:root{
-    --end-position: calc(-100px * var(--i));
-}
 
 /*coordinate system*/
 .coordinate-system {

@@ -191,102 +191,6 @@ function labelBtns(){ //labels the buttons with the colors left and right of the
 
 }
 
-
-/*zoom*/
-var statusZoom = "";/*
-var colorbutton = document.getElementsByClassName("colorbutton");*/
-function zoomOn(color){
-  var zoomed = document.getElementById(color);
-  zoomed.classList.add('zoom')
-  //zoomed.setAttribute("id","zoom")
-/*  for(let i=0; i<colorbutton.length;i++){
-    colorbutton[i].className = colorbutton[i].className.replace(" hoverable", "")
-  }
-    var current = document.getElementById(color);
-    current.classList.toggle("zoom");
-   // colorbutton.classList.toggle("hoverable");*/
-
-
-}
-function zoomOff(){
-    var current= document.getElementsByClassName("zoom")
-    for(let i=0;i<current.length;i++){
-    current[i].className = current[i].className.replace(" zoom", "");
-  }
-}
-function hoverSwitch(color){
-  let current= document.getElementsByClassName("hoverable");
-  console.log(current.length);
-  let currentL = current.length;
-
-  if(currentL>=1){
-  for(let i=0;i<current.length;i++){
-  current[i].className = current[i].className.replace(" hoverable", "");/*before switching zoom on take away hoverable*/
-    }
-  /*  var zoomed = document.getElementById(color);
-    zoomed.classList.toggle("zoom");*/
-    console.log("more")
-  }
-
-/*if(currentL<1)*/else{
-  console.log("less")
-  
-var colorbutton = document.getElementsByClassName("colorbutton");
-
-for(let i=0; i<colorbutton.length; i++){
-colorbutton[i].classList.toggle("hoverable");
-/*
-var zoomed = document.getElementsByClassName("zoom");
-console.log(zoomed.length + "zoomL")
-    zoomed.className = zoomed.className.replace(" zoom", "");*/
-}
-}
-/*var zoomed = document.getElementById(color);
-zoomed.classList.toggle("zoom");*/
-}
-function zoomAll(color){
-var statusZoom = "";
-let reset = document.getElementsByClassName("zoom")
-//zoomOn(color);
- /* reset.className = reset.className.replace(" zoom", "");*/
-/*//hoverSwitch(color)*/
-var zoomed = document.getElementById(color);
-
-//zoomed.classList.add('zoom') maybe better later since you can not do two toggles after each other 
-zoomed.classList.toggle("zoom");
-
-console.log("finished")
-var statusZoom = "finished";
-}
-function hover(){
-  console.log("moused");
-}
-
-/*let colorbutton = document.getElementsByClassName("colorbutton");
-console.log(colorbutton.length)
-
-for(let i=0;i<colorbutton.length;i++){
-colorbutton.addEventListener("mouseover", hover())
-}*/
-/*
-//closing zoom by clicking outside//
-var zoomed = document.getElementsByClassName("zoom");
-console.log(zoomed + statusZoom)
-document.addEventListener("click", closingZoom)
-
-
-
-
-function closingZoom(){
-console.log(zoomed + statusZoom)
-if(statusZoom === "finished"){
-  zoomOff();
-}else{
-  console.log("status = '' ")
-}
-}*//*
-var position = '--end-position';
-console.log(position);*/
 prevBtn.addEventListener("click", () => {
   x--;
   display(colors[y][x]);
@@ -298,3 +202,59 @@ nextBtn.addEventListener("click", () => {
   display(colors[y][x]);
   labelBtns;
 });
+
+
+
+/*zoom*//*
+function zoomOn(color){
+  var zoomed = document.getElementById(color);
+  zoomed.classList.add('zoom')
+}
+
+function zoomOff(){
+    var current= document.getElementsByClassName("zoom")
+    for(let i=0;i<current.length;i++){
+    current[i].className = current[i].className.replace(" zoom", "");
+  }
+}
+
+function hoverSwitch(color){
+  let current= document.getElementsByClassName("hoverable");
+  console.log(current.length);
+  let currentL = current.length;
+
+  if(currentL>=1){
+  for(let i=0;i<current.length;i++){
+  current[i].className = current[i].className.replace(" hoverable", "");/*before switching zoom on take away hoverable*/
+   /* }
+ /*   console.log("more")
+  }
+
+/*if(currentL<1)*//*else{
+ /* console.log("less")
+  
+var colorbutton = document.getElementsByClassName("colorbutton");
+
+for(let i=0; i<colorbutton.length; i++){
+colorbutton[i].classList.toggle("hoverable");
+/*
+var zoomed = document.getElementsByClassName("zoom");
+console.log(zoomed.length + "zoomL")
+    zoomed.className = zoomed.className.replace(" zoom", "");*//*
+}
+}
+/*var zoomed = document.getElementById(color);
+zoomed.classList.toggle("zoom");*//*
+}*/
+
+function zoomAll(color){
+var statusZoom = "";
+let reset = document.getElementsByClassName("zoom")
+var zoomed = document.getElementById(color);
+
+//zoomed.classList.add('zoom') maybe better later since you can not do two toggles after each other 
+zoomed.classList.toggle("zoom");
+
+console.log("finished")
+var statusZoom = "finished";
+}
