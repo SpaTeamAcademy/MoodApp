@@ -26,6 +26,7 @@ footer{
     margin-right: 32.5%;
     margin-top: 10%;
     width:35%;
+    min-width: 28rem;
 }
 
 /* Style for X and Y axis */
