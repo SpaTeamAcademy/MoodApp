@@ -191,7 +191,8 @@ function labelBtns(){ //labels the buttons with the colors left and right of the
 }
 
 
-/*zoom*//*
+/*zoom*/
+var statusZoom = "";/*
 var colorbutton = document.getElementsByClassName("colorbutton");*/
 function zoomOn(color){
   var zoomed = document.getElementById(color);
@@ -243,7 +244,8 @@ console.log(zoomed.length + "zoomL")
 zoomed.classList.toggle("zoom");*/
 }
 function zoomAll(color){
- let reset = document.getElementsByClassName("zoom")
+var statusZoom = "";
+let reset = document.getElementsByClassName("zoom")
 //zoomOn(color);
  /* reset.className = reset.className.replace(" zoom", "");*/
 /*//hoverSwitch(color)*/
@@ -253,6 +255,7 @@ var zoomed = document.getElementById(color);
 zoomed.classList.toggle("zoom");
 
 console.log("finished")
+var statusZoom = "finished";
 }
 function hover(){
   console.log("moused");
@@ -264,7 +267,22 @@ console.log(colorbutton.length)
 for(let i=0;i<colorbutton.length;i++){
 colorbutton.addEventListener("mouseover", hover())
 }*/
-
+/*
 //closing zoom by clicking outside//
-//var zoomed = document.getElementsByClassName("zoom");
-//console.log(zoomed)
+var zoomed = document.getElementsByClassName("zoom");
+console.log(zoomed + statusZoom)
+document.addEventListener("click", closingZoom)
+
+
+
+
+function closingZoom(){
+console.log(zoomed + statusZoom)
+if(statusZoom === "finished"){
+  zoomOff();
+}else{
+  console.log("status = '' ")
+}
+}*//*
+var position = '--end-position';
+console.log(position);*/
