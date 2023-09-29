@@ -24,10 +24,12 @@ footer{
     position: relative; 
     margin-left: 32.5%;
     margin-right: 32.5%;
+    padding-left: auto;
+    padding-right: auto;
     margin-top: 10%;
-    width:35%;
     min-width: 28rem;
 }
+
 
 /* Style for X and Y axis */
 .x-axis {
@@ -201,14 +203,15 @@ footer{
     grid-row: 2;
     justify-self: start;
     align-self: end;
-    transform: translateX(-140%) translateY(170%);
+    transform: translateX(-140%) translateY(110%);
 }
 #positiv{
     grid-column: -2;
     grid-row: 2;
     justify-self: end;
     align-self: end;
-    transform: translateX(140%) translateY(170%);
+    transform: translateX(113%) translateY(110%);
+    padding-right:100%;
 }
 #energyLow{
     grid-column: 3/4;
