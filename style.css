@@ -194,6 +194,7 @@ footer{
     justify-self: start;
     align-self: start;
     transform: translateX(-50%) translateY(-280%);
+    white-space: nowrap;
 }
 #negativ{
     grid-column: 1;
@@ -215,6 +216,7 @@ footer{
     justify-self: start;
     align-self: end;
     transform: translateX(-50%) translateY(280%);
+    white-space: nowrap;
 }
 
 /*Position of keywords on grid*/
