@@ -20,14 +20,16 @@ footer{
 .coordinate-system {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
     justify-content: center;
     align-items: space-between;
     position: relative; 
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 32.5%;
+    margin-right: 32.5%;
     margin-top: 10%;
+    width:35%;
+    min-width: 28rem;
 }
 
 /* Style for X and Y axis */
@@ -120,20 +122,20 @@ footer{
 
 /*Position on four grid columns*/
 .column-1 {
-    grid-column-start: 2;
-    grid-column-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
 }
 .column-2 {
-    grid-column-start: 3;
-    grid-column-end: 4;
-}
-.column-3 {
     grid-column-start: -3;
     grid-column-end: -4;
 }
+.column-3 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
 .column-4 {
-    grid-column-start: -2;
-    grid-column-end: -3;
+    grid-column-start: -1;
+    grid-column-end: -2;
 }
   
 /*buttons*/
@@ -148,6 +150,8 @@ footer{
     width: 70px;
     height: 70px;
     opacity: 0.5;
+    margin:auto;
+    
 }
 .colorbutton.hoverable:hover{
     opacity: 1.0;
@@ -182,7 +186,7 @@ footer{
     position: relative;
 }
 #energyHigh {
-    grid-column: 4/5;
+    grid-column: 3/4;
     grid-row: 1;
     justify-self: start;
     align-self: start;
@@ -203,7 +207,7 @@ footer{
     transform: translateX(140%) translateY(170%);
 }
 #energyLow{
-    grid-column: 4/5;
+    grid-column: 3/4;
     grid-row: 4;
     justify-self: start;
     align-self: end;
