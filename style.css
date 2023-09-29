@@ -149,8 +149,12 @@ footer{
     opacity: 0.5;
     margin:auto;
     
-}
+}/*
 .colorbutton.hoverable:hover{
+    opacity: 1.0;
+}*/
+/*one of these so hover only works in normal mode*/
+.colorbutton:hover :not(.zoom){
     opacity: 1.0;
 }
 #violet{
