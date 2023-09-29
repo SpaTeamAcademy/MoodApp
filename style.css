@@ -393,12 +393,12 @@ footer{
    /*     transform: scale (4,4);
    }
 }*/
-.top-line-grid.column-4.zoom{
+.top-line-grid.column-4.zoom /*yellow*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
     transform: translate(var(--yellow-translatate)) scale(var(--size-fs));
     transition: transform 2s;
 }
-.top-line-grid.column-3.zoom{
+.top-line-grid.column-3.zoom /*orange*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
     transform: translate(var(--orange-translatate)) scale(var(--size-fs));
     transition: transform 2s;
