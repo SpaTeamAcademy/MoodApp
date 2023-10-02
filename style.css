@@ -362,15 +362,15 @@ footer{
 
 /*Zoom*/
 :root{
-    --yellow-translatate:  -215%,65%;
-    --orange-translatate:  -65%,65%;
-    --red-translatate:  65%,65%;
-    --violet-translatate:  215%,65%;
+    --yellow-translate:  -215%,65%;
+    --orange-translate:  -65%,65%;
+    --red-translate:  65%,65%;
+    --violet-translate:  215%,65%;
 
-    --indigo-translatate:  215%,-65%;
-    --blue-translatate:  65%,-65%;
-    --turquoise-translatate:  -65%,-65%;
-    --green-translatate:  -215%,-65%;
+    --indigo-translate:  215%,-65%;
+    --blue-translate:  65%,-65%;
+    --turquoise-translate:  -65%,-65%;
+    --green-translate:  -215%,-65%;
 
     --size-fs: 7,7; /*size fulscreen*/
 }
@@ -379,6 +379,8 @@ footer{
     transform: scale(4,4);
     opacity: 1;
     z-index: 800;
+    /*ad transition to end zooming*/
+    transition: transform 8s;
    
     /*flebox version*//*
     display: flex;
@@ -399,68 +401,68 @@ footer{
 }*/
 .top-line-grid.column-4.zoom /*yellow*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--yellow-translatate)) scale(var(--size-fs));
+    transform: translate(var(--yellow-translate)) scale(var(--size-fs));
     transition: transform 2s;
 }
 .top-line-grid.column-3.zoom /*orange*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--orange-translatate)) scale(var(--size-fs));
+    transform: translate(var(--orange-translate)) scale(var(--size-fs));
     transition: transform 2s;
 }
 .top-line-grid.column-2.zoom /*red*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--red-translatate)) scale(var(--size-fs));
+    transform: translate(var(--red-translate)) scale(var(--size-fs));
     transition: transform 2s;
 }
 .top-line-grid.column-1.zoom /*violet*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--violet-translatate)) scale(var(--size-fs));
+    transform: translate(var(--violet-translate)) scale(var(--size-fs));
     transition: transform 2s;
 }
 
 .bottom-line-grid.column-1.zoom /*indigo*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--indigo-translatate)) scale(var(--size-fs));
+    transform: translate(var(--indigo-translate)) scale(var(--size-fs));
     transition: transform 2s;
 }
 .bottom-line-grid.column-2.zoom /*blue*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--blue-translatate)) scale(var(--size-fs));
+    transform: translate(var(--blue-translate)) scale(var(--size-fs));
     transition: transform 2s;
 }
 .bottom-line-grid.column-3.zoom /*turquoise*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--turquoise-translatate)) scale(var(--size-fs));
+    transform: translate(var(--turquoise-translate)) scale(var(--size-fs));
     transition: transform 2s;
 }
 .bottom-line-grid.column-4.zoom /*green*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--green-translatate)) scale(var(--size-fs));
+    transform: translate(var(--green-translate)) scale(var(--size-fs));
     transition: transform 2s;
 }
 @media ( width <= 1130px) {
     :root{
-        --yellow-translatate:  -210%,65%;
-        --orange-translatate:  -70%,65%;
-        --red-translatate:  70%,65%;
-        --violet-translatate:  210%,65%;
+        --yellow-translate:  -210%,65%;
+        --orange-translate:  -70%,65%;
+        --red-translate:  70%,65%;
+        --violet-translate:  210%,65%;
     
-        --indigo-translatate:  210%,-65%;
-        --blue-translatate:  70%,-65%;
-        --turquoise-translatate:  -70%,-65%;
-        --green-translatate:  -210%,-65%;
+        --indigo-translate:  210%,-65%;
+        --blue-translate:  70%,-65%;
+        --turquoise-translate:  -70%,-65%;
+        --green-translate:  -210%,-65%;
 }}
 
 @media (width >= 1350px) {
     :root{
-        --yellow-translatate:  -250%,65%;
-        --orange-translatate:  -85%,65%;
-        --red-translatate:  85%,65%;
-        --violet-translatate:  250%,65%;
+        --yellow-translate:  -250%,65%;
+        --orange-translate:  -85%,65%;
+        --red-translate:  85%,65%;
+        --violet-translate:  250%,65%;
     
-        --indigo-translatate:  250%,-65%;
-        --blue-translatate:  85%,-65%;
-        --turquoise-translatate:  -85%,-65%;
-        --green-translatate:  -250%,-65%;
+        --indigo-translate:  250%,-65%;
+        --blue-translate:  85%,-65%;
+        --turquoise-translate:  -85%,-65%;
+        --green-translate:  -250%,-65%;
 } 
 }
