@@ -17,7 +17,7 @@ footer{
 .coordinate-system {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 0 1fr 1fr;
     grid-gap: 20px;
     justify-content: center;
     align-items: space-between;
@@ -45,7 +45,8 @@ footer{
   width: 2px;
   height: 100%;
   background-color: black;
-  left: 50%;
+  grid-column:3/3;
+  left:50%;
 }
 
 /* Style for arrowheads */
@@ -129,12 +130,12 @@ footer{
     grid-column-end: 2;
 }
 .column-2 {
-    grid-column-start: -3;
-    grid-column-end: -4;
+    grid-column-start: -4;
+    grid-column-end: -5;
 }
 .column-3 {
-    grid-column-start: 3;
-    grid-column-end: 4;
+    grid-column-start: 4;
+    grid-column-end: 5;
 }
 .column-4 {
     grid-column-start: -1;
