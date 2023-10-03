@@ -283,6 +283,12 @@ footer{
     opacity: 1;
     transition: opacity 0.2s;
 }
+.keyList{
+    position: relative;
+    display: flex;
+    top: 5%;
+    left: 50%;
+}
 
 
 /* pop up*/
@@ -372,7 +378,7 @@ footer{
     --turquoise-translate:  -65%,-65%;
     --green-translate:  -215%,-65%;
 
-    --size-fs: 7,7; /*size fulscreen*/
+    --size-fs: 6,6; /*size fulscreen*/
 }
 .zoom{
    /* animation: zoom 4s; /*timing-function delay iteration-count direction fill-mode;*/
@@ -381,6 +387,7 @@ footer{
     z-index: 800;
     /*ad transition to end zooming*/
     transition: transform 8s;
+    display: flex;
    
     /*flebox version*//*
     display: flex;
@@ -390,13 +397,13 @@ footer{
     justify-self: center;
     align-self: center;*/
 }/*
-@keyframes zoom {
+@keyframes zoomOrange {
     0%{
         opacity: 0;
     }
     100% {opacity: 1;
-       /* transform: translate (var(--end-position), 200px);*/
-   /*     transform: scale (4,4);
+        transform: translate (var(--orange-translate), 200px);
+        transform: scale (4,4);
    }
 }*/
 .top-line-grid.column-4.zoom /*yellow*/{
@@ -408,6 +415,7 @@ footer{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
     transform: translate(var(--orange-translate)) scale(var(--size-fs));
     transition: transform 2s;
+    animation: zoomOrange 2s;
 }
 .top-line-grid.column-2.zoom /*red*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
