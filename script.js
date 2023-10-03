@@ -48,8 +48,8 @@ modal.addEventListener("click", (e) => {
   if (e.target === modal) {
   closeDialog();
   //closing accordions when closing modal//
-  accordionSwitch(accordionSection,"off");//maybe not needed
-  accordionSwitch(accordionBtn,"off")};
+  /*accordionSwitch(accordionSection/*,"off"*//*);//maybe not needed
+  accordionSwitch(accordionBtn/*,"off"*//*)*/};
 });
 //close modal by using button//
 //closeModal.addEventListener("click", closeDialog);
@@ -58,8 +58,6 @@ modal.addEventListener("click", (e) => {
 /*dymamic popup generation*/
 function display(color){ //is called using onclick for now, gets the button's ID as a parameter
   zoomAll(color);
-
-
 
   /*dynamic pop-up*/
   const popup = document.querySelector(".popUpBox");
@@ -140,6 +138,23 @@ function accordionSwitch(which){
       })
     }
 }
+
+/*
+function accordionSwitch(which,mode){
+  if(mode==="on"){
+    for (let i=0; i<which.length; i++) {
+      which[i].addEventListener('click', function () {
+      this.classList.toggle('active')
+      })
+    }
+  }
+  if(mode==="off"){
+    for(let i=0; i<which.length; i++){
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+    }
+  }
+}*/
 
 //navigation
 const colors = [["violet", "red", "orange", "yellow"],["indigo", "blue", "turquoise", "green"]]; //2 dimensional array containing all the IDs corresponding to the grid positions
