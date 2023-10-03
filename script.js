@@ -27,7 +27,7 @@ function showKeywords(){
 }
 
 
-/*opens and closes pop up*//*
+/*opens and closes pop up*/
 const modal = document.querySelector(".keywordPopup");
 const openModal = document.querySelectorAll(".colorbutton");
 
@@ -47,8 +47,9 @@ function closeDialog() {
 modal.addEventListener("click", (e) => {
   if (e.target === modal) {
   closeDialog();
-  /* zoomOff()*//*
- };
+  //closing accordions when closing modal//
+  accordionSwitch(accordionSection,"off");//maybe not needed
+  accordionSwitch(accordionBtn,"off")};
 });
 //close modal by using button//
 //closeModal.addEventListener("click", closeDialog);
@@ -56,9 +57,7 @@ modal.addEventListener("click", (e) => {
 
 /*dymamic popup generation*/
 function display(color){ //is called using onclick for now, gets the button's ID as a parameter
-  /*"zoom"*/
- /* zoomOn(color)*/
-  
+  zoomAll(color);
 
 
 
@@ -114,10 +113,9 @@ function display(color){ //is called using onclick for now, gets the button's ID
   //for dynamically generating a close button
   /*const closeModal = document.querySelector(".close-button");
   closeModal.addEventListener("click", () => {
-    modal.close();
+    modal.close()
   });*/
 }
-
 
 function createList(mood, listId){ //creates an unordered list and fills it using the specified values
   let list = document.createElement('ul');
@@ -256,5 +254,4 @@ var zoomed = document.getElementById(color);
 zoomed.classList.toggle("zoom");
 
 console.log("finished")
-var statusZoom = "finished";
 }
