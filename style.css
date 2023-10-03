@@ -378,7 +378,7 @@ footer{
     --turquoise-translate:  -65%,-65%;
     --green-translate:  -215%,-65%;
 
-    --size-fs: 6,6; /*size fulscreen*/
+    --size-fs: 4,4; /*size fulscreen*/
 }
 .zoom{
    /* animation: zoom 4s; /*timing-function delay iteration-count direction fill-mode;*/
