@@ -204,3 +204,21 @@ nextBtn.addEventListener("click", () => {
   display(colors[y][x]);
   labelBtns;
 });
+
+// customizable colors
+
+//gets userinput and inserts color into the right button
+function changeColor(id, input){
+  let userColor = document.getElementById(input).value;
+    document.getElementById(id).style.backgroundColor = userColor;
+}
+
+//toggles visibility of color change option
+function showColors() {
+  var x = document.getElementById("changeColor");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}

@@ -9,9 +9,8 @@
 </head>
 <body>
   <h1>MoodApp</h1>
-    <div class="changeColor">
-      <span>Hovere, um Farben anzupassen</span><br>
-      <div class="changeColor-content">
+      <button onclick="showColors()">Klicke, um Farben anzupassen</button><br>
+      <div id="changeColor">
         <p>Ängstlich</p>
         <input type="color" id="input1"></input>
         <button type="submit" onclick="changeColor('violet', 'input1')">Let's go</button><br>
@@ -38,13 +37,12 @@
         <button type="submit" onclick="changeColor('green', 'input8')">Let's go</button><br>
       </div>
   
-      <script>
+      <!--<script>
         function changeColor(id, input){
           let userColor = document.getElementById(input).value;
             document.getElementById(id).style.backgroundColor = userColor;
         }
-       </script> 
-    </div>
+       </script> -->
   
 
     <div class="coordinate-system">
