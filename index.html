@@ -9,6 +9,43 @@
 </head>
 <body>
   <h1>MoodApp</h1>
+    <div class="changeColor">
+      <span>Hovere, um Farben anzupassen</span><br>
+      <div class="changeColor-content">
+        <p>Ängstlich</p>
+        <input type="color" id="input1"></input>
+        <button type="submit" onclick="changeColor('violet', 'input1')">Let's go</button><br>
+        <p>Verärgert</p>
+        <input type="color" id="input2"></input>
+        <button type="submit" onclick="changeColor('red', 'input2')">Let's go</button><br>
+        <p>Aufgeregt</p>
+        <input type="color" id="input3"></input>
+        <button type="submit" onclick="changeColor('orange', 'input3')">Let's go</button><br>
+        <p>Glücklich</p>
+        <input type="color" id="input4"></input>
+        <button type="submit" onclick="changeColor('yellow', 'input4')">Let's go</button><br>
+        <p>Traurig</p>
+        <input type="color" id="input5"></input>
+        <button type="submit" onclick="changeColor('indigo', 'input5')">Let's go</button><br>
+        <p>Frustriert</p>
+        <input type="color" id="input6"></input>
+        <button type="submit" onclick="changeColor('blue', 'input6')">Let's go</button><br>
+        <p>Aufmerksam</p>
+        <input type="color" id="input7"></input>
+        <button type="submit" onclick="changeColor('turquoise', 'input7')">Let's go</button><br>
+        <p>Gelassen</p>
+        <input type="color" id="input8"></input>
+        <button type="submit" onclick="changeColor('green', 'input8')">Let's go</button><br>
+      </div>
+  
+      <script>
+        function changeColor(id, input){
+          let userColor = document.getElementById(input).value;
+            document.getElementById(id).style.backgroundColor = userColor;
+        }
+       </script> 
+    </div>
+  
 
     <div class="coordinate-system">
     <div class="x-axis"></div>
