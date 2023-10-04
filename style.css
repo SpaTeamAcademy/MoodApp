@@ -3,14 +3,33 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 h1 {
+    /*position: static;*/
+    position: fixed;
     font-size: 40px;
-    text-align: center;
+    width: 100%;
+    margin-left: 44%;
+    min-width: 28rem;
+}
+#space{
+    height: 30vh;
 }
 footer{
     position: fixed;
     bottom: 0;
     width: 100%;
     text-align: center;
+}
+
+@media (max-width:850px){
+    h1{
+        margin-left:40%;
+    }
+}
+
+@media (max-width:720px){
+    h1{
+        margin-left:35%;
+    }
 }
 
 /*coordinate system*/
@@ -26,7 +45,6 @@ footer{
     margin-right: 32.5%;
     padding-left: auto;
     padding-right: auto;
-    margin-top: 10%;
     min-width: 28rem;
 }
 
