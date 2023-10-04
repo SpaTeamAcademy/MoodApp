@@ -9,32 +9,32 @@
 </head>
 <body>
   <h1>MoodApp</h1>
-      <button onclick="showColors()">Klicke, um Farben anzupassen</button><br>
+      <button id="toggleButton" onclick="showColors()">Klicke, um Farben anzupassen</button><br>
       <div id="changeColor">
-        <p>Ängstlich</p>
-        <input type="color" id="input1"></input>
-        <button type="submit" onclick="changeColor('violet', 'input1')">Let's go</button><br>
-        <p>Verärgert</p>
-        <input type="color" id="input2"></input>
-        <button type="submit" onclick="changeColor('red', 'input2')">Let's go</button><br>
-        <p>Aufgeregt</p>
-        <input type="color" id="input3"></input>
-        <button type="submit" onclick="changeColor('orange', 'input3')">Let's go</button><br>
-        <p>Glücklich</p>
-        <input type="color" id="input4"></input>
-        <button type="submit" onclick="changeColor('yellow', 'input4')">Let's go</button><br>
-        <p>Traurig</p>
-        <input type="color" id="input5"></input>
-        <button type="submit" onclick="changeColor('indigo', 'input5')">Let's go</button><br>
-        <p>Frustriert</p>
-        <input type="color" id="input6"></input>
-        <button type="submit" onclick="changeColor('blue', 'input6')">Let's go</button><br>
-        <p>Aufmerksam</p>
-        <input type="color" id="input7"></input>
-        <button type="submit" onclick="changeColor('turquoise', 'input7')">Let's go</button><br>
-        <p>Gelassen</p>
-        <input type="color" id="input8"></input>
-        <button type="submit" onclick="changeColor('green', 'input8')">Let's go</button><br>
+        <p class="feelingName" >Ängstlich</p>
+        <input type="color" id="input1" value="#9f39ff"></input>
+        <button type="submit" class="colorChangeBtn" onclick="changeColor('violet', 'input1')">Auswählen</button>
+        <p class="feelingName" >Verärgert</p>
+        <input type="color" id="input2" value="#ff0000"></input>
+        <button type="submit" class="colorChangeBtn" onclick="changeColor('red', 'input2')">Auswählen</button>
+        <p class="feelingName" >Aufgeregt</p>
+        <input type="color" id="input3" value="#ffa500"></input>
+        <button type="submit" class="colorChangeBtn" onclick="changeColor('orange', 'input3')">Auswählen</button>
+        <p class="feelingName" >Glücklich</p>
+        <input type="color" id="input4" value="#face49"></input>
+        <button type="submit" class="colorChangeBtn" onclick="changeColor('yellow', 'input4')">Auswählen</button><br>
+        <p class="feelingName" >Traurig</p>
+        <input type="color" id="input5" value="#004197"></input>
+        <button type="submit" class="colorChangeBtn" onclick="changeColor('indigo', 'input5')">Auswählen</button>
+        <p class="feelingName" >Frustriert</p>
+        <input type="color" id="input6" value="#2973d7"></input>
+        <button type="submit" class="colorChangeBtn" onclick="changeColor('blue', 'input6')">Auswählen</button>
+        <p class="feelingName" >Aufmerksam</p>
+        <input type="color" id="input7" value="#4bbc30"></input>
+        <button type="submit" class="colorChangeBtn" onclick="changeColor('turquoise', 'input7')">Auswählen</button>
+        <p class="feelingName" >Gelassen</p>
+        <input type="color" id="input8" value="#a3e200"></input>
+        <button type="submit" class="colorChangeBtn" onclick="changeColor('green', 'input8')">Auswählen</button>
       </div>
   
       <!--<script>
