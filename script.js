@@ -14,7 +14,6 @@ fetch("./moods.json")
     console.error(error);
 });
 
-
 function showKeywords(){
     let moodElements = document.querySelectorAll(".keywords"); // selects all elements with the class="keywords"
 
@@ -43,23 +42,89 @@ function closeDialog() {
   modal.close();
   modal.style.display = "none";
 }
+
+//generates dynamic pop up function
+/*dynamic pop-up*/
+function PopUp(color){
+  //console.log("popup trying")
+ const popup = document.querySelector(".popUpBox");
+ let accordion = document.createElement('div');
+ accordion.className = "accordion";
+ popup.innerHTML = "";
+ const entries = ["Gefühle", "Beispiele", "Körper", "Gedanken", "Strategien"]; //used for headlines
+/*let closeBtn = document.createElement('button');
+closeBtn.className = "button close-button";
+closeBtn.innerHTML = "schließen";*/
+
+ getPosition(color);
+ labelBtns();
+ 
+ for(let i in moodsData.Moods){
+    if(moodsData.Moods[i].color === color){ //checks which of the objects matches the ID
+        const keys = Object.keys(moodsData.Moods[i]);
+
+        let keywords = document.createElement('ul');//the keywords list is created, which is not an accordion
+        keywords.append(createList(moodsData.Moods[i], "keywords"));
+        popup.append(keywords); //the list is appended to the dialog element
+
+        for(let j = 2; j < keys.length; ++j){ //the 4 accordions are created. the for loop iterates the object itself
+          let section = document.createElement('div');
+          section.className = "accordionSection";
+
+          let accordionBtn = document.createElement('div');
+          accordionBtn.className = "accordionBtn";
+
+          let headline = document.createElement('h3');
+          headline.innerHTML = entries[j-1];
+
+          let content = document.createElement('div');
+          content.className = "accordionContent";
+          content.append(createList(moodsData.Moods[i], keys[j]));
+
+          accordionBtn.append(headline); //all the accordions are appended to an accordion container
+          section.append(accordionBtn);
+          section.append(content);
+          accordion.append(section);
+        }
+    } 
+ }
+
+popup.append(accordion); //the accordion and the close button are appended to the dialog
+//popup.append(closeBtn);
+
+accordionSwitch(accordionSection);
+accordionSwitch(accordionBtn);
+
+//popup.style.display = "block";
+//for dynamically generating a close button
+/*const closeModal = document.querySelector(".close-button");
+closeModal.addEventListener("click", () => {
+  modal.close()
+});*/
+}
+
 //closing modal by clicking outside//
-modal.addEventListener("click", (e) => {
+/*modal.addEventListener("click", (e) => {
   if (e.target === modal) {
   closeDialog();
   //closing accordions when closing modal//
   /*accordionSwitch(accordionSection/*,"off"*//*);//maybe not needed
-  accordionSwitch(accordionBtn/*,"off"*//*)*/};
-});
+  accordionSwitch(accordionBtn/*,"off"*//*)*//*};
+});*/
 //close modal by using button//
 //closeModal.addEventListener("click", closeDialog);
 
 
-/*dymamic popup generation*/
+/*dymamic popup generation*//*
 function display(color){ //is called using onclick for now, gets the button's ID as a parameter
   zoomAll(color);
-
+  //let currentColor = document.getElementById(color);
+ /* let currentColor = document.getElementsByClassName("zoom");
+  
+  console.log(currentColor)
+ currentColor.addEventListener("transitionend", PopUp(color))*/
   /*dynamic pop-up*/
+/*
   const popup = document.querySelector(".popUpBox");
   let accordion = document.createElement('div');
   accordion.className = "accordion";
@@ -68,7 +133,7 @@ function display(color){ //is called using onclick for now, gets the button's ID
   /*let closeBtn = document.createElement('button');
   closeBtn.className = "button close-button";
   closeBtn.innerHTML = "schließen";*/
-
+/*
   getPosition(color);
   labelBtns();
 
@@ -106,14 +171,14 @@ function display(color){ //is called using onclick for now, gets the button's ID
   //popup.append(closeBtn);
 
   accordionSwitch(accordionSection);
-  accordionSwitch(accordionBtn);
+  accordionSwitch(accordionBtn);*/
   
   //for dynamically generating a close button
   /*const closeModal = document.querySelector(".close-button");
   closeModal.addEventListener("click", () => {
     modal.close()
   });*/
-}
+//}
 
 function createList(mood, listId){ //creates an unordered list and fills it using the specified values
   let list = document.createElement('ul');
@@ -269,4 +334,14 @@ var zoomed = document.getElementById(color);
 zoomed.classList.toggle("zoom");
 
 console.log("finished")
+
+let colorbutton = document.getElementById(color);
+//console.log("event begining")
+colorbutton.addEventListener("transitionend", () => {
+  //console.log("event done")
+  PopUp(color);
+  //console.log("have i waited?")
+})
+
+
 }
