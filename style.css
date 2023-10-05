@@ -318,6 +318,8 @@ footer{
  display:none;
  justify-content: space-between;
  align-items: center;
+ grid-template-columns: 1fr 7fr 1fr;
+ grid-template-rows:1fr 4fr 1fr;
 }
 .keywordPopup::backdrop {
  background: gray;
@@ -381,9 +383,36 @@ footer{
     transition: width 2s;
     background-color: lightgray;
     box-shadow: 5px 5px 5px 5px gray;
+    grid-column: 2/2;
+    grid-row:2/2
 }
 
-.nextBtn, .prevBtn{
-    height:30px;
-    margin: 20px;
+.navBtn{
+    height:40px;
+    width:40px;
+    border-radius:50%;
+}
+
+.upBtn{
+    grid-row:1/1;
+    grid-column: 2/2;
+    margin: auto auto 20px;
+}
+
+.downBtn{
+    grid-row:3/3;
+    grid-column: 2/2;
+    margin:20px auto auto;
+}
+
+.nextBtn{
+    grid-row:2/2;
+    grid-column: 3/3;
+    margin: auto 20px auto;
+}
+
+.prevBtn{
+    grid-row:2/2;
+    grid-column: 1/1;
+    margin: auto auto auto 20px;
 }

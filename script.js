@@ -34,7 +34,7 @@ const openModal = document.querySelectorAll(".colorbutton");
 for(i of openModal){
   i.addEventListener("click", (e) => {
     modal.showModal();
-    modal.style.display = "flex";
+    modal.style.display = "grid";
   });
 }
 
