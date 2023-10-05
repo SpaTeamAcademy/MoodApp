@@ -391,6 +391,13 @@ footer{
     height:40px;
     width:40px;
     border-radius:50%;
+    cursor:pointer;
+    border:solid grey 2px;
+    opacity: 0.5;
+}
+
+.navBtn:hover{
+    opacity: 1.0;
 }
 
 .upBtn{
