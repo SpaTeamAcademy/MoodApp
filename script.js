@@ -67,7 +67,7 @@ function display(color){ //is called using onclick for now, gets the button's ID
   closeBtn.innerHTML = "schließen";*/
 
   getPosition(color);
-  labelBtns();
+  displayBtns();
 
   for(let i in moodsData.Moods){
       if(moodsData.Moods[i].color === color){ //checks which of the objects matches the ID
@@ -147,7 +147,6 @@ function accordionSwitch(which,mode){
 
 //navigation
 const colors = [["violet", "red", "orange", "yellow"],["indigo", "blue", "turquoise", "green"]]; //2 dimensional array containing all the IDs corresponding to the grid positions
-const colorsGer = [["Lila", "Rot", "Orange", "Gelb"],["Dunkelblau", "Blau", "Grün", "Hellgrün"]];
 const prevBtn = document.querySelector(".prevBtn");
 const nextBtn = document.querySelector(".nextBtn");
 const upBtn = document.querySelector(".upBtn");
@@ -167,28 +166,21 @@ function getPosition(color){ //checks which position in the grid the color is at
   }
 }
 
-function labelBtns(){ //labels the buttons with the colors left and right of the current one
+function displayBtns(){ //labels the buttons with the colors left and right of the current one
 
 
     //if the color is at the grid's border, the button at the border's side will not be displayed
   if(x === 3){ //checks if the user is at the right border
     nextBtn.style.display = "none";
     prevBtn.style.display = "inline-block";
-
-    prevBtn.innerText = colorsGer[y][x-1];
   }
 
   else if (x === 0){ //checks if the user is at the left border
     prevBtn.style.display = "none";
     nextBtn.style.display = "inline-block";
-
-    nextBtn.innerText = colorsGer[y][x+1];
   }
 
   else{ //when the user is not at any of the borders, both buttons are displayed
-    prevBtn.innerText = colorsGer[y][x-1];
-    nextBtn.innerText = colorsGer[y][x+1];
-
     prevBtn.style.display = "inline-block";
     nextBtn.style.display = "inline-block";
   }
@@ -208,23 +200,23 @@ function labelBtns(){ //labels the buttons with the colors left and right of the
 prevBtn.addEventListener("click", () => {
   x--;
   display(colors[y][x]);
-  labelBtns();
+  displayBtns();
 });
 
 nextBtn.addEventListener("click", () => {
   x++;
   display(colors[y][x]);
-  labelBtns();
+  displayBtns();
 });
 
 upBtn.addEventListener("click", () => {
   y--;
   display(colors[y][x]);
-  labelBtns();
+  displayBtns();
 });
 
 downBtn.addEventListener("click", () => {
   y++;
   display(colors[y][x]);
-  labelBtns();
+  displayBtns();
 });
