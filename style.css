@@ -1,4 +1,37 @@
 /*general*/
+
+:root{
+    /*PopUp*/
+    --popUp-top: 30%;
+    --popUp-left: 28%;
+
+
+    /*colorbutton*/
+    --yellow-translate:  -215%,65%;
+    --orange-translate:  -65%,65%;
+    --red-translate:  65%,65%;
+    --violet-translate:  -500%,65%;
+
+    --indigo-translate:  -180%,-150%;
+    --blue-translate:  65%,-65%;
+    --turquoise-translate:  -65%,-65%;
+    --green-translate:  -215%,-65%;
+
+
+    --yellow-translate:  -210%,65%;
+    --orange-translate:  -70%,65%;
+    --red-translate:  70%,65%;
+    --violet-translate:  -180%,-170%;
+    
+    --indigo-translate:  210%,-65%;
+    --blue-translate:  70%,-65%;
+    --turquoise-translate:  -70%,-65%;
+    --green-translate:  -210%,-65%;
+
+    --size-Btn: 4,4; /*size fulscreen*/
+    --T-time: 0.4s;
+}
+
 body {
     font-family: "Montserrat", sans-serif;
 }
@@ -153,10 +186,10 @@ footer{
 .colorbutton.hoverable:hover{
     opacity: 1.0;
 }*/
-/*one of these so hover only works in normal mode*/
+/*one of these so hover only works in normal mode*//*
 .colorbutton:hover :not(.zoom){
     opacity: 1.0;
-}
+}*/
 #violet{
     background-color: #9f39ff;
 }
@@ -279,10 +312,13 @@ footer{
     padding-left: 10px;
     padding-right: 10px;
 }
+
+/*
+//////////////////////////////////////
 .colorbutton.hoverable:hover .keywords{
     opacity: 1;
     transition: opacity 0.2s;
-}
+}*/
 .keyList{
     position: relative;
     display: flex;
@@ -296,13 +332,14 @@ footer{
  border: none;
  background: transparent;
  display:none;
+ visibility: hidden;
  justify-content: space-between;
  align-items: center;
-}
+}/*
 .keywordPopup::backdrop {
  background: gray;
  opacity: 0.7;
-}
+}*/
 /*the close button itself is commented out but styles are necessary for accordion*/
 .close-button {
  border: solid 5px white;
@@ -351,14 +388,19 @@ footer{
 
 /*Navigation*/
 .popUpBox{
+    position: fixed;
+    position: absolute;
     padding: 20px;
     max-width: 50ch;
     border: solid 5px white;
     border-radius: 20px;
-    box-shadow: 30 px;
-    transition: width 2s;
+    box-shadow: 30px;
+    /*transition: width 2s;*/
     background-color: lightgray;
     box-shadow: 5px 5px 5px 5px gray;
+    z-index: 900;
+    top: var(--popUp-top);
+    left: var(--popUp-left);
 }
 .nextBtn, .prevBtn{
     height:30px;
@@ -367,26 +409,13 @@ footer{
 
 
 /*Zoom*/
-:root{
-    --yellow-translate:  -215%,65%;
-    --orange-translate:  -65%,65%;
-    --red-translate:  65%,65%;
-    --violet-translate:  215%,65%;
-
-    --indigo-translate:  215%,-65%;
-    --blue-translate:  65%,-65%;
-    --turquoise-translate:  -65%,-65%;
-    --green-translate:  -215%,-65%;
-
-    --size-fs: 4,4; /*size fulscreen*/
-}
 .zoom{
    /* animation: zoom 4s; /*timing-function delay iteration-count direction fill-mode;*/
-    transform: scale(4,4);
+    /*transform: scale(4,4);*/
     opacity: 1;
     z-index: 800;
     /*ad transition to end zooming*/
-    transition: transform 8s;
+    /*transition: transform var(--T-time);*/
     display: flex;
    
     /*flebox version*//*
@@ -396,81 +425,86 @@ footer{
     align-content: center;
     justify-self: center;
     align-self: center;*/
-}/*
-@keyframes zoomOrange {
-    0%{
-        opacity: 0;
-    }
-    100% {opacity: 1;
-        transform: translate (var(--orange-translate), 200px);
-        transform: scale (4,4);
-   }
-}*/
+}
 .top-line-grid.column-4.zoom /*yellow*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--yellow-translate)) scale(var(--size-fs));
-    transition: transform 2s;
+    transform: translate(var(--yellow-translate)) scale(var(--size-Btn));
+    transition: transform var(--T-time);
+    /*animation: zoomYellow 20s;
+    /*animation: name duration timing-function delay iteration-count direction fill-mode;*/
+    /*animation-iteration-count: 1;
+    animation-fill-mode: forwards;*/
 }
 .top-line-grid.column-3.zoom /*orange*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--orange-translate)) scale(var(--size-fs));
-    transition: transform 2s;
-    animation: zoomOrange 2s;
+    transform: translate(var(--orange-translate)) scale(var(--size-Btn));
+    transition: transform var(--T-time);
+   /* animation: zoomOrange 2s;*/
 }
 .top-line-grid.column-2.zoom /*red*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--red-translate)) scale(var(--size-fs));
-    transition: transform 2s;
+    transform: translate(var(--red-translate)) scale(var(--size-Btn));
+    transition: transform var(--T-time);
 }
 .top-line-grid.column-1.zoom /*violet*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--violet-translate)) scale(var(--size-fs));
-    transition: transform 2s;
+    transform: translate(var(--violet-translate)) scale(var(--size-Btn));
+    transition: transform var(--T-time);
 }
-
 .bottom-line-grid.column-1.zoom /*indigo*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--indigo-translate)) scale(var(--size-fs));
-    transition: transform 2s;
+    transform: translate(var(--indigo-translate)) scale(var(--size-Btn));
+    transition: transform var(--T-time);
 }
 .bottom-line-grid.column-2.zoom /*blue*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--blue-translate)) scale(var(--size-fs));
-    transition: transform 2s;
+    transform: translate(var(--blue-translate)) scale(var(--size-Btn));
+    transition: transform var(--T-time);
 }
 .bottom-line-grid.column-3.zoom /*turquoise*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--turquoise-translate)) scale(var(--size-fs));
-    transition: transform 2s;
+    transform: translate(var(--turquoise-translate)) scale(var(--size-Btn));
+    transition: transform var(--T-time);
 }
 .bottom-line-grid.column-4.zoom /*green*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--green-translate)) scale(var(--size-fs));
-    transition: transform 2s;
+    transform: translate(var(--green-translate)) scale(var(--size-Btn));
+    transition: transform var(--T-time);
 }
 @media ( width <= 1130px) {
     :root{
+         /*PopUp*/
+         --popUp-top: 25%;
+         --popUp-left: 20%;
+ 
+         /*colorbutton*/
         --yellow-translate:  -210%,65%;
         --orange-translate:  -70%,65%;
         --red-translate:  70%,65%;
-        --violet-translate:  210%,65%;
+        --violet-translate:  -150%,-150%;
     
         --indigo-translate:  210%,-65%;
         --blue-translate:  70%,-65%;
         --turquoise-translate:  -70%,-65%;
         --green-translate:  -210%,-65%;
+        --size-Btn: 3,3; /*size fulscreen*/
 }}
 
 @media (width >= 1350px) {
     :root{
-        --yellow-translate:  -250%,65%;
-        --orange-translate:  -85%,65%;
-        --red-translate:  85%,65%;
-        --violet-translate:  250%,65%;
+        /*PopUp*/
+        --popUp-top: 30%;
+        --popUp-left: 30%;
+
+        /*colorbutton*/
+        --yellow-translate:  -690%,-180%;
+        --orange-translate:  -520%,-180%;
+        --red-translate:  -350%,-180%;
+        --violet-translate:  -180%,-180%;
     
-        --indigo-translate:  250%,-65%;
-        --blue-translate:  85%,-65%;
-        --turquoise-translate:  -85%,-65%;
-        --green-translate:  -250%,-65%;
+        --indigo-translate:  -180%,-305%;
+        --blue-translate:  -350%,-305%;
+        --turquoise-translate:  -520%,-305%;
+        --green-translate:  -690%,-305%;
 } 
 }
