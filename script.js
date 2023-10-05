@@ -150,6 +150,8 @@ const colors = [["violet", "red", "orange", "yellow"],["indigo", "blue", "turquo
 const colorsGer = [["Lila", "Rot", "Orange", "Gelb"],["Dunkelblau", "Blau", "Grün", "Hellgrün"]];
 const prevBtn = document.querySelector(".prevBtn");
 const nextBtn = document.querySelector(".nextBtn");
+const upBtn = document.querySelector(".upBtn");
+const downBtn = document.querySelector(".downBtn");
 const row = 2;
 const col = 4;
 let x = 0;
@@ -191,6 +193,16 @@ function labelBtns(){ //labels the buttons with the colors left and right of the
     nextBtn.style.display = "inline-block";
   }
 
+
+  if(y === 0){
+    upBtn.style.display = "none";
+    downBtn.style.display = "inline-block";
+  }
+
+  else if(y === 1){
+    upBtn.style.display = "inline-block";
+    downBtn.style.display = "none";
+  }
 }
 
 prevBtn.addEventListener("click", () => {
