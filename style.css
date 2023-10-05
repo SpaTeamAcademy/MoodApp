@@ -1,5 +1,4 @@
 /*general*/
-
 :root{
     /*PopUp*/
     --popUp-top: 30%;
@@ -31,7 +30,6 @@
     --size-Btn: 4,4; /*size fulscreen*/
     --T-time: 0.4s;
 }
-
 body {
     font-family: "Montserrat", sans-serif;
 }
@@ -58,7 +56,6 @@ footer{
         margin-left:40%;
     }
 }
-
 @media (max-width:720px){
     h1{
         margin-left:35%;
@@ -80,7 +77,6 @@ footer{
     padding-right: auto;
     min-width: 28rem;
 }
-
 
 /* Style for X and Y axis */
 .x-axis {
@@ -316,7 +312,6 @@ footer{
     border-style: solid;
     border-color: grey transparent transparent transparent;
 }
-
 
 
 /*keywords*/
