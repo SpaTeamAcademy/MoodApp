@@ -208,11 +208,23 @@ function labelBtns(){ //labels the buttons with the colors left and right of the
 prevBtn.addEventListener("click", () => {
   x--;
   display(colors[y][x]);
-  labelBtns
+  labelBtns();
 });
 
 nextBtn.addEventListener("click", () => {
   x++;
   display(colors[y][x]);
-  labelBtns;
+  labelBtns();
+});
+
+upBtn.addEventListener("click", () => {
+  y--;
+  display(colors[y][x]);
+  labelBtns();
+});
+
+downBtn.addEventListener("click", () => {
+  y++;
+  display(colors[y][x]);
+  labelBtns();
 });
