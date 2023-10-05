@@ -32,14 +32,17 @@ const openModal = document.querySelectorAll(".colorbutton");
 
 for(i of openModal){
   i.addEventListener("click", (e) => {
-    modal.showModal();
+   // modal.showModal();
+   modal.style.visibility = "visible"
     modal.style.display = "flex";
   });
 }
 
 //close function for button and clicking outside modal//
 function closeDialog() {
-  modal.close();
+ // modal.close();
+ console.log("hide")
+ modal.style.visibility = "hidden"
   modal.style.display = "none";
 }
 
@@ -331,7 +334,10 @@ let reset = document.getElementsByClassName("zoom")
 var zoomed = document.getElementById(color);
 
 //zoomed.classList.add('zoom') maybe better later since you can not do two toggles after each other 
-zoomed.classList.toggle("zoom");
+zoomed.classList.toggle("zoom");/*
+if(zoomed.className === ".zoom"){
+
+}else if()*/
 
 console.log("finished")
 

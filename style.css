@@ -1,10 +1,48 @@
 /*general*/
+:root{
+    /*PopUp*/
+    --popUp-top: 30%;
+    --popUp-left: 28%;
+
+
+    /*colorbutton*/
+    --yellow-translate:  -215%,65%;
+    --orange-translate:  -65%,65%;
+    --red-translate:  65%,65%;
+    --violet-translate:  -500%,65%;
+
+    --indigo-translate:  -180%,-150%;
+    --blue-translate:  65%,-65%;
+    --turquoise-translate:  -65%,-65%;
+    --green-translate:  -215%,-65%;
+
+
+    --yellow-translate:  -210%,65%;
+    --orange-translate:  -70%,65%;
+    --red-translate:  70%,65%;
+    --violet-translate:  -180%,-170%;
+    
+    --indigo-translate:  210%,-65%;
+    --blue-translate:  70%,-65%;
+    --turquoise-translate:  -70%,-65%;
+    --green-translate:  -210%,-65%;
+
+    --size-Btn: 4,4; /*size fulscreen*/
+    --T-time: 0.4s;
+}
 body {
     font-family: "Montserrat", sans-serif;
 }
 h1 {
+    /*position: static;*/
+    position: fixed;
     font-size: 40px;
-    text-align: center;
+    width: 100%;
+    margin-left: 44%;
+    min-width: 28rem;
+}
+#space{
+    height: 30vh;
 }
 footer{
     position: fixed;
@@ -13,19 +51,30 @@ footer{
     text-align: center;
 }
 
+@media (max-width:850px){
+    h1{
+        margin-left:40%;
+    }
+}
+@media (max-width:720px){
+    h1{
+        margin-left:35%;
+    }
+}
+
 /*coordinate system*/
 .coordinate-system {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 0 1fr 1fr;
     grid-gap: 20px;
     justify-content: center;
     align-items: space-between;
     position: relative; 
     margin-left: 32.5%;
     margin-right: 32.5%;
-    margin-top: 10%;
-    width:35%;
+    padding-left: auto;
+    padding-right: auto;
     min-width: 28rem;
 }
 
@@ -42,7 +91,8 @@ footer{
   width: 2px;
   height: 100%;
   background-color: black;
-  left: 50%;
+  grid-column:3/3;
+  left:50%;
 }
 
 /* Style for arrowheads */
@@ -123,12 +173,12 @@ footer{
     grid-column-end: 2;
 }
 .column-2 {
-    grid-column-start: -3;
-    grid-column-end: -4;
+    grid-column-start: -4;
+    grid-column-end: -5;
 }
 .column-3 {
-    grid-column-start: 3;
-    grid-column-end: 4;
+    grid-column-start: 4;
+    grid-column-end: 5;
 }
 .column-4 {
     grid-column-start: -1;
@@ -192,20 +242,22 @@ footer{
     justify-self: start;
     align-self: start;
     transform: translateX(-50%) translateY(-280%);
+    white-space: nowrap;
 }
 #negativ{
     grid-column: 1;
     grid-row: 2;
     justify-self: start;
     align-self: end;
-    transform: translateX(-140%) translateY(170%);
+    transform: translateX(-140%) translateY(110%);
 }
 #positiv{
     grid-column: -2;
     grid-row: 2;
     justify-self: end;
     align-self: end;
-    transform: translateX(140%) translateY(170%);
+    transform: translateX(113%) translateY(110%);
+    padding-right:100%;
 }
 #energyLow{
     grid-column: 3/4;
@@ -213,6 +265,7 @@ footer{
     justify-self: start;
     align-self: end;
     transform: translateX(-50%) translateY(280%);
+    white-space: nowrap;
 }
 
 /*Position of keywords on grid*//*tooltip*/
@@ -261,7 +314,6 @@ footer{
 }
 
 
-
 /*keywords*/
 .keywords {
     opacity: 0;
@@ -299,13 +351,14 @@ footer{
  border: none;
  background: transparent;
  display:none;
+ visibility: hidden;
  justify-content: space-between;
  align-items: center;
-}
+}/*
 .keywordPopup::backdrop {
  background: gray;
  opacity: 0.7;
-}
+}*/
 /*the close button itself is commented out but styles are necessary for accordion*/
 .close-button {
  border: solid 5px white;
@@ -354,6 +407,8 @@ footer{
 
 /*Navigation*/
 .popUpBox{
+    position: fixed;
+    position: absolute;
     padding: 20px;
     max-width: 50ch;
     border: solid 5px white;
@@ -362,7 +417,9 @@ footer{
     /*transition: width 2s;*/
     background-color: lightgray;
     box-shadow: 5px 5px 5px 5px gray;
-    z-index: 400;
+    z-index: 900;
+    top: var(--popUp-top);
+    left: var(--popUp-left);
 }
 .nextBtn, .prevBtn{
     height:30px;
@@ -371,20 +428,6 @@ footer{
 
 
 /*Zoom*/
-:root{
-    --yellow-translate:  -215%,65%;
-    --orange-translate:  -65%,65%;
-    --red-translate:  65%,65%;
-    --violet-translate:  -500%,65%;
-
-    --indigo-translate:  215%,-65%;
-    --blue-translate:  65%,-65%;
-    --turquoise-translate:  -65%,-65%;
-    --green-translate:  -215%,-65%;
-
-    --size-fs: 4,4; /*size fulscreen*/
-    --T-time: 0.4s;
-}
 .zoom{
    /* animation: zoom 4s; /*timing-function delay iteration-count direction fill-mode;*/
     /*transform: scale(4,4);*/
@@ -402,24 +445,9 @@ footer{
     justify-self: center;
     align-self: center;*/
 }
-@keyframes zoomYellow {
-    0%{
-        opacity: 0;
-    }
-    50%{
-        transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-        transform: translate(calc(var(--yellow-translate)/2)) scale(var(--size-fs));
-    }
-    100% {opacity: 1;
-        /*transform: translate (var(--yellow-translate), 200px);
-        transform: scale (4,4);*/
-        transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-        transform: translate(var(--yellow-translate)) scale(var(--size-fs));
-   }
-}
 .top-line-grid.column-4.zoom /*yellow*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--yellow-translate)) scale(var(--size-fs));
+    transform: translate(var(--yellow-translate)) scale(var(--size-Btn));
     transition: transform var(--T-time);
     /*animation: zoomYellow 20s;
     /*animation: name duration timing-function delay iteration-count direction fill-mode;*/
@@ -428,64 +456,74 @@ footer{
 }
 .top-line-grid.column-3.zoom /*orange*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--orange-translate)) scale(var(--size-fs));
+    transform: translate(var(--orange-translate)) scale(var(--size-Btn));
     transition: transform var(--T-time);
    /* animation: zoomOrange 2s;*/
 }
 .top-line-grid.column-2.zoom /*red*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--red-translate)) scale(var(--size-fs));
+    transform: translate(var(--red-translate)) scale(var(--size-Btn));
     transition: transform var(--T-time);
 }
 .top-line-grid.column-1.zoom /*violet*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--violet-translate)) scale(var(--size-fs));
+    transform: translate(var(--violet-translate)) scale(var(--size-Btn));
     transition: transform var(--T-time);
 }
-
 .bottom-line-grid.column-1.zoom /*indigo*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--indigo-translate)) scale(var(--size-fs));
+    transform: translate(var(--indigo-translate)) scale(var(--size-Btn));
     transition: transform var(--T-time);
 }
 .bottom-line-grid.column-2.zoom /*blue*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--blue-translate)) scale(var(--size-fs));
+    transform: translate(var(--blue-translate)) scale(var(--size-Btn));
     transition: transform var(--T-time);
 }
 .bottom-line-grid.column-3.zoom /*turquoise*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--turquoise-translate)) scale(var(--size-fs));
+    transform: translate(var(--turquoise-translate)) scale(var(--size-Btn));
     transition: transform var(--T-time);
 }
 .bottom-line-grid.column-4.zoom /*green*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
-    transform: translate(var(--green-translate)) scale(var(--size-fs));
+    transform: translate(var(--green-translate)) scale(var(--size-Btn));
     transition: transform var(--T-time);
 }
 @media ( width <= 1130px) {
     :root{
+         /*PopUp*/
+         --popUp-top: 25%;
+         --popUp-left: 20%;
+ 
+         /*colorbutton*/
         --yellow-translate:  -210%,65%;
         --orange-translate:  -70%,65%;
         --red-translate:  70%,65%;
-        --violet-translate:  -180%,-170%;
+        --violet-translate:  -150%,-150%;
     
         --indigo-translate:  210%,-65%;
         --blue-translate:  70%,-65%;
         --turquoise-translate:  -70%,-65%;
         --green-translate:  -210%,-65%;
+        --size-Btn: 3,3; /*size fulscreen*/
 }}
 
 @media (width >= 1350px) {
     :root{
-        --yellow-translate:  -250%,65%;
-        --orange-translate:  -85%,65%;
-        --red-translate:  85%,65%;
-        --violet-translate:  -180%,-170%;
+        /*PopUp*/
+        --popUp-top: 30%;
+        --popUp-left: 30%;
+
+        /*colorbutton*/
+        --yellow-translate:  -690%,-180%;
+        --orange-translate:  -520%,-180%;
+        --red-translate:  -350%,-180%;
+        --violet-translate:  -180%,-180%;
     
-        --indigo-translate:  250%,-65%;
-        --blue-translate:  85%,-65%;
-        --turquoise-translate:  -85%,-65%;
-        --green-translate:  -250%,-65%;
+        --indigo-translate:  -180%,-305%;
+        --blue-translate:  -350%,-305%;
+        --turquoise-translate:  -520%,-305%;
+        --green-translate:  -690%,-305%;
 } 
 }
