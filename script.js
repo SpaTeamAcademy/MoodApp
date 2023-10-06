@@ -39,11 +39,11 @@ for(i of openModal){
 }
 
 //close function for button and clicking outside modal//
-function closeDialog() {
+function closeDialog(popup) {
  // modal.close();
  console.log("hide")
- modal.style.visibility = "hidden"
-  modal.style.display = "none";
+ popup.style.visibility = "hidden"
+  popup.style.display = "none";
 }
 
 //generates dynamic pop up function
@@ -107,13 +107,14 @@ closeModal.addEventListener("click", () => {
 }
 
 //closing modal by clicking outside//
-/*modal.addEventListener("click", (e) => {
+const popup = document.querySelector(".popUpBox");
+popup.addEventListener("click", (e) => {
   if (e.target === modal) {
-  closeDialog();
+  closeDialog(popup);
   //closing accordions when closing modal//
   /*accordionSwitch(accordionSection/*,"off"*//*);//maybe not needed
-  accordionSwitch(accordionBtn/*,"off"*//*)*//*};
-});*/
+  accordionSwitch(accordionBtn/*,"off"*//*)*/};
+});
 //close modal by using button//
 //closeModal.addEventListener("click", closeDialog);
 
@@ -311,7 +312,7 @@ function hoverSwitch(color){
  /*   console.log("more")
   }
 
-/*if(currentL<1)*//*else{
+/*else if(currentL<1)*//*{
  /* console.log("less")
   
 var colorbutton = document.getElementsByClassName("colorbutton");
@@ -348,6 +349,8 @@ if(zoomed.classList.contains("hoverable")){
     colorbuttonList[i].classList.add("hoverable");
   }
   zoomed.classList.remove("zoom");
+  popup.style.visibility = "hidden"
+  popup.style.display = "none";
 }
 //console.log("finished")
 
@@ -357,6 +360,4 @@ zoomed.addEventListener("transitionend", () => {
   PopUp(color);
   //console.log("have i waited?")
 })
-
-
 }
