@@ -34,7 +34,7 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 h1 {
-    /*position: static;*/
+    /*position: static;*//*if you want it to stay when scrolling*/
     position: fixed;
     font-size: 40px;
     width: 100%;
@@ -199,10 +199,10 @@ footer{
     opacity: 0.5;
     margin:auto;
     
-}/*
+}
 .colorbutton.hoverable:hover{
     opacity: 1.0;
-}*/
+}
 /*one of these so hover only works in normal mode*//*
 .colorbutton:hover :not(.zoom){
     opacity: 1.0;
@@ -331,13 +331,10 @@ footer{
     padding-left: 10px;
     padding-right: 10px;
 }
-
-/*
-//////////////////////////////////////
 .colorbutton.hoverable:hover .keywords{
     opacity: 1;
     transition: opacity 0.2s;
-}*/
+}
 .keyList{
     position: relative;
     display: flex;

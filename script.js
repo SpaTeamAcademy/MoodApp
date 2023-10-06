@@ -330,20 +330,29 @@ zoomed.classList.toggle("zoom");*//*
 
 function zoomAll(color){
 var statusZoom = "";
-let reset = document.getElementsByClassName("zoom")
 var zoomed = document.getElementById(color);
+const colorbuttonList = document.getElementsByClassName("colorbutton");
 
 //zoomed.classList.add('zoom') maybe better later since you can not do two toggles after each other 
-zoomed.classList.toggle("zoom");/*
-if(zoomed.className === ".zoom"){
+if(zoomed.classList.contains("hoverable")){
+  //console.log("+ zoom")
+  zoomed.classList.add("zoom");
+  //zoomed.classList.remove("hoverable");
+  for(let i = 0; i < colorbuttonList.length; i++){
+    colorbuttonList[i].classList.remove("hoverable");
+  }
 
-}else if()*/
+}else if(zoomed.classList.contains("zoom")){
+  //console.log("+ hoverable")
+  for(let i = 0; i < colorbuttonList.length; i++){
+    colorbuttonList[i].classList.add("hoverable");
+  }
+  zoomed.classList.remove("zoom");
+}
+//console.log("finished")
 
-console.log("finished")
-
-let colorbutton = document.getElementById(color);
 //console.log("event begining")
-colorbutton.addEventListener("transitionend", () => {
+zoomed.addEventListener("transitionend", () => {
   //console.log("event done")
   PopUp(color);
   //console.log("have i waited?")
