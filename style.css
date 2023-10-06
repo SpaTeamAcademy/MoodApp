@@ -417,7 +417,8 @@ footer{
 .nextBtn, .prevBtn{
     height:30px;
     margin: 20px;
-    position: absolute;
+    position: absolute;/*can not be changed coordinatesystem will move when popup is opened with any different value*/
+    left: 40vw;/*just for now to make shure they are still there*/
 }
 
 
