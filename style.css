@@ -1,6 +1,8 @@
 /*general*/
 body {
     font-family: "Montserrat", sans-serif;
+    background-color: var(--main-color);
+    color: var(--text-color);
 }
 h1 {
     /*position: static;*/
@@ -32,6 +34,17 @@ footer{
     }
 }
 
+@media (prefers-color-scheme: dark){
+    
+}
+
+:root{
+    --main-color:white;
+    --text-color:black;
+    --popup-color:grey;
+    --popup-background:lightgrey;
+}
+
 /*coordinate system*/
 .coordinate-system {
     display: grid;
@@ -54,7 +67,7 @@ footer{
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: black;
+    background-color: var(--text-color);
     top: 50%;
   }
 
@@ -62,7 +75,7 @@ footer{
   position: absolute;
   width: 2px;
   height: 100%;
-  background-color: black;
+  background-color: var(--text-color);
   grid-column:3/3;
   left:50%;
 }
@@ -92,7 +105,7 @@ footer{
 .x-axis::before { /*left arrowhead*/
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 15px solid black;
+  border-top: 15px solid var(--text-color);
   left: 0;
   transform: translateY(-50%) translateX(-50%) rotate(90deg);
 }
@@ -100,7 +113,7 @@ footer{
 .x-axis::after { /*right arrowhead*/
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 15px solid black;
+  border-bottom: 15px solid var(--text-color);
   right: 0;
   transform: translateY(-50%) translateX(50%) rotate(90deg);
 }
@@ -119,7 +132,7 @@ footer{
 .y-axis::before { /*top arrowhead*/
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  border-left: 15px solid black;
+  border-left: 15px solid var(--text-color);
   top: 0;
   transform: translateY(-50%) translateX(-50%) rotate(-90deg);
 }
@@ -127,7 +140,7 @@ footer{
 .y-axis::after { /*bottom arrowhead*/
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  border-right: 15px solid black;
+  border-right: 15px solid var(--text-color);
   bottom: 0;
   transform: translateY(50%) translateX(-50%) rotate(-90deg);
 }
@@ -262,7 +275,7 @@ footer{
 }
 #violetKeywords::before, #redKeywords::before, #orangeKeywords:before, #yellowKeywords::before{
     content: "";
-    color: grey;
+    color: var(--popup-color);
     position: absolute;
     transform: scale(2,2);
     top: 100%; /* At the bottom of the tooltip */
@@ -270,11 +283,11 @@ footer{
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: grey transparent transparent transparent;
+    border-color: var(--popup-color) transparent transparent transparent;
 }
 #indigoKeywords::before, #blueKeywords::before, #turquoiseKeywords::before, #greenKeywords::before{
     content: "";
-    color: grey;
+    color: var(--popup-color);
     position: absolute;
     transform: scale(2,2);
     top: -9px; /* At the top of the tooltip */
@@ -283,7 +296,7 @@ footer{
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: grey transparent transparent transparent;
+    border-color: var(--popup-color) transparent transparent transparent;
 }
 
 
@@ -296,7 +309,7 @@ footer{
     width: fit-content;
     min-width: 70px;
     height: 24px;
-    background-color: gray;
+    background-color: var(--popup-color);
     color: #fff;
     text-align: center;
     border-radius: 8px;
@@ -322,7 +335,7 @@ footer{
  grid-template-rows:1fr 4fr 1fr;
 }
 .keywordPopup::backdrop {
- background: gray;
+ background: var(--popup-color);
  opacity: 0.7;
 }
 /*the close button itself is commented out but styles are necessary for accordion*/
@@ -332,7 +345,7 @@ footer{
  cursor: pointer;
  border-radius: 8px;
  background-color: white;
- border: solid 2px gray;
+ border: solid 2px var(--popup-color);
  margin-top: 15px;
 }
 
@@ -343,8 +356,8 @@ footer{
     border-radius: 20px;
     box-shadow: 30 px;
     transition: width 2s;
-    background-color: lightgray;
-    box-shadow: 5px 5px 5px 5px gray;
+    background-color: var(--popup-background);
+    box-shadow: 5px 5px 5px 5px var(--popup-color);
     grid-column: 2/2;
     grid-row:2/2
 }
@@ -362,7 +375,7 @@ footer{
     height: 35px;
     margin: 4px;
     background-color: white;
-    border: solid 1px gray;
+    border: solid 1px var(--popup-color);
 }
 .accordionContent {
     height: 0;/*hides content when accordion is closed*/
