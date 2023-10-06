@@ -8,6 +8,7 @@ fetch("./moods.json")
 }).then(() => {
     //console.log(moodsData);
     showKeywords();
+    retrieveColors();
 })
 .catch(function (error){
     console.error("Something went wrong with retrieving the moods.");
@@ -211,14 +212,52 @@ nextBtn.addEventListener("click", () => {
 function changeColor(id, input){
   let userColor = document.getElementById(input).value;
     document.getElementById(id).style.backgroundColor = userColor;
+    localStorage.setItem(id, userColor);
 }
 
 //toggles visibility of color change option
-function showColors() {
+/*function showColors() {
   var x = document.getElementById("changeColor");
   if (x.style.display === "block") {
     x.style.display = "none";
   } else {
     x.style.display = "block";
+  }
+}*/
+
+
+
+const colorPopUp = document.getElementById("changeColor");
+const toggleButton = document.getElementById("toggleButton");
+
+//stopPropagation means we have handled the click elsewhere and it doesn't need to apply to whole document
+colorPopUp.addEventListener("click", (e) => {
+  e.stopPropagation();
+});
+
+//closes color picker by clicking outside or on button
+document.addEventListener("click", (e) => {
+  //checks if click is inside color picker, in which case doesn't close
+  if (
+    (e.target === toggleButton || toggleButton.contains(e.target)) ||
+    (e.target === colorPopUp || colorPopUp.contains(e.target))
+  ) {
+  } else {
+    //The click is outside, close the colorpicker
+    colorPopUp.classList.remove("show");
+  }
+});
+
+// Toggle the colorPopUp when clicking the toggle button
+toggleButton.addEventListener("click", () => {
+  colorPopUp.classList.toggle("show");
+});
+
+/*local storage for user preferences*/
+function retrieveColors() {
+  for(let i of moodsData.Moods){
+    if(localStorage.getItem(i.color) != undefined){
+      document.getElementById(i.color).style.backgroundColor = localStorage.getItem(i.color);
+    }
   }
 }
