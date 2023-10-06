@@ -335,6 +335,19 @@ footer{
  border: solid 2px gray;
  margin-top: 15px;
 }
+
+.popUpBox{
+    padding: 20px;
+    max-width: 50ch;
+    border: solid 5px white;
+    border-radius: 20px;
+    box-shadow: 30 px;
+    transition: width 2s;
+    background-color: lightgray;
+    box-shadow: 5px 5px 5px 5px gray;
+    grid-column: 2/2;
+    grid-row:2/2
+}
 /*.button:hover {
  background: lightgray;
 }*/
@@ -373,20 +386,8 @@ footer{
     transform: rotate(90deg); /*turns turn icon*/
   }
 
-/*Navigation*/
-.popUpBox{
-    padding: 20px;
-    max-width: 50ch;
-    border: solid 5px white;
-    border-radius: 20px;
-    box-shadow: 30 px;
-    transition: width 2s;
-    background-color: lightgray;
-    box-shadow: 5px 5px 5px 5px gray;
-    grid-column: 2/2;
-    grid-row:2/2
-}
 
+/*Navigation*/
 .navBtn{
     height:40px;
     width:40px;

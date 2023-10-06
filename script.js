@@ -190,6 +190,7 @@ function displayBtns(){ //labels the buttons with the colors left and right of t
   }
 
 
+  //checks if the user is at the bottom or top of the grid
   if(y === 0){
     upBtn.style.display = "none";
     downBtn.style.display = "inline-block";
@@ -203,6 +204,7 @@ function displayBtns(){ //labels the buttons with the colors left and right of t
   }
 }
 
+//colors the nav buttons. the color is read from the buttons in the grid itself
 function colorNavButtons(btn){
   let color;
   let targetBtn;
@@ -234,6 +236,7 @@ function colorNavButtons(btn){
   }
 }
 
+//event listeners for when the nav buttons are clicked
 prevBtn.addEventListener("click", () => {
   x--;
   display(colors[y][x]);
