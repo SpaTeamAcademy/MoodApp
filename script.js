@@ -173,27 +173,64 @@ function displayBtns(){ //labels the buttons with the colors left and right of t
   if(x === 3){ //checks if the user is at the right border
     nextBtn.style.display = "none";
     prevBtn.style.display = "inline-block";
+    colorNavButtons("left");
   }
 
   else if (x === 0){ //checks if the user is at the left border
     prevBtn.style.display = "none";
     nextBtn.style.display = "inline-block";
+    colorNavButtons("right");
   }
 
   else{ //when the user is not at any of the borders, both buttons are displayed
     prevBtn.style.display = "inline-block";
     nextBtn.style.display = "inline-block";
+    colorNavButtons("left");
+    colorNavButtons("right");
   }
 
 
   if(y === 0){
     upBtn.style.display = "none";
     downBtn.style.display = "inline-block";
+    colorNavButtons("down");
   }
 
   else if(y === 1){
     upBtn.style.display = "inline-block";
     downBtn.style.display = "none";
+    colorNavButtons("up");
+  }
+}
+
+function colorNavButtons(btn){
+  let color;
+  let targetBtn;
+
+  switch (btn){
+    case "left":
+      targetBtn = document.getElementById(colors[y][x-1]);
+      color = targetBtn.style.backgroundColor;
+      prevBtn.style.backgroundColor = color;
+      break;
+
+    case "right":
+      targetBtn = document.getElementById(colors[y][x+1]);
+      color = targetBtn.style.backgroundColor;
+      nextBtn.style.backgroundColor = color;
+      break;
+
+    case "up":
+      targetBtn = document.getElementById(colors[y-1][x]);
+      color = targetBtn.style.backgroundColor;
+      upBtn.style.backgroundColor = color;
+      break;
+
+    case "down":
+      targetBtn = document.getElementById(colors[y+1][x]);
+      color = targetBtn.style.backgroundColor;
+      downBtn.style.backgroundColor = color;
+      break;
   }
 }
 
