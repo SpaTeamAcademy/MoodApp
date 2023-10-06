@@ -209,26 +209,26 @@ function colorNavButtons(btn){
 
   switch (btn){
     case "left":
-      targetBtn = document.getElementById(colors[y][x-1]);
-      color = targetBtn.style.backgroundColor;
+      targetBtn = getComputedStyle(document.getElementById(colors[y][x-1]));
+      color = targetBtn.getPropertyValue("background-color");
       prevBtn.style.backgroundColor = color;
       break;
 
     case "right":
-      targetBtn = document.getElementById(colors[y][x+1]);
-      color = targetBtn.style.backgroundColor;
+      targetBtn = getComputedStyle(document.getElementById(colors[y][x+1]));
+      color = targetBtn.getPropertyValue("background-color");
       nextBtn.style.backgroundColor = color;
       break;
 
     case "up":
-      targetBtn = document.getElementById(colors[y-1][x]);
-      color = targetBtn.style.backgroundColor;
+      targetBtn = getComputedStyle(document.getElementById(colors[y-1][x]));
+      color = targetBtn.getPropertyValue("background-color");
       upBtn.style.backgroundColor = color;
       break;
 
     case "down":
-      targetBtn = document.getElementById(colors[y+1][x]);
-      color = targetBtn.style.backgroundColor;
+      targetBtn = getComputedStyle(document.getElementById(colors[y+1][x]));
+      color = targetBtn.getPropertyValue("background-color");
       downBtn.style.backgroundColor = color;
       break;
   }
