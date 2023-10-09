@@ -396,13 +396,13 @@ footer{
     border: solid 1px var(--popup-color);
 }
 .accordionContent {
-    height: 0;/*hides content when accordion is closed*/
+    max-height: 0;/*hides content when accordion is closed*/
     text-align: block;
     overflow: hidden;
-    transition: 0.8s;/*transition on accordion opening*/
+    transition: max-height 0.8s;/*transition on accordion opening*/
 }
 .accordionSection.active .accordionContent {
-    height: 150px;/*displays when accordion is opened*/
+    max-height: 170px;/*displays when accordion is opened*/
 }
 .accordionBtn:after {
     content: '\25B7';/*turn icon*/
