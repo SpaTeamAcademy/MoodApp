@@ -265,5 +265,5 @@ downBtn.addEventListener("click", () => {
 const darkModeSwitch = document.getElementById("darkModeSwitch");
 
 darkModeSwitch.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
+  document.body.classList.toggle("darkMode");
 })

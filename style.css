@@ -41,8 +41,21 @@ footer{
 :root{
     --main-color:white;
     --text-color:black;
+    --keyword-color:grey;
     --popup-color:grey;
     --popup-background:lightgrey;
+    --backdrop:grey;
+    --button-border:grey;
+}
+
+.darkMode{
+    --main-color:#161616;
+    --text-color:#dbdbdb;
+    --keyword-color:#dbdbdb;
+    --popup-color:#000000;
+    --popup-background:#292929;
+    --backdrop:#000000;
+    --button-border:#f3f3f3;
 }
 
 /*coordinate system*/
@@ -178,7 +191,7 @@ footer{
     cursor: pointer;
     border-width:2px;
     border-style:solid;
-    border-color:grey;
+    border-color:var(--button-border);
     border-radius: 50%;
     padding: 5px;
     text-align: center;
@@ -275,7 +288,7 @@ footer{
 }
 #violetKeywords::before, #redKeywords::before, #orangeKeywords:before, #yellowKeywords::before{
     content: "";
-    color: var(--popup-color);
+    color: var(--keyword-color);
     position: absolute;
     transform: scale(2,2);
     top: 100%; /* At the bottom of the tooltip */
@@ -283,11 +296,11 @@ footer{
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: var(--popup-color) transparent transparent transparent;
+    border-color: var(--keyword-color) transparent transparent transparent;
 }
 #indigoKeywords::before, #blueKeywords::before, #turquoiseKeywords::before, #greenKeywords::before{
     content: "";
-    color: var(--popup-color);
+    color: var(--keyword-color);
     position: absolute;
     transform: scale(2,2);
     top: -9px; /* At the top of the tooltip */
@@ -296,7 +309,7 @@ footer{
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: var(--popup-color) transparent transparent transparent;
+    border-color: var(--keyword-color) transparent transparent transparent;
 }
 
 
@@ -309,8 +322,8 @@ footer{
     width: fit-content;
     min-width: 70px;
     height: 24px;
-    background-color: var(--popup-color);
-    color: #fff;
+    background-color: var(--keyword-color);
+    color: var(--main-color);
     text-align: center;
     border-radius: 8px;
     z-index: 1;/*sets it infront of everything*/
@@ -326,6 +339,7 @@ footer{
 
 /* pop up*/
 .keywordPopup {
+ color:var(--text-color);
  border: none;
  background: transparent;
  display:none;
@@ -335,7 +349,7 @@ footer{
  grid-template-rows:1fr 4fr 1fr;
 }
 .keywordPopup::backdrop {
- background: grey;
+ background: var(--backdrop);
  opacity: 0.7;
 }
 /*the close button itself is commented out but styles are necessary for accordion*/
@@ -352,7 +366,7 @@ footer{
 .popUpBox{
     padding: 20px;
     max-width: 50ch;
-    border: solid 5px white;
+    border: solid 5px var(--main-color);
     border-radius: 20px;
     box-shadow: 30 px;
     transition: width 2s;
@@ -374,7 +388,7 @@ footer{
     padding-bottom: 20px;
     height: 35px;
     margin: 4px;
-    background-color: white;
+    background-color: var(--main-color);
     border: solid 1px var(--popup-color);
 }
 .accordionContent {
@@ -406,7 +420,7 @@ footer{
     width:40px;
     border-radius:50%;
     cursor:pointer;
-    border:solid grey 2px;
+    border:solid var(--button-border) 2px;
     opacity: 0.7;
 }
 
