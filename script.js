@@ -266,4 +266,20 @@ const darkModeSwitch = document.getElementById("darkModeSwitch");
 
 darkModeSwitch.addEventListener("click", () => {
   document.body.classList.toggle("darkMode");
-})
+
+  if(document.body.classList.contains("darkMode")){
+    localStorage.setItem("darkMode", "true");
+  }
+  else{
+    localStorage.setItem("darkMode", "false");
+  }
+});
+
+if(localStorage.getItem("darkMode") === "true"){
+  darkModeSwitch.checked = true;
+  document.body.classList.add("darkMode");
+}
+else{
+  darkModeSwitch.checked = false;
+  document.body.classList.remove("darkMode");
+}
