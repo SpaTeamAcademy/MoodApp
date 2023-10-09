@@ -457,7 +457,7 @@ footer{
 }
 
 .darkModeSwitch:before{
-    content:'';
+    content:'☀️';
     position:absolute;
     left:0;
     width:40px;
@@ -467,9 +467,13 @@ footer{
     box-shadow:inset 0 0 5px #7e7e7e;
     transform:scale(1.1);
     transition: .5s;
+    font-size:20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .darkModeSwitch:checked:before{
+    content:'🌙';
     left:40px;
-    transition: .5s;
 }
