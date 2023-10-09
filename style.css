@@ -455,9 +455,10 @@ footer{
 
 /*Dark Mode*/
 .darkModeSwitch{
-    position:relative;
+    position:fixed;
     display: inline-block;
-    left:93%;
+    left:auto;
+    right:46px;
     width:80px;
     height:40px;
     border-radius:20px;
@@ -502,7 +503,7 @@ footer{
 #changeColor{
     position: fixed;
     right: 50px;
-    top: 80px;
+    top: 110px;
     position: absolute;
     background-color: lightgray;
     border: solid 2px grey;
@@ -519,7 +520,7 @@ footer{
 #toggleButton{
     position: fixed;
     right: 50px;
-    top: 20px;
+    top: 50px;
     color: gray;
     border: solid 5px white;
     padding: 10px;
