@@ -264,7 +264,7 @@ downBtn.addEventListener("click", () => {
 //dark mode
 const darkModeSwitch = document.getElementById("darkModeSwitch");
 
-darkModeSwitch.addEventListener("click", () => {
+darkModeSwitch.addEventListener("click", () => { //toggles the theme when the switch is clicked, also saves theme to localstorage
   document.body.classList.toggle("darkMode");
 
   if(document.body.classList.contains("darkMode")){
@@ -275,7 +275,7 @@ darkModeSwitch.addEventListener("click", () => {
   }
 });
 
-if(localStorage.getItem("darkMode") === "true"){
+if(localStorage.getItem("darkMode") === "true"){ //checks if dark mode is true in localstorage and sets theme accordingly
   darkModeSwitch.checked = true;
   document.body.classList.add("darkMode");
 }
