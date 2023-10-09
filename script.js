@@ -35,7 +35,7 @@ const openModal = document.querySelectorAll(".colorbutton");
 for(i of openModal){
   i.addEventListener("click", (e) => {
     modal.showModal();
-    modal.style.display = "flex";
+    modal.style.display = "grid";
   });
 }
 
@@ -68,7 +68,7 @@ function display(color){ //is called using onclick for now, gets the button's ID
   closeBtn.innerHTML = "schließen";*/
 
   getPosition(color);
-  labelBtns();
+  displayBtns();
 
   for(let i in moodsData.Moods){
       if(moodsData.Moods[i].color === color){ //checks which of the objects matches the ID
@@ -148,9 +148,10 @@ function accordionSwitch(which,mode){
 
 //navigation
 const colors = [["violet", "red", "orange", "yellow"],["indigo", "blue", "turquoise", "green"]]; //2 dimensional array containing all the IDs corresponding to the grid positions
-const colorsGer = [["Lila", "Rot", "Orange", "Gelb"],["Dunkelblau", "Blau", "Grün", "Hellgrün"]];
 const prevBtn = document.querySelector(".prevBtn");
 const nextBtn = document.querySelector(".nextBtn");
+const upBtn = document.querySelector(".upBtn");
+const downBtn = document.querySelector(".downBtn");
 const row = 2;
 const col = 4;
 let x = 0;
@@ -166,44 +167,99 @@ function getPosition(color){ //checks which position in the grid the color is at
   }
 }
 
-function labelBtns(){ //labels the buttons with the colors left and right of the current one
+function displayBtns(){ //labels the buttons with the colors left and right of the current one
 
 
     //if the color is at the grid's border, the button at the border's side will not be displayed
   if(x === 3){ //checks if the user is at the right border
     nextBtn.style.display = "none";
     prevBtn.style.display = "inline-block";
-
-    prevBtn.innerText = colorsGer[y][x-1];
+    colorNavButtons("left");
   }
 
   else if (x === 0){ //checks if the user is at the left border
     prevBtn.style.display = "none";
     nextBtn.style.display = "inline-block";
-
-    nextBtn.innerText = colorsGer[y][x+1];
+    colorNavButtons("right");
   }
 
   else{ //when the user is not at any of the borders, both buttons are displayed
-    prevBtn.innerText = colorsGer[y][x-1];
-    nextBtn.innerText = colorsGer[y][x+1];
-
     prevBtn.style.display = "inline-block";
     nextBtn.style.display = "inline-block";
+    colorNavButtons("left");
+    colorNavButtons("right");
   }
 
+
+  //checks if the user is at the bottom or top of the grid
+  if(y === 0){
+    upBtn.style.display = "none";
+    downBtn.style.display = "inline-block";
+    colorNavButtons("down");
+  }
+
+  else if(y === 1){
+    upBtn.style.display = "inline-block";
+    downBtn.style.display = "none";
+    colorNavButtons("up");
+  }
 }
 
+//colors the nav buttons. the color is read from the buttons in the grid itself
+function colorNavButtons(btn){
+  let color;
+  let targetBtn;
+
+  switch (btn){
+    case "left":
+      targetBtn = getComputedStyle(document.getElementById(colors[y][x-1]));
+      color = targetBtn.getPropertyValue("background-color");
+      prevBtn.style.backgroundColor = color;
+      break;
+
+    case "right":
+      targetBtn = getComputedStyle(document.getElementById(colors[y][x+1]));
+      color = targetBtn.getPropertyValue("background-color");
+      nextBtn.style.backgroundColor = color;
+      break;
+
+    case "up":
+      targetBtn = getComputedStyle(document.getElementById(colors[y-1][x]));
+      color = targetBtn.getPropertyValue("background-color");
+      upBtn.style.backgroundColor = color;
+      break;
+
+    case "down":
+      targetBtn = getComputedStyle(document.getElementById(colors[y+1][x]));
+      color = targetBtn.getPropertyValue("background-color");
+      downBtn.style.backgroundColor = color;
+      break;
+  }
+}
+
+//event listeners for when the nav buttons are clicked
 prevBtn.addEventListener("click", () => {
   x--;
   display(colors[y][x]);
-  labelBtns
+  displayBtns();
 });
 
 nextBtn.addEventListener("click", () => {
   x++;
   display(colors[y][x]);
-  labelBtns;
+    displayBtns();
+});
+
+upBtn.addEventListener("click", () => {
+  y--;
+  display(colors[y][x]);
+  displayBtns();
+});
+
+downBtn.addEventListener("click", () => {
+  y++;
+  display(colors[y][x]);
+  displayBtns();
 });
 
 // customizable colors
@@ -224,7 +280,6 @@ function changeColor(id, input){
     x.style.display = "block";
   }
 }*/
-
 
 
 const colorPopUp = document.getElementById("changeColor");
@@ -261,3 +316,4 @@ function retrieveColors() {
     }
   }
 }
+
