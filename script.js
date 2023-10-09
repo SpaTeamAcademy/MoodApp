@@ -1,4 +1,5 @@
 let moodsData;
+const popup = document.querySelector(".popUpBox");
 
 //fetches moods.json so we can access the data
 fetch("./moods.json")
@@ -27,28 +28,41 @@ function showKeywords(){
 
 
 /*opens and closes pop up*/
-const modal = document.querySelector(".keywordPopup");
-const openModal = document.querySelectorAll(".colorbutton");
-
+/*const modal = document.querySelector(".keywordPopup");
+const openModal = document.querySelectorAll(".colorbutton");*/
+/*
 for(i of openModal){
   i.addEventListener("click", (e) => {
    // modal.showModal();
-   modal.style.visibility = "visible"
-    modal.style.display = "flex";
+  modal.style.visibility = "visible"
+  modal.style.display = "flex";
+  console.log("39")
   });
-}
+}*/
 
 //close function for button and clicking outside modal//
+/*
 function closeDialog(popup) {
  // modal.close();
- console.log("hide")
- popup.style.visibility = "hidden"
+  console.log("hide")
+  popup.style.visibility = "hidden"
   popup.style.display = "none";
-}
+}*/
 
 //generates dynamic pop up function
 /*dynamic pop-up*/
 function PopUp(color){
+
+  let modal = document.querySelector(".keywordPopup");
+ /* for(i of openModal){
+    i.addEventListener("click", (e) => {
+     // modal.showModal();*/
+    modal.style.visibility = "visible"
+    modal.style.display = "flex";
+    console.log("39")
+   /* });
+  }*/
+
   //console.log("popup trying")
  const popup = document.querySelector(".popUpBox");
  let accordion = document.createElement('div');
@@ -107,13 +121,13 @@ closeModal.addEventListener("click", () => {
 }
 
 //closing modal by clicking outside//
-const popup = document.querySelector(".popUpBox");
+/*const popup = document.querySelector(".popUpBox");
 popup.addEventListener("click", (e) => {
   if (e.target === modal) {
   closeDialog(popup);
   //closing accordions when closing modal//
   /*accordionSwitch(accordionSection/*,"off"*//*);//maybe not needed
-  accordionSwitch(accordionBtn/*,"off"*//*)*/};
+  accordionSwitch(accordionBtn/*,"off"*//*)*//*};
 });
 //close modal by using button//
 //closeModal.addEventListener("click", closeDialog);
@@ -287,48 +301,7 @@ nextBtn.addEventListener("click", () => {
 
 
 
-/*zoom*//*
-function zoomOn(color){
-  var zoomed = document.getElementById(color);
-  zoomed.classList.add('zoom')
-}
-
-function zoomOff(){
-    var current= document.getElementsByClassName("zoom")
-    for(let i=0;i<current.length;i++){
-    current[i].className = current[i].className.replace(" zoom", "");
-  }
-}
-
-function hoverSwitch(color){
-  let current= document.getElementsByClassName("hoverable");
-  console.log(current.length);
-  let currentL = current.length;
-
-  if(currentL>=1){
-  for(let i=0;i<current.length;i++){
-  current[i].className = current[i].className.replace(" hoverable", "");/*before switching zoom on take away hoverable*/
-   /* }
- /*   console.log("more")
-  }
-
-/*else if(currentL<1)*//*{
- /* console.log("less")
-  
-var colorbutton = document.getElementsByClassName("colorbutton");
-
-for(let i=0; i<colorbutton.length; i++){
-colorbutton[i].classList.toggle("hoverable");
-/*
-var zoomed = document.getElementsByClassName("zoom");
-console.log(zoomed.length + "zoomL")
-    zoomed.className = zoomed.className.replace(" zoom", "");*//*
-}
-}
-/*var zoomed = document.getElementById(color);
-zoomed.classList.toggle("zoom");*//*
-}*/
-
+/*zoom*/
 function zoomAll(color){
 var statusZoom = "";
 var zoomed = document.getElementById(color);
@@ -336,28 +309,39 @@ const colorbuttonList = document.getElementsByClassName("colorbutton");
 
 //zoomed.classList.add('zoom') maybe better later since you can not do two toggles after each other 
 if(zoomed.classList.contains("hoverable")){
-  //console.log("+ zoom")
+  console.log("+ zoom")
   zoomed.classList.add("zoom");
   //zoomed.classList.remove("hoverable");
   for(let i = 0; i < colorbuttonList.length; i++){
     colorbuttonList[i].classList.remove("hoverable");
   }
+  
+  //setTimeout(PopUp(color), 8000);
+  console.log("event begining")
+  /*setTimeout(PopUp(color), 4000);/*
+
+  zoomed.addEventListener("transitionend", () => {*/
+  console.log("event done")
+  PopUp(color);
+  console.log("have i waited?")
+//}//)
 
 }else if(zoomed.classList.contains("zoom")){
-  //console.log("+ hoverable")
+  console.log("+ hoverable")
   for(let i = 0; i < colorbuttonList.length; i++){
     colorbuttonList[i].classList.add("hoverable");
   }
   zoomed.classList.remove("zoom");
   popup.style.visibility = "hidden"
   popup.style.display = "none";
+  //closeDialog(popup);
 }
-//console.log("finished")
-
-//console.log("event begining")
+console.log("finished")
+/*
+console.log("event begining")
 zoomed.addEventListener("transitionend", () => {
-  //console.log("event done")
+  console.log("event done")
   PopUp(color);
   //console.log("have i waited?")
-})
+})*/
 }
