@@ -58,6 +58,11 @@ modal.addEventListener("click", (e) => {
 
 /*dymamic popup generation*/
 function display(color){ //is called using onclick for now, gets the button's ID as a parameter
+var zoomHere = document.getElementsByClassName("zoom");
+for(let i=0; i<zoomHere.length;i++){
+  zoomHere[i].classList.remove("zoom")
+  }
+
 
 var zoomed = document.getElementById(color);//needed to know what was clicked, move it and give zoom to it
 const colorbuttonList = document.getElementsByClassName("colorbutton")//needed to give/take the hoverables 

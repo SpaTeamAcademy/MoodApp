@@ -1,9 +1,5 @@
 /*general*/
 :root{
-    /*PopUp*/
-    --popUp-top: 1vh;
-    --popUp-left: -6vw;
-
     /*colorbutton*/
     --yellow-translate:  -610%,-170%;
     --orange-translate:  -480%,-170%;
@@ -16,7 +12,7 @@
     --green-translate:  -610%,-290%;
 
     --size-Btn: 2,2; /*size fulscreen*/
-    --T-time: 0.8s;/*transition time*/
+    --T-time: 1.5s;/*transition time*/
     --width-popup: 50ch;
 
 }
@@ -574,7 +570,7 @@ footer{
 
 /*zoom*/
 .zoom{
-     opacity: 1;
+     opacity: 1;/*evt changing*/
      z-index: 800;
      display: flex;
 }
@@ -622,32 +618,23 @@ footer{
 }
 @media ( width <= 1130px) {
     :root{
-         /*PopUp*/
-         --popUp-top: 1vh;
-         --popUp-left: -2vw;
- 
          /*colorbutton*/
         --yellow-translate:  -520%,-150%;
         --orange-translate:  -380%,-150%;
-       /* --red-translate:  %,-150%;*/
         --red-translate:  -220%,-150%;
-        --violet-translate:  -90%,-150%;
+        --violet-translate:  -130%,-250%;
     
         --indigo-translate:  -90%,-270%;
         --blue-translate:  -220%,-270%;
         --turquoise-translate:  -380%,-270%;
         --green-translate:  -520%,-270%;
 
-        --size-Btn: 3.5,3.5; /*size fulscreen*/
+        --size-Btn: 2.5,2.5; /*size fulscreen*/
         --width-popup: 40ch;
 }}
 
 @media (width >= 1350px) {
     :root{
-        /*PopUp*/
-        --popUp-top: 1vh;
-        --popUp-left: -5vw;
-
         /*colorbutton*/
         --yellow-translate:  -600%,-180%;
         --orange-translate:  -480%,-180%;
