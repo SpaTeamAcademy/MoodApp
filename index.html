@@ -8,8 +8,11 @@
   <title>MoodApp</title>
 </head>
 <body>
+  <div id="body">
       <h1>MoodApp</h1>
-      <div id="spaceTop"></div>
+   
+
+<div id="spaceTop"></div>
 
     <div class="coordinate-system">
     <div class="x-axis"></div>
@@ -18,57 +21,87 @@
         <p class="axis-label" id="energyHigh">Energie hoch</p>
         
 
-          <div class="colorbutton top-line-grid column-4 hoverable" id="yellow" onclick="zoomAll('yellow')">
+          <div class="colorbutton top-line-grid column-4 hoverable" id="yellow" onclick="display('yellow')">
             <p class="keywords" id="violetKeywords"></p>
           </div>
 
 
-        <div class="colorbutton top-line-grid column-3 hoverable" id="orange" onclick="zoomAll('orange')">
+        <div class="colorbutton top-line-grid column-3 hoverable" id="orange" onclick="display('orange')">
           <p class="keywords column-2" id="redKeywords"></p>
         </div>
 
-        <div class="colorbutton top-line-grid column-2 hoverable" id="red" onclick="zoomAll('red')">
+        <div class="colorbutton top-line-grid column-2 hoverable" id="red" onclick="display('red')">
           <p class="keywords column-3" id="orangeKeywords"></p>
         </div>
 
-        <div class="colorbutton top-line-grid column-1 hoverable" id="violet" onclick="zoomAll('violet')">
+        <div class="colorbutton top-line-grid column-1 hoverable" id="violet" onclick="display('violet')">
           <p class="keywords column-4" id="yellowKeywords"></p>
         </div><br>
 
         <div class="axis-label" id="negativ">Negativ</div>
         <div class="axis-label" id="positiv">Positiv</div>
 
-        <div class="colorbutton bottom-line-grid column-1 hoverable" id="indigo" onclick="zoomAll('indigo')">
+        <div class="colorbutton bottom-line-grid column-1 hoverable" id="indigo" onclick="display('indigo')">
           <p class="keywords column-1" id="indigoKeywords"></p>
         </div>
 
-        <div class="colorbutton bottom-line-grid column-2 hoverable" id="blue" onclick="zoomAll('blue')">
+        <div class="colorbutton bottom-line-grid column-2 hoverable" id="blue" onclick="display('blue')">
           <p class="keywords column-2" id="blueKeywords"></p>
         </div>
 
-        <div class="colorbutton bottom-line-grid column-3 hoverable" id="turquoise" onclick="zoomAll('turquoise')">
+        <div class="colorbutton bottom-line-grid column-3 hoverable" id="turquoise" onclick="display('turquoise')">
           <p class="keywords column-3" id="turquoiseKeywords"></p>
         </div>
 
-        <div class="colorbutton bottom-line-grid column-4 hoverable" id="green" onclick="zoomAll('green')">
+        <div class="colorbutton bottom-line-grid column-4 hoverable" id="green" onclick="display('green')">
         <p class="keywords column-4" id="greenKeywords"></p>
-        </div>
+      </div>
 
        <p class="axis-label" id="energyLow">Energie niedrig</p>
-    
+    </div>
   
 
 
 
-  <div class="keywordPopup" id="popup">
-    <button class="prevBtn" id="prevBtn"></button>
+  <dialog class="keywordPopup" id="popup">
+
+    <button class="upBtn navBtn" id="upBtn"></button>
+    <button class="prevBtn navBtn" id="prevBtn"></button>
     <div class="popUpBox">
     </div>
-    <button class="nextBtn" id="nextBtn"></button>
-  </div>
+    <button class="nextBtn navBtn" id="nextBtn"></button>
+    <button class="downBtn navBtn" id="downBtn"></button>
+    
+  </dialog>
 
-  </div>
-
+  <button id="toggleButton" onclick="showColors()">Farben auswählen</button><br>
+      <div id="changeColor">
+        <p class="feelingName"></p>
+        <input  type="color" class="colorInput" id="input1" value="#9f39ff"></input>
+        <button type="submit" class="colorChangeBtn" onclick="changeColor('violet', 'input1')">&#10003;</button>
+        <p class="feelingName"></p>
+        <input type="color" class="colorInput" id="input2" value="#ff0000"></input>
+        <button type="submit" class="colorChangeBtn" onclick="changeColor('red', 'input2')">&#10003;</button>
+        <p class="feelingName"></p>
+        <input type="color" class="colorInput" id="input3" value="#ffa500"></input>
+        <button type="submit" class="colorChangeBtn" onclick="changeColor('orange', 'input3')">&#10003;</button>
+        <p class="feelingName"></p>
+        <input type="color" class="colorInput" id="input4" value="#face49"></input>
+        <button type="submit" class="colorChangeBtn" onclick="changeColor('yellow', 'input4')">&#10003;</button><br>
+        <p class="feelingName"></p>
+        <input type="color" class="colorInput" id="input5" value="#004197"></input>
+        <button type="submit" class="colorChangeBtn" onclick="changeColor('indigo', 'input5')">&#10003;</button>
+        <p class="feelingName"></p>
+        <input type="color" class="colorInput" id="input6" value="#2973d7"></input>
+        <button type="submit" class="colorChangeBtn" onclick="changeColor('blue', 'input6')">&#10003;</button>
+        <p class="feelingName"></p>
+        <input type="color" class="colorInput" id="input7" value="#4bbc30"></input>
+        <button type="submit" class="colorChangeBtn" onclick="changeColor('turquoise', 'input7')">&#10003;</button>
+        <p class="feelingName"></p>
+        <input type="color" class="colorInput" id="input8" value="#a3e200"></input>
+        <button type="submit" class="colorChangeBtn" onclick="changeColor('green', 'input8')">&#10003;</button>
+      </div>
+</div>
 </body>
 <div id="spaceBottom"></div>
 <footer>Specialisterne 2023</footer>

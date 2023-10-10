@@ -1,5 +1,4 @@
 let moodsData;
-const popup = document.querySelector(".popUpBox");
 
 //fetches moods.json so we can access the data
 fetch("./moods.json")
@@ -9,11 +8,13 @@ fetch("./moods.json")
 }).then(() => {
     //console.log(moodsData);
     showKeywords();
+    retrieveColors();
 })
 .catch(function (error){
     console.error("Something went wrong with retrieving the moods.");
     console.error(error);
 });
+
 
 function showKeywords(){
     let moodElements = document.querySelectorAll(".keywords"); // selects all elements with the class="keywords"
@@ -28,121 +29,45 @@ function showKeywords(){
 
 
 /*opens and closes pop up*/
-/*const modal = document.querySelector(".keywordPopup");
-const openModal = document.querySelectorAll(".colorbutton");*/
-/*
+const modal = document.querySelector(".keywordPopup");
+const openModal = document.querySelectorAll(".colorbutton");
+
 for(i of openModal){
   i.addEventListener("click", (e) => {
-   // modal.showModal();
-  modal.style.visibility = "visible"
-  modal.style.display = "flex";
-  console.log("39")
+    modal.showModal();
+    modal.style.display = "grid";
   });
-}*/
-
-//close function for button and clicking outside modal//
-/*
-function closeDialog(popup) {
- // modal.close();
-  console.log("hide")
-  popup.style.visibility = "hidden"
-  popup.style.display = "none";
-}*/
-
-//generates dynamic pop up function
-/*dynamic pop-up*/
-function PopUp(color){
-
-  let modal = document.querySelector(".keywordPopup");
- /* for(i of openModal){
-    i.addEventListener("click", (e) => {
-     // modal.showModal();*/
-    modal.style.visibility = "visible"
-    modal.style.display = "flex";
-    console.log("39")
-   /* });
-  }*/
-
-  //console.log("popup trying")
- const popup = document.querySelector(".popUpBox");
- let accordion = document.createElement('div');
- accordion.className = "accordion";
- popup.innerHTML = "";
- const entries = ["Gefühle", "Beispiele", "Körper", "Gedanken", "Strategien"]; //used for headlines
-/*let closeBtn = document.createElement('button');
-closeBtn.className = "button close-button";
-closeBtn.innerHTML = "schließen";*/
-
- getPosition(color);
- labelBtns();
- 
- for(let i in moodsData.Moods){
-    if(moodsData.Moods[i].color === color){ //checks which of the objects matches the ID
-        const keys = Object.keys(moodsData.Moods[i]);
-
-        let keywords = document.createElement('ul');//the keywords list is created, which is not an accordion
-        keywords.append(createList(moodsData.Moods[i], "keywords"));
-        popup.append(keywords); //the list is appended to the dialog element
-
-        for(let j = 2; j < keys.length; ++j){ //the 4 accordions are created. the for loop iterates the object itself
-          let section = document.createElement('div');
-          section.className = "accordionSection";
-
-          let accordionBtn = document.createElement('div');
-          accordionBtn.className = "accordionBtn";
-
-          let headline = document.createElement('h3');
-          headline.innerHTML = entries[j-1];
-
-          let content = document.createElement('div');
-          content.className = "accordionContent";
-          content.append(createList(moodsData.Moods[i], keys[j]));
-
-          accordionBtn.append(headline); //all the accordions are appended to an accordion container
-          section.append(accordionBtn);
-          section.append(content);
-          accordion.append(section);
-        }
-    } 
- }
-
-popup.append(accordion); //the accordion and the close button are appended to the dialog
-//popup.append(closeBtn);
-
-accordionSwitch(accordionSection);
-accordionSwitch(accordionBtn);
-
-//popup.style.display = "block";
-//for dynamically generating a close button
-/*const closeModal = document.querySelector(".close-button");
-closeModal.addEventListener("click", () => {
-  modal.close()
-});*/
 }
 
+//close function for button and clicking outside modal//
+function closeDialog() {
+  modal.close();
+  modal.style.display = "none";
+}
 //closing modal by clicking outside//
-/*const popup = document.querySelector(".popUpBox");
-popup.addEventListener("click", (e) => {
+modal.addEventListener("click", (e) => {
   if (e.target === modal) {
-  closeDialog(popup);
-  //closing accordions when closing modal//
-  /*accordionSwitch(accordionSection/*,"off"*//*);//maybe not needed
-  accordionSwitch(accordionBtn/*,"off"*//*)*//*};
+  closeDialog();
+  //returning colorbutton to original position
+  ZoomEnd();
+  };
 });
 //close modal by using button//
 //closeModal.addEventListener("click", closeDialog);
 
 
-/*dymamic popup generation*//*
+/*dymamic popup generation*/
 function display(color){ //is called using onclick for now, gets the button's ID as a parameter
-  zoomAll(color);
-  //let currentColor = document.getElementById(color);
- /* let currentColor = document.getElementsByClassName("zoom");
-  
-  console.log(currentColor)
- currentColor.addEventListener("transitionend", PopUp(color))*/
-  /*dynamic pop-up*/
-/*
+
+var zoomed = document.getElementById(color);//needed to know what was clicked, move it and give zoom to it
+const colorbuttonList = document.getElementsByClassName("colorbutton")//needed to give/take the hoverables 
+zoomed.classList.add("zoom")
+for(let i = 0; i<colorbuttonList.length; i++){
+  colorbuttonList[i].classList.remove("hoverable")
+}
+
+
+//Pop Up
   const popup = document.querySelector(".popUpBox");
   let accordion = document.createElement('div');
   accordion.className = "accordion";
@@ -151,9 +76,9 @@ function display(color){ //is called using onclick for now, gets the button's ID
   /*let closeBtn = document.createElement('button');
   closeBtn.className = "button close-button";
   closeBtn.innerHTML = "schließen";*/
-/*
+
   getPosition(color);
-  labelBtns();
+  displayBtns();
 
   for(let i in moodsData.Moods){
       if(moodsData.Moods[i].color === color){ //checks which of the objects matches the ID
@@ -186,17 +111,11 @@ function display(color){ //is called using onclick for now, gets the button's ID
   }
 
   popup.append(accordion); //the accordion and the close button are appended to the dialog
-  //popup.append(closeBtn);
 
   accordionSwitch(accordionSection);
-  accordionSwitch(accordionBtn);*/
-  
-  //for dynamically generating a close button
-  /*const closeModal = document.querySelector(".close-button");
-  closeModal.addEventListener("click", () => {
-    modal.close()
-  });*/
-//}
+  accordionSwitch(accordionBtn);
+}
+
 
 function createList(mood, listId){ //creates an unordered list and fills it using the specified values
   let list = document.createElement('ul');
@@ -222,28 +141,12 @@ function accordionSwitch(which){
     }
 }
 
-/*
-function accordionSwitch(which,mode){
-  if(mode==="on"){
-    for (let i=0; i<which.length; i++) {
-      which[i].addEventListener('click', function () {
-      this.classList.toggle('active')
-      })
-    }
-  }
-  if(mode==="off"){
-    for(let i=0; i<which.length; i++){
-      var current = document.getElementsByClassName("active");
-      current[0].className = current[0].className.replace(" active", "");
-    }
-  }
-}*/
-
 //navigation
 const colors = [["violet", "red", "orange", "yellow"],["indigo", "blue", "turquoise", "green"]]; //2 dimensional array containing all the IDs corresponding to the grid positions
-const colorsGer = [["Lila", "Rot", "Orange", "Gelb"],["Dunkelblau", "Blau", "Grün", "Hellgrün"]];
 const prevBtn = document.querySelector(".prevBtn");
 const nextBtn = document.querySelector(".nextBtn");
+const upBtn = document.querySelector(".upBtn");
+const downBtn = document.querySelector(".downBtn");
 const row = 2;
 const col = 4;
 let x = 0;
@@ -259,89 +162,166 @@ function getPosition(color){ //checks which position in the grid the color is at
   }
 }
 
-function labelBtns(){ //labels the buttons with the colors left and right of the current one
+function displayBtns(){ //labels the buttons with the colors left and right of the current one
 
 
     //if the color is at the grid's border, the button at the border's side will not be displayed
   if(x === 3){ //checks if the user is at the right border
     nextBtn.style.display = "none";
     prevBtn.style.display = "inline-block";
-
-    prevBtn.innerText = colorsGer[y][x-1];
+    colorNavButtons("left");
   }
 
   else if (x === 0){ //checks if the user is at the left border
     prevBtn.style.display = "none";
     nextBtn.style.display = "inline-block";
-
-    nextBtn.innerText = colorsGer[y][x+1];
+    colorNavButtons("right");
   }
 
   else{ //when the user is not at any of the borders, both buttons are displayed
-    prevBtn.innerText = colorsGer[y][x-1];
-    nextBtn.innerText = colorsGer[y][x+1];
-
     prevBtn.style.display = "inline-block";
     nextBtn.style.display = "inline-block";
+    colorNavButtons("left");
+    colorNavButtons("right");
   }
 
+
+  //checks if the user is at the bottom or top of the grid
+  if(y === 0){
+    upBtn.style.display = "none";
+    downBtn.style.display = "inline-block";
+    colorNavButtons("down");
+  }
+
+  else if(y === 1){
+    upBtn.style.display = "inline-block";
+    downBtn.style.display = "none";
+    colorNavButtons("up");
+  }
 }
 
+//colors the nav buttons. the color is read from the buttons in the grid itself
+function colorNavButtons(btn){
+  let color;
+  let targetBtn;
+
+  switch (btn){
+    case "left":
+      targetBtn = getComputedStyle(document.getElementById(colors[y][x-1]));
+      color = targetBtn.getPropertyValue("background-color");
+      prevBtn.style.backgroundColor = color;
+      break;
+
+    case "right":
+      targetBtn = getComputedStyle(document.getElementById(colors[y][x+1]));
+      color = targetBtn.getPropertyValue("background-color");
+      nextBtn.style.backgroundColor = color;
+      break;
+
+    case "up":
+      targetBtn = getComputedStyle(document.getElementById(colors[y-1][x]));
+      color = targetBtn.getPropertyValue("background-color");
+      upBtn.style.backgroundColor = color;
+      break;
+
+    case "down":
+      targetBtn = getComputedStyle(document.getElementById(colors[y+1][x]));
+      color = targetBtn.getPropertyValue("background-color");
+      downBtn.style.backgroundColor = color;
+      break;
+  }
+}
+
+//event listeners for when the nav buttons are clicked
 prevBtn.addEventListener("click", () => {
   x--;
   display(colors[y][x]);
-  labelBtns
+  displayBtns();
 });
 
 nextBtn.addEventListener("click", () => {
   x++;
   display(colors[y][x]);
-  labelBtns;
+    displayBtns();
 });
 
+upBtn.addEventListener("click", () => {
+  y--;
+  display(colors[y][x]);
+  displayBtns();
+});
 
+downBtn.addEventListener("click", () => {
+  y++;
+  display(colors[y][x]);
+  displayBtns();
+});
 
-/*zoom*/
-function zoomAll(color){
-var statusZoom = "";
-var zoomed = document.getElementById(color);
-const colorbuttonList = document.getElementsByClassName("colorbutton");
+// customizable colors
 
-//zoomed.classList.add('zoom') maybe better later since you can not do two toggles after each other 
-if(zoomed.classList.contains("hoverable")){
-  console.log("+ zoom")
-  zoomed.classList.add("zoom");
-  //zoomed.classList.remove("hoverable");
-  for(let i = 0; i < colorbuttonList.length; i++){
-    colorbuttonList[i].classList.remove("hoverable");
-  }
-  
-  //setTimeout(PopUp(color), 8000);
-  console.log("event begining")
-  /*setTimeout(PopUp(color), 4000);/*
-
-  zoomed.addEventListener("transitionend", () => {*/
-  console.log("event done")
-  PopUp(color);
-  console.log("have i waited?")
-//}//)
-
-}else if(zoomed.classList.contains("zoom")){
-  console.log("+ hoverable")
-  for(let i = 0; i < colorbuttonList.length; i++){
-    colorbuttonList[i].classList.add("hoverable");
-  }
-  zoomed.classList.remove("zoom");
-  popup.style.visibility = "hidden"
-  popup.style.display = "none";
-  //closeDialog(popup);
+//gets userinput and inserts color into the right button
+function changeColor(id, input){
+  let userColor = document.getElementById(input).value;
+    document.getElementById(id).style.backgroundColor = userColor;
+    localStorage.setItem(id, userColor);
 }
-console.log("finished")
-/*
-console.log("event begining")
-zoomed.addEventListener("transitionend", () => {
-  console.log("event done")
-  PopUp(color);
-  //console.log("have i waited?")
-})*/
+
+//toggles visibility of color change option
+/*function showColors() {
+  var x = document.getElementById("changeColor");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}*/
+
+
+const colorPopUp = document.getElementById("changeColor");
+const toggleButton = document.getElementById("toggleButton");
+
+//stopPropagation means we have handled the click elsewhere and it doesn't need to apply to whole document
+colorPopUp.addEventListener("click", (e) => {
+  e.stopPropagation();
+});
+
+//closes color picker by clicking outside or on button
+document.addEventListener("click", (e) => {
+  //checks if click is inside color picker, in which case doesn't close
+  if (
+    (e.target === toggleButton || toggleButton.contains(e.target)) ||
+    (e.target === colorPopUp || colorPopUp.contains(e.target))
+  ) {
+  } else {
+    //The click is outside, close the colorpicker
+    colorPopUp.classList.remove("show");
+  }
+});
+
+// Toggle the colorPopUp when clicking the toggle button
+toggleButton.addEventListener("click", () => {
+  colorPopUp.classList.toggle("show");
+});
+
+/*local storage for user preferences*/
+function retrieveColors() {
+  for(let i of moodsData.Moods){
+    if(localStorage.getItem(i.color) != undefined){
+      document.getElementById(i.color).style.backgroundColor = localStorage.getItem(i.color);
+    }
+  }
+}
+
+//zoom
+function ZoomEnd(){//remove zoom add hoverable and with that return colorbutton to original position
+  var zoomed = document.getElementsByClassName("zoom")
+  const colorbuttonList = document.getElementsByClassName("colorbutton")
+
+  for(let i=0; i<colorbuttonList.length; i++){
+    colorbuttonList[i].classList.add("hoverable")
+  }
+
+  for(let i=0; i<zoomed.length;i++){
+  zoomed[i].classList.remove("zoom")
+  }
 }

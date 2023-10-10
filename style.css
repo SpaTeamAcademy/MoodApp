@@ -4,7 +4,6 @@
     --popUp-top: 1vh;
     --popUp-left: -6vw;
 
-
     /*colorbutton*/
     --yellow-translate:  -610%,-170%;
     --orange-translate:  -480%,-170%;
@@ -16,8 +15,9 @@
     --turquoise-translate:  -480%,-290%;
     --green-translate:  -610%,-290%;
 
-    --size-Btn: 4,4; /*size fulscreen*/
-    --T-time: 0.4s;/*transition time*/
+    --size-Btn: 2,2; /*size fulscreen*/
+    --size-Btn: 10,10;
+    --T-time: 0.8s;/*transition time*/
     --width-popup: 50ch;
 
 }
@@ -25,7 +25,7 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 h1 {
-    /*position: static;*//*if you want it to stay when scrolling*/
+    /*position: static;*/
     position: fixed;
     font-size: 40px;
     width: 100%;
@@ -33,10 +33,10 @@ h1 {
     min-width: 28rem;
 }
 #spaceTop{
-    height: 25vh;
+    height: 30vh;
 }
 #spaceBottom{
-    height: 5vh;
+    height: 10vh;
 }
 footer{
     position: fixed;
@@ -50,6 +50,7 @@ footer{
         margin-left:40%;
     }
 }
+
 @media (max-width:720px){
     h1{
         margin-left:35%;
@@ -64,13 +65,14 @@ footer{
     grid-gap: 20px;
     justify-content: center;
     align-items: space-between;
-    position: fixed; 
+    position: relative; 
     margin-left: 32.5%;
     margin-right: 32.5%;
     padding-left: auto;
     padding-right: auto;
     min-width: 28rem;
 }
+
 
 /* Style for X and Y axis */
 .x-axis {
@@ -80,6 +82,7 @@ footer{
     background-color: black;
     top: 50%;
   }
+
 .y-axis {
   position: absolute;
   width: 2px;
@@ -110,6 +113,7 @@ footer{
   top: 50%;
   transform: translateY(-50%);
 }
+
 .x-axis::before { /*left arrowhead*/
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
@@ -117,6 +121,7 @@ footer{
   left: 0;
   transform: translateY(-50%) translateX(-50%) rotate(90deg);
 }
+
 .x-axis::after { /*right arrowhead*/
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
@@ -143,6 +148,7 @@ footer{
   top: 0;
   transform: translateY(-50%) translateX(-50%) rotate(-90deg);
 }
+
 .y-axis::after { /*bottom arrowhead*/
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
@@ -197,10 +203,7 @@ footer{
 .colorbutton.hoverable:hover{
     opacity: 1.0;
 }
-/*one of these so hover only works in normal mode*//*
-.colorbutton:hover :not(.zoom){
-    opacity: 1.0;
-}*/
+
 #violet{
     background-color: #9f39ff;
 }
@@ -230,6 +233,7 @@ footer{
 .axis-label {
     position: relative;
 }
+
 #energyHigh {
     grid-column: 3/4;
     grid-row: 1;
@@ -262,20 +266,20 @@ footer{
     white-space: nowrap;
 }
 
-/*Position of keywords on grid*//*tooltip*/
+/*Position of keywords on grid*/
 #violetKeywords, #redKeywords, #orangeKeywords, #yellowKeywords{
-    /*grid-row: 1/2;
+    grid-row: 1/2;
     justify-self: center;
-    align-self: end;*/
+    align-self: end;
 
     /*tooltip*/
     top: -80px;
     left: -12px;
 }
 #indigoKeywords, #blueKeywords, #turquoiseKeywords, #greenKeywords{
-   /* grid-row: 4/5;
+    grid-row: 4/5;
     justify-self: center;
-    align-self: start;*/
+    align-self: start;
 
     /*tooltip*/
     left: -12px;
@@ -308,6 +312,7 @@ footer{
 }
 
 
+
 /*keywords*/
 .keywords {
     opacity: 0;
@@ -329,12 +334,6 @@ footer{
     opacity: 1;
     transition: opacity 0.2s;
 }
-.keyList{
-    position: relative;
-    display: flex;
-    top: 5%;
-    left: 50%;
-}
 
 
 /* pop up*/
@@ -342,14 +341,15 @@ footer{
  border: none;
  background: transparent;
  display:none;
- visibility: hidden;
  justify-content: space-between;
  align-items: center;
-}/*
+ grid-template-columns: 1fr 7fr 1fr;
+ grid-template-rows:1fr 4fr 1fr;
+}
 .keywordPopup::backdrop {
  background: gray;
- opacity: 0.7;
-}*/
+ opacity: 0;
+}
 /*the close button itself is commented out but styles are necessary for accordion*/
 .close-button {
  border: solid 5px white;
@@ -360,6 +360,23 @@ footer{
  border: solid 2px gray;
  margin-top: 15px;
 }
+
+.popUpBox{
+    padding: 20px;
+    max-width: 50ch;
+    border: solid 5px white;
+    border: solid 5px #004197;
+    border-radius: 20px;
+    box-shadow: 30 px;
+    transition: width 2s;
+    background-color: lightgray;
+    box-shadow: 5px 5px 5px 5px gray;
+    grid-column: 2/2;
+    grid-row:2/2
+}
+/*.button:hover {
+ background: lightgray;
+}*/
 
 
 /*accordion*/
@@ -385,75 +402,123 @@ footer{
 .accordionBtn:after {
     content: '\25B7';/*turn icon*/
     position: relative;
+    color: #004197;
     float: right;
     top: -40px;
     right: 20px;
     transition: 0.4s;/*opening transition on turn icon*/
-} 
+  } 
 .accordionBtn.active:after {
     transition: 0.8s; /*closing transition on turn icon*/
     transform: rotate(90deg); /*turns turn icon*/
-}
+  }
 
 
 /*Navigation*/
-.popUpBox{
-    /*position: fixed;*/
+.navBtn{
+    height:40px;
+    width:40px;
+    border-radius:50%;
+    cursor:pointer;
+    border:solid grey 2px;
+    opacity: 0.7;
+}
+
+.navBtn:hover{
+    opacity: 1.0;
+}
+
+.upBtn{
+    grid-row:1/1;
+    grid-column: 2/2;
+    margin: auto auto 20px;
+}
+
+.downBtn{
+    grid-row:3/3;
+    grid-column: 2/2;
+    margin:20px auto auto;
+}
+
+.nextBtn{
+    grid-row:2/2;
+    grid-column: 3/3;
+    margin: auto 20px auto;
+}
+
+.prevBtn{
+    grid-row:2/2;
+    grid-column: 1/1;
+    margin: auto auto auto 20px;
+}
+
+/*color change menu*/
+.colorInput {
+    border-radius: 50%;
+    cursor: pointer;
+    border: solid 2px white;
+}
+#changeColor{
+    position: fixed;
+    right: 50px;
+    top: 80px;
     position: absolute;
-    padding: 20px;
-    max-width: 50ch;
-    /*min-width: 25ch;*/
-    border: solid 5px white;
-    border-radius: 20px;
-    box-shadow: 30px;
-    /*transition: width 2s;*/
     background-color: lightgray;
-    box-shadow: 5px 5px 5px 5px gray;
-    z-index: 900;
-    top: var(--popUp-top);
-    left: var(--popUp-left);
-    width: var(--width-popup);
+    border: solid 2px grey;
+    border-radius: 8px;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    opacity: 0; 
+    transition: opacity 0.6s ease-in-out;
 }
-.nextBtn, .prevBtn{
-    height:30px;
-    margin: 20px;
-    position: absolute;/*can not be changed coordinatesystem will move when popup is opened with any different value*/
-    left: 40vw;/*just for now to make shure they are still there*/
+#changeColor.show {
+    opacity: 1; 
+}
+#toggleButton{
+    position: fixed;
+    right: 50px;
+    top: 20px;
+    color: gray;
+    border: solid 5px white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: white;
+    border: solid 2px gray;
+    margin-top: 15px;
+}
+.colorChangeBtn{
+    color: grey;
+    border: solid 5px white;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: white;
+    border: solid 2px gray;
+    margin-top: 15px;
+}
+.feelingName {
+    display: inline-block;
 }
 
-
-/*Zoom*/
+/*zoom*/
 .zoom{
-   /* animation: zoom 4s; /*timing-function delay iteration-count direction fill-mode;*/
-    /*transform: scale(4,4);*/
-    opacity: 1;
-    z-index: 800;
-    /*ad transition to end zooming*/
-    /*transition: transform var(--T-time);*/
-    display: flex;
-   
-    /*flebox version*//*
-    display: flex;
-    grid-area: 2/3/4/5;
-    vertical-align: bottom;
-    align-content: center;
-    justify-self: center;
-    align-self: center;*/
+     opacity: 1;
+     z-index: 800;
+     display: flex;
 }
+
+
 .top-line-grid.column-4.zoom /*yellow*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
     transform: translate(var(--yellow-translate)) scale(var(--size-Btn));
     transition: transform var(--T-time);
-    /*animation: zoomYellow 20s;
-    /*animation: name duration timing-function delay iteration-count direction fill-mode;*/
-    /*animation-iteration-count: 1;
-    animation-fill-mode: forwards;*/
 }
 .top-line-grid.column-3.zoom /*orange*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
     transform: translate(var(--orange-translate)) scale(var(--size-Btn));
     transition: transform var(--T-time);
-   /* animation: zoomOrange 2s;*/
 }
 .top-line-grid.column-2.zoom /*red*/{
     transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
@@ -517,9 +582,11 @@ footer{
         --yellow-translate:  -600%,-180%;
         --orange-translate:  -480%,-180%;
         --red-translate:  -310%,-180%;
+        --red-translate:  -310%,-250%;
         --violet-translate:  -180%,-180%;
     
         --indigo-translate:  -180%,-305%;
+        --blue-translate:  -310%,-305%;
         --blue-translate:  -310%,-305%;
         --turquoise-translate:  -480%,-305%;
         --green-translate:  -600%,-305%;
