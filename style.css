@@ -369,11 +369,11 @@ footer{
 
 .popUpBox{
     padding: 20px;
-    max-width: 50ch;
+    width:55vw;
     border: solid 5px var(--main-color);
     border-radius: 20px;
     box-shadow: 30 px;
-    transition: width 2s;
+    /*transition: width 2s;*/
     background-color: var(--popup-background);
     box-shadow: 5px 5px 5px 5px var(--popup-color);
     grid-column: 2/2;
@@ -388,7 +388,8 @@ footer{
 .accordion{
     display:grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-auto-rows: min-content;
+    gap:5px;
 }
 
 .accordionBtn{
@@ -397,9 +398,10 @@ footer{
     text-align: center;
     padding-bottom: 20px;
     height: 35px;
-    margin: 4px;
+    width:25vw;
     background-color: var(--main-color);
     border: solid 1px var(--popup-color);
+    margin:auto;
 }
 .accordionContent {
     max-height: 0;/*hides content when accordion is closed*/
