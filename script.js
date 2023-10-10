@@ -342,3 +342,9 @@ function retrieveColors() {
 }
 
 
+/*font size changer*/
+var content = document.getElementbyId("toggleButton"); 
+function changeSize() { 
+    // Set value of the parameter as fontSize 
+    content.style.fontSize = "x-large"; 
+} 
