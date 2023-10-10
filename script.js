@@ -257,6 +257,30 @@ downBtn.addEventListener("click", () => {
   displayBtns();
 });
 
+
+//dark mode
+const darkModeSwitch = document.getElementById("darkModeSwitch");
+
+darkModeSwitch.addEventListener("click", () => { //toggles the theme when the switch is clicked, also saves theme to localstorage
+  document.body.classList.toggle("darkMode");
+
+  if(document.body.classList.contains("darkMode")){
+    localStorage.setItem("darkMode", "true");
+  }
+  else{
+    localStorage.setItem("darkMode", "false");
+  }
+});
+
+if(localStorage.getItem("darkMode") === "true"){ //checks if dark mode is true in localstorage and sets theme accordingly
+  darkModeSwitch.checked = true;
+  document.body.classList.add("darkMode");
+}
+else{
+  darkModeSwitch.checked = false;
+  document.body.classList.remove("darkMode");
+}
+
 // customizable colors
 
 //gets userinput and inserts color into the right button
@@ -325,3 +349,4 @@ function ZoomEnd(){//remove zoom add hoverable and with that return colorbutton 
   zoomed[i].classList.remove("zoom")
   }
 }
+
