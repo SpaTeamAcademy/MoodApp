@@ -7,14 +7,12 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
   <title>MoodApp</title>
 </head>
-<body>
+<body id="body">
   <div id="body">
     <h1>MoodApp</h1>
 
     <input type="checkbox" class="darkModeSwitch" id="darkModeSwitch">
-    
-   
-<div id="space"></div>
+<div id="spaceTop"></div>
 
     <div class="coordinate-system">
     <div class="x-axis"></div>
@@ -23,39 +21,39 @@
         <p class="axis-label" id="energyHigh">Energie hoch</p>
         
 
-          <div class="colorbutton top-line-grid column-4" id="yellow" onclick="display('yellow')">
+          <div class="colorbutton top-line-grid column-4 hoverable" id="yellow" onclick="display('yellow')">
             <p class="keywords" id="violetKeywords"></p>
           </div>
 
 
-        <div class="colorbutton top-line-grid column-3" id="orange" onclick="display('orange')">
+        <div class="colorbutton top-line-grid column-3 hoverable" id="orange" onclick="display('orange')">
           <p class="keywords column-2" id="redKeywords"></p>
         </div>
 
-        <div class="colorbutton top-line-grid column-2" id="red" onclick="display('red')">
+        <div class="colorbutton top-line-grid column-2 hoverable" id="red" onclick="display('red')">
           <p class="keywords column-3" id="orangeKeywords"></p>
         </div>
 
-        <div class="colorbutton top-line-grid column-1" id="violet" onclick="display('violet')">
+        <div class="colorbutton top-line-grid column-1 hoverable" id="violet" onclick="display('violet')">
           <p class="keywords column-4" id="yellowKeywords"></p>
         </div><br>
 
         <div class="axis-label" id="negativ">Negativ</div>
         <div class="axis-label" id="positiv">Positiv</div>
 
-        <div class="colorbutton bottom-line-grid column-1" id="indigo" onclick="display('indigo')">
+        <div class="colorbutton bottom-line-grid column-1 hoverable" id="indigo" onclick="display('indigo')">
           <p class="keywords column-1" id="indigoKeywords"></p>
         </div>
 
-        <div class="colorbutton bottom-line-grid column-2" id="blue" onclick="display('blue')">
+        <div class="colorbutton bottom-line-grid column-2 hoverable" id="blue" onclick="display('blue')">
           <p class="keywords column-2" id="blueKeywords"></p>
         </div>
 
-        <div class="colorbutton bottom-line-grid column-3" id="turquoise" onclick="display('turquoise')">
+        <div class="colorbutton bottom-line-grid column-3 hoverable" id="turquoise" onclick="display('turquoise')">
           <p class="keywords column-3" id="turquoiseKeywords"></p>
         </div>
 
-        <div class="colorbutton bottom-line-grid column-4" id="green" onclick="display('green')">
+        <div class="colorbutton bottom-line-grid column-4 hoverable" id="green" onclick="display('green')">
         <p class="keywords column-4" id="greenKeywords"></p>
       </div>
 
@@ -104,11 +102,20 @@
         <button type="submit" class="colorChangeBtn" onclick="changeColor('green', 'input8')">&#10003;</button>
       </div>
 
+
      
     <button id="clearBtn" class="clearBtn">Daten Löschen</button>
     <div id="clearBtnTooltip" class="clearBtnTooltip">Setzt alle Einstellungen zurück</div> 
+
+      <div id="changeFontsize">
+        <button type="button" class="fontBtn" name="fontSmaller" onclick="changeSize('small')">-A</button> 
+        <button type="button" class="fontBtn" name="fontNormal" onclick="changeSize('medium')">A</button> 
+        <button type="button" class="fontBtn" name="fontLarge" onclick="changeSize('large')">A+</button> 
+      </div>
+
 </div>
 </body>
+<div id="spaceBottom"></div>
 <footer>Specialisterne 2023</footer>
 <script src="script.js"></script>
 </html>
