@@ -579,12 +579,13 @@ footer{
 /*clear local storage*/
 
 .clearBtn{
-    position:fixed;
+    position:absolute;
     bottom:1vh;
     top:auto;
     right:1vw;
     left:auto;
     width:130px;
+    height:40px;
     color: var(--text-color);
     padding: 10px;
     cursor: pointer;
@@ -596,8 +597,8 @@ footer{
 }
 
 .clearBtnTooltip{
-    position:fixed;
-    bottom:6vh;
+    position:absolute;
+    bottom:60px;
     top:auto;
     right:1vw;
     left:auto;
