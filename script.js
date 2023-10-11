@@ -48,9 +48,9 @@ function closeDialog() {
 modal.addEventListener("click", (e) => {
   if (e.target === modal) {
   closeDialog();
-   //closing accordions when closing modal//
-  accordionSwitch(accordionSection,"off");
-  accordionSwitch(accordionBtn,"off")};
+  //returning colorbutton to original position
+  ZoomEnd();
+  };
 });
 //close modal by using button//
 //closeModal.addEventListener("click", closeDialog);
@@ -58,6 +58,21 @@ modal.addEventListener("click", (e) => {
 
 /*dymamic popup generation*/
 function display(color){ //is called using onclick for now, gets the button's ID as a parameter
+var zoomHere = document.getElementsByClassName("zoom");
+for(let i=0; i<zoomHere.length;i++){
+  zoomHere[i].classList.remove("zoom")
+  }
+
+
+var zoomed = document.getElementById(color);//needed to know what was clicked, move it and give zoom to it
+const colorbuttonList = document.getElementsByClassName("colorbutton")//needed to give/take the hoverables 
+zoomed.classList.add("zoom")
+for(let i = 0; i<colorbuttonList.length; i++){
+  colorbuttonList[i].classList.remove("hoverable")
+}
+
+
+//Pop Up
   const popup = document.querySelector(".popUpBox");
   let accordion = document.createElement('div');
   accordion.className = "accordion";
@@ -101,16 +116,9 @@ function display(color){ //is called using onclick for now, gets the button's ID
   }
 
   popup.append(accordion); //the accordion and the close button are appended to the dialog
-  //popup.append(closeBtn);
 
-  accordionSwitch(accordionSection,"on");
-  accordionSwitch(accordionBtn,"on");
-  
-  //for dynamically generating a close button
-  /*const closeModal = document.querySelector(".close-button");
-  closeModal.addEventListener("click", () => {
-    modal.close();
-  });*/
+  accordionSwitch(accordionSection);
+  accordionSwitch(accordionBtn);
 }
 
 
@@ -130,20 +138,12 @@ function createList(mood, listId){ //creates an unordered list and fills it usin
 const accordionSection = document.getElementsByClassName('accordionSection');
 const accordionBtn = document.getElementsByClassName('accordionBtn');
 
-function accordionSwitch(which,mode){
-  if(mode==="on"){
+function accordionSwitch(which){
     for (let i=0; i<which.length; i++) {
       which[i].addEventListener('click', function () {
       this.classList.toggle('active')
       })
     }
-  }
-  if(mode==="off"){
-    for(let i=0; i<which.length; i++){
-      var current = document.getElementsByClassName("active");
-      current[0].className = current[0].className.replace(" active", "");
-    }
-  }
 }
 
 //navigation
@@ -341,4 +341,17 @@ function retrieveColors() {
   }
 }
 
+//zoom
+function ZoomEnd(){//remove zoom add hoverable and with that return colorbutton to original position
+  var zoomed = document.getElementsByClassName("zoom")
+  const colorbuttonList = document.getElementsByClassName("colorbutton")
+
+  for(let i=0; i<colorbuttonList.length; i++){
+    colorbuttonList[i].classList.add("hoverable")
+  }
+
+  for(let i=0; i<zoomed.length;i++){
+  zoomed[i].classList.remove("zoom")
+  }
+}
 

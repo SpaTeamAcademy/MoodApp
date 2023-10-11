@@ -1,4 +1,21 @@
 /*general*/
+:root{
+    /*colorbutton*/
+    --yellow-translate:  -610%,-170%;
+    --orange-translate:  -480%,-170%;
+    --red-translate:  -320%,-170%;
+    --violet-translate:  -180%,-170%;
+    
+    --indigo-translate:  -180%,-290%;
+    --blue-translate:  -320%,-290%;
+    --turquoise-translate:  -480%,-290%;
+    --green-translate:  -610%,-290%;
+
+    --size-Btn: 2,2; /*size fulscreen*/
+    --T-time: 1.5s;/*transition time*/
+    --width-popup: 50ch;
+
+}
 body {
     font-family: "Montserrat", sans-serif;
     background-color: var(--main-color);
@@ -12,8 +29,11 @@ h1 {
     margin-left: 44%;
     min-width: 28rem;
 }
-#space{
+#spaceTop{
     height: 30vh;
+}
+#spaceBottom{
+    height: 10vh;
 }
 footer{
     position: fixed;
@@ -205,7 +225,7 @@ footer{
     margin:auto;
     
 }
-.colorbutton:hover{
+.colorbutton.hoverable:hover{
     opacity: 1.0;
 }
 
@@ -335,7 +355,7 @@ footer{
     padding-left: 10px;
     padding-right: 10px;
 }
-.colorbutton:hover .keywords{
+.colorbutton.hoverable:hover .keywords{
     opacity: 1;
     transition: opacity 0.2s;
 }
@@ -407,6 +427,7 @@ footer{
 .accordionBtn:after {
     content: '\25B7';/*turn icon*/
     position: relative;
+    color: #004197;
     float: right;
     top: -40px;
     right: 20px;
@@ -545,4 +566,84 @@ footer{
 }
 .feelingName {
     display: inline-block;
+}
+
+/*zoom*/
+.zoom{
+     opacity: 1;/*evt changing*/
+     z-index: 800;
+     display: flex;
+}
+
+
+.top-line-grid.column-4.zoom /*yellow*/{
+    transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
+    transform: translate(var(--yellow-translate)) scale(var(--size-Btn));
+    transition: transform var(--T-time);
+}
+.top-line-grid.column-3.zoom /*orange*/{
+    transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
+    transform: translate(var(--orange-translate)) scale(var(--size-Btn));
+    transition: transform var(--T-time);
+}
+.top-line-grid.column-2.zoom /*red*/{
+    transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
+    transform: translate(var(--red-translate)) scale(var(--size-Btn));
+    transition: transform var(--T-time);
+}
+.top-line-grid.column-1.zoom /*violet*/{
+    transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
+    transform: translate(var(--violet-translate)) scale(var(--size-Btn));
+    transition: transform var(--T-time);
+}
+.bottom-line-grid.column-1.zoom /*indigo*/{
+    transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
+    transform: translate(var(--indigo-translate)) scale(var(--size-Btn));
+    transition: transform var(--T-time);
+}
+.bottom-line-grid.column-2.zoom /*blue*/{
+    transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
+    transform: translate(var(--blue-translate)) scale(var(--size-Btn));
+    transition: transform var(--T-time);
+}
+.bottom-line-grid.column-3.zoom /*turquoise*/{
+    transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
+    transform: translate(var(--turquoise-translate)) scale(var(--size-Btn));
+    transition: transform var(--T-time);
+}
+.bottom-line-grid.column-4.zoom /*green*/{
+    transform: translate(-215%,65%) scale(4,4);/*fallback for edge browser*/
+    transform: translate(var(--green-translate)) scale(var(--size-Btn));
+    transition: transform var(--T-time);
+}
+@media ( width <= 1130px) {
+    :root{
+         /*colorbutton*/
+        --yellow-translate:  -520%,-150%;
+        --orange-translate:  -380%,-150%;
+        --red-translate:  -220%,-150%;
+        --violet-translate:  -130%,-250%;
+    
+        --indigo-translate:  -90%,-270%;
+        --blue-translate:  -220%,-270%;
+        --turquoise-translate:  -380%,-270%;
+        --green-translate:  -520%,-270%;
+
+        --size-Btn: 2.5,2.5; /*size fulscreen*/
+        --width-popup: 40ch;
+}}
+
+@media (width >= 1350px) {
+    :root{
+        /*colorbutton*/
+        --yellow-translate:  -600%,-180%;
+        --orange-translate:  -480%,-180%;
+        --red-translate:  -310%,-180%;
+        --violet-translate:  -180%,-180%;
+    
+        --indigo-translate:  -180%,-305%;
+        --blue-translate:  -310%,-305%;
+        --turquoise-translate:  -480%,-305%;
+        --green-translate:  -600%,-305%;
+} 
 }
