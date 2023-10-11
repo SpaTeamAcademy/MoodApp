@@ -343,6 +343,6 @@ function retrieveColors() {
 
 
 //Clear Local Storage
-function clearLS() {
-  localStorage.clear;
-}
+document.getElementById("clearBtn").addEventListener(
+  () => {localStorage.clear;}
+)
