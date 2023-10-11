@@ -78,6 +78,7 @@ for(let i = 0; i<colorbuttonList.length; i++){
   accordion.className = "accordion";
   popup.innerHTML = "";
   const entries = ["Gefühle", "Beispiele", "Körper", "Gedanken", "Strategien"]; //used for headlines
+  const gridList = ["one", "two", "three", "four"]
   /*let closeBtn = document.createElement('button');
   closeBtn.className = "button close-button";
   closeBtn.innerHTML = "schließen";*/
@@ -93,6 +94,27 @@ for(let i = 0; i<colorbuttonList.length; i++){
           keywords.append(createList(moodsData.Moods[i], "keywords"));
           popup.append(keywords); //the list is appended to the dialog element
 
+          
+
+          for(let j = 2; j < keys.length; ++j){ //the 4 accordions are created. the for loop iterates the object itself
+            let accordionBtn = document.createElement('button');
+            accordionBtn.className = "accordionBtn";
+        
+            let headline = document.createElement('h3');
+            headline.innerHTML = entries[j-1];
+            headline.className = "headline";
+        
+            let content = document.createElement('div');
+            content.className = "accordionContent";
+            content.append(createList(moodsData.Moods[i], keys[j]));
+        
+            accordionBtn.append(headline); //all the accordions are appended to an accordion container
+            //section.append(accordionBtn);
+            accordion.append(accordionBtn);
+            accordion.append(content);
+          }
+
+/*
           for(let j = 2; j < keys.length; ++j){ //the 4 accordions are created. the for loop iterates the object itself
             let section = document.createElement('div');
             section.className = "accordionSection";
@@ -111,14 +133,15 @@ for(let i = 0; i<colorbuttonList.length; i++){
             section.append(accordionBtn);
             section.append(content);
             accordion.append(section);
-          }
+          }*/
       }
   }
 
   popup.append(accordion); //the accordion and the close button are appended to the dialog
 
-  accordionSwitch(accordionSection);
-  accordionSwitch(accordionBtn);
+  accSwitch()
+ // accordionSwitch();/
+ // accordionSwitch(accordionBtn);
 }
 
 
@@ -135,15 +158,56 @@ function createList(mood, listId){ //creates an unordered list and fills it usin
 }  
 
 //accordion//
-const accordionSection = document.getElementsByClassName('accordionSection');
+/*const accordionSection = document.getElementsByClassName('accordionSection');
 const accordionBtn = document.getElementsByClassName('accordionBtn');
 
 function accordionSwitch(which){
-    for (let i=0; i<which.length; i++) {
-      which[i].addEventListener('click', function () {
-      this.classList.toggle('active')
+  for (let i=0; i<which.length; i++) {
+  if(which[i].classList.contains("active")){
+      which.addEventListener('click', function () {
+        console.log("145")
+      accordionBtn.style.content = "\25B6";
+      this.classList.remove('active')
       })
     }
+  }
+    for (let i=0; i<which.length; i++) {
+      which[i].addEventListener('click', function () {
+      console.log("153")
+      accordionBtn[i].style.content = "\25BC";
+      this.classList.add('active')
+      })
+    }
+}*//*
+function accordionSwitch(){
+  const accordionSection = document.getElementsByClassName('accordionSection');
+  const accordionBtn = document.getElementsByClassName('accordionBtn');
+  for (let i=0; i<accordionBtn.length; i++) {
+    accordionBtn[i].addEventListener('click', function () {
+      console.log(this.style)
+    this.classList.toggle('active')
+    })
+  }
+  for (let i=0; i<accordionSection.length; i++) {
+    accordionSection[i].addEventListener('click', function () {
+    this.classList.toggle('active')
+    })
+  }
+}*/
+function accSwitch(){
+var acc = document.getElementsByClassName("accordionBtn");
+for (let i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    //var panel = this.nextElementChild
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
 }
 
 //navigation

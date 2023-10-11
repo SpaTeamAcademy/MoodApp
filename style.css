@@ -399,9 +399,6 @@ footer{
     grid-column: 2/2;
     grid-row:2/2
 }
-/*.button:hover {
- background: lightgray;
-}*/
 
 
 /*accordion*/
@@ -411,40 +408,44 @@ footer{
     grid-auto-rows: min-content;
     gap:5px;
 }
-
+.headline{
+    vertical-align: middle;
+}
 .accordionBtn{
     cursor: pointer;
     border-radius: 8px;
     text-align: center;
-    padding-bottom: 20px;
     height: 35px;
+    height: 50px;
     width:25vw;
     background-color: var(--main-color);
     border: solid 1px var(--popup-color);
-    margin:auto;
+
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
 }
-.accordionContent {
-    max-height: 0;/*hides content when accordion is closed*/
-    text-align: block;
-    overflow: hidden;
-    transition: max-height 0.8s;/*transition on accordion opening*/
-}
-.accordionSection.active .accordionContent {
-    max-height: 170px;/*displays when accordion is opened*/
-}
-.accordionBtn:after {
-    content: '\25B7';/*turn icon*/
-    position: relative;
-    color: #004197;
+  .accordionBtn:after {
+    content: '\25B6';
+    font-weight: bold;
     float: right;
+    margin-left: 5px;
+    position: relative;
+    transition: 0.2s;
     top: -40px;
     right: 20px;
-    transition: 0.4s;/*opening transition on turn icon*/
-  } 
-.accordionBtn.active:after {
-    transition: 0.8s; /*closing transition on turn icon*/
-    transform: rotate(90deg); /*turns turn icon*/
-  }
+}
+  .accordionBtn.active:after {
+    content: "\25BC";
+}
+  .accordionContent {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
 
 
 /*Navigation*/
