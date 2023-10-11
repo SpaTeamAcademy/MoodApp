@@ -8,7 +8,7 @@ fetch("./moods.json")
 }).then(() => {
     //console.log(moodsData);
     showKeywords();
-    retrieveColors();
+    retrieveLS();
 })
 .catch(function (error){
     console.error("Something went wrong with retrieving the moods.");
@@ -333,18 +333,20 @@ toggleButton.addEventListener("click", () => {
 });
 
 /*local storage for user preferences*/
-function retrieveColors() {
+function retrieveLS() {
   for(let i of moodsData.Moods){
     if(localStorage.getItem(i.color) != undefined){
       document.getElementById(i.color).style.backgroundColor = localStorage.getItem(i.color);
     }
   }
+  var x = localStorage.getItem("fontSize");
+  content.style.fontSize = x;
 }
 
 
 /*font size changer*/
 var content = document.getElementById("body"); 
 function changeSize(size) { 
-  console.log("fontSizeChanger");
-    content.style.fontSize = size; 
+  content.style.fontSize = size; 
+  localStorage.setItem("fontSize", size);
 } 
