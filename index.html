@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
   <title>MoodApp</title>
 </head>
-<body>
+<body id="body">
   <div id="body">
     <h1>MoodApp</h1>
 
@@ -100,6 +100,18 @@
         <input type="color" class="colorInput" id="input8" value="#a3e200"></input>
         <button type="submit" class="colorChangeBtn" onclick="changeColor('green', 'input8')">&#10003;</button>
       </div>
+
+
+     
+    <button id="clearBtn" class="clearBtn">Daten löschen</button>
+    <div id="clearBtnTooltip" class="clearBtnTooltip">Setzt alle Einstellungen zurück</div> 
+
+      <div id="changeFontsize">
+        <button type="button" class="fontBtn" name="fontSmaller" onclick="changeSize('small')">-A</button> 
+        <button type="button" class="fontBtn" name="fontNormal" onclick="changeSize('medium')">A</button> 
+        <button type="button" class="fontBtn" name="fontLarge" onclick="changeSize('large')">A+</button> 
+      </div>
+
 </div>
 </body>
 <div id="spaceBottom"></div>

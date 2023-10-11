@@ -225,28 +225,27 @@ footer{
     text-align: center;
     width: 70px;
     height: 70px;
-    opacity: 0.5;
     margin:auto;
     
 }
 .colorbutton.hoverable:hover{
-    opacity: 1.0;
+    filter: brightness(1.1) saturate(2);
 }
 
 #violet{
-    background-color: #9f39ff;
+    background-color: #6900cc;
 }
 #red{
-    background-color: red;
+    background-color: #ff6666;
 }
 #orange{
-    background-color: orange;
+    background-color:  #ffb833;
 }
 #yellow{
-    background-color: #face49;
+    background-color: 	#ffff80;
 }
 #indigo{
-    background-color: #004197;
+    background-color: #1e3e7a;
 }
 #blue{
     background-color: #2973d7;
@@ -559,6 +558,7 @@ footer{
 }
 
 .darkModeSwitch:checked:before{
+    background-color: black;
     content:'🌙';
     left:40px;
 }
@@ -610,6 +610,65 @@ footer{
 }
 .feelingName {
     display: inline-block;
+}
+
+/*clear local storage*/
+
+.clearBtn{
+    position:absolute;
+    bottom:1vh;
+    top:auto;
+    right:1vw;
+    left:auto;
+    width:130px;
+    height:40px;
+    color: var(--text-color);
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: var(--main-color);
+    border: solid 2px var(--changebtn-border);
+    margin-top: 15px;
+    white-space: nowrap;
+}
+
+.clearBtnTooltip{
+    position:absolute;
+    bottom:60px;
+    top:auto;
+    right:1vw;
+    left:auto;
+    width:110px;
+    opacity:0;
+    background-color: var(--keyword-color);
+    color: var(--main-color);
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    transition:opacity 0.4s;
+}
+
+.clearBtnTooltip::after{
+    content: "";
+    color: var(--keyword-color);
+    position: absolute;
+    transform: scale(2,2);
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--keyword-color) transparent transparent transparent;
+}
+
+.clearBtnTooltip:hover{
+    opacity:1;
+    transition:opacity 0.2s;
+}
+
+.clearBtn:hover + .clearBtnTooltip{
+    opacity:1;
+    transition:opacity 0.2s;
 }
 
 /*zoom*/
@@ -690,4 +749,30 @@ footer{
         --turquoise-translate:  -480%,-305%;
         --green-translate:  -600%,-305%;
 } 
+}
+
+/*font size switcher*/
+
+#changeFontsize{
+    position: fixed;
+    right: 10%;
+    top: 10px;
+    position: absolute;
+    background-color: var(--main-color);
+    border: solid 2px var(--changebtn-border);
+    border-radius: 8px;
+    min-width: 100px;
+    padding: 8px;
+    color: var(--text-color);
+}
+
+.fontBtn {
+    width: 30%;
+    color: grey;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: var(--main-color);
+    border: solid 2px var(--changebtn-border);
+    color: var(--text-color);
 }
