@@ -15,6 +15,10 @@
     --T-time: 1.5s;/*transition time*/
     --width-popup: 50ch;
 
+
+
+    /*icons accordion*/
+    --acc-icon: rgb(0000)
 }
 body {
     font-family: "Montserrat", sans-serif;
@@ -404,12 +408,13 @@ footer{
 /*accordion*/
 .accordion{
     display:grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-auto-rows: min-content;
     gap:5px;
 }
 .headline{
     vertical-align: middle;
+    color: var(--text-color);
 }
 .accordionBtn{
     cursor: pointer;
@@ -417,7 +422,7 @@ footer{
     text-align: center;
     height: 35px;
     height: 50px;
-    width:25vw;
+    width:26vw;
     background-color: var(--main-color);
     border: solid 1px var(--popup-color);
 
@@ -429,11 +434,12 @@ footer{
 }
   .accordionBtn:after {
     content: '\25B6';
+    color: var(--acc-icon);
     font-weight: bold;
     float: right;
     margin-left: 5px;
     position: relative;
-    transition: 0.2s;
+    transition: 0.8s;
     top: -40px;
     right: 20px;
 }
@@ -445,7 +451,36 @@ footer{
     overflow: hidden;
     transition: max-height 0.2s ease-out;
 }
-
+.one{
+    grid-area: 1/1;
+    margin-right: 2vw;
+}
+.two{
+    grid-area: 2/1;
+    margin-right: 2vw;
+}
+.three{
+    grid-area: 1/2;
+}
+.four{
+    grid-area: 2/2;
+}
+.five{
+    grid-area: 3/1;
+    margin-right: 2vw;
+    margin-top: 2vw;
+}
+.six{
+    grid-area: 4/1;
+    margin-right: 2vw;
+}
+.seven{
+    grid-area: 3/2;
+    margin-top: 2vw;
+}
+.eight{
+    grid-area: 4/2;
+}
 
 
 /*Navigation*/

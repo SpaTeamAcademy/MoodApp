@@ -78,7 +78,7 @@ for(let i = 0; i<colorbuttonList.length; i++){
   accordion.className = "accordion";
   popup.innerHTML = "";
   const entries = ["Gefühle", "Beispiele", "Körper", "Gedanken", "Strategien"]; //used for headlines
-  const gridList = ["one", "two", "three", "four"]
+  const gridList = ["one", "two", "three", "four", "five", "six", "seven", "eight"]
   /*let closeBtn = document.createElement('button');
   closeBtn.className = "button close-button";
   closeBtn.innerHTML = "schließen";*/
@@ -95,23 +95,33 @@ for(let i = 0; i<colorbuttonList.length; i++){
           popup.append(keywords); //the list is appended to the dialog element
 
           
-
+          let gridI = 0;
           for(let j = 2; j < keys.length; ++j){ //the 4 accordions are created. the for loop iterates the object itself
+
             let accordionBtn = document.createElement('button');
-            accordionBtn.className = "accordionBtn";
+            accordionBtn.className = gridList[gridI];
+            accordionBtn.classList.add("accordionBtn");
+
+            gridI = gridI+1;
+
         
             let headline = document.createElement('h3');
             headline.innerHTML = entries[j-1];
             headline.className = "headline";
         
             let content = document.createElement('div');
-            content.className = "accordionContent";
+            content.className = (gridList[gridI])
+            content.classList.add("accordionContent");
+
             content.append(createList(moodsData.Moods[i], keys[j]));
         
             accordionBtn.append(headline); //all the accordions are appended to an accordion container
             //section.append(accordionBtn);
             accordion.append(accordionBtn);
             accordion.append(content);
+
+            gridI = gridI+1;
+            console.log(gridI)
           }
 
 /*
