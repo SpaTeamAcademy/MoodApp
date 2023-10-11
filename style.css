@@ -655,3 +655,29 @@ footer{
         --green-translate:  -600%,-305%;
 } 
 }
+
+/*font size switcher*/
+
+#changeFontsize{
+    position: fixed;
+    right: 10%;
+    top: 10px;
+    position: absolute;
+    background-color: var(--main-color);
+    border: solid 2px var(--changebtn-border);
+    border-radius: 8px;
+    min-width: 100px;
+    padding: 8px;
+    color: var(--text-color);
+}
+
+.fontBtn {
+    width: 30%;
+    color: grey;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: var(--main-color);
+    border: solid 2px var(--changebtn-border);
+    color: var(--text-color);
+}
