@@ -332,6 +332,15 @@ toggleButton.addEventListener("click", () => {
   colorPopUp.classList.toggle("show");
 });
 
+async function toggleColorPopUp(){
+  if(colorPopUp.classList.contains("show")){
+
+  }
+  else{
+    
+  }
+}
+
 /*local storage for user preferences*/
 function retrieveLS() {
   for(let i of moodsData.Moods){
