@@ -357,6 +357,12 @@ function ZoomEnd(){//remove zoom add hoverable and with that return colorbutton 
   }
 }
 
+//Clear Local Storage
+document.getElementById("clearBtn").addEventListener(
+  "click", () => {localStorage.clear();
+  location.reload();}
+);
+
 /*font size changer*/
 var content = document.getElementById("body"); 
 function changeSize(size) { 

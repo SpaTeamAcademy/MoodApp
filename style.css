@@ -576,6 +576,65 @@ footer{
     display: inline-block;
 }
 
+/*clear local storage*/
+
+.clearBtn{
+    position:absolute;
+    bottom:1vh;
+    top:auto;
+    right:1vw;
+    left:auto;
+    width:130px;
+    height:40px;
+    color: var(--text-color);
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: var(--main-color);
+    border: solid 2px var(--changebtn-border);
+    margin-top: 15px;
+    white-space: nowrap;
+}
+
+.clearBtnTooltip{
+    position:absolute;
+    bottom:60px;
+    top:auto;
+    right:1vw;
+    left:auto;
+    width:110px;
+    opacity:0;
+    background-color: var(--keyword-color);
+    color: var(--main-color);
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    transition:opacity 0.4s;
+}
+
+.clearBtnTooltip::after{
+    content: "";
+    color: var(--keyword-color);
+    position: absolute;
+    transform: scale(2,2);
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--keyword-color) transparent transparent transparent;
+}
+
+.clearBtnTooltip:hover{
+    opacity:1;
+    transition:opacity 0.2s;
+}
+
+.clearBtn:hover + .clearBtnTooltip{
+    opacity:1;
+    transition:opacity 0.2s;
+}
+
 /*zoom*/
 .zoom{
      opacity: 1;/*evt changing*/
