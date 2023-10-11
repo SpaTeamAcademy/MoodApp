@@ -342,3 +342,7 @@ function retrieveColors() {
 }
 
 
+//Clear Local Storage
+function clearLS() {
+  localStorage.clear;
+}
