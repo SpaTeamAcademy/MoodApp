@@ -344,5 +344,5 @@ function retrieveColors() {
 
 //Clear Local Storage
 document.getElementById("clearBtn").addEventListener(
-  () => {localStorage.clear;}
-)
+  "click", () => {localStorage.clear();}
+);
