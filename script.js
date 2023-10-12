@@ -95,7 +95,8 @@ for(let i = 0; i<colorbuttonList.length; i++){
           popup.append(keywords); //the list is appended to the dialog element
 
           
-          let gridI = 0;
+          let gridI = 0;/*class given to position accordions + content in grid */
+          
           for(let j = 2; j < keys.length; ++j){ //the 4 accordions are created. the for loop iterates the object itself
 
             let accordionBtn = document.createElement('button');
@@ -116,42 +117,18 @@ for(let i = 0; i<colorbuttonList.length; i++){
             content.append(createList(moodsData.Moods[i], keys[j]));
         
             accordionBtn.append(headline); //all the accordions are appended to an accordion container
-            //section.append(accordionBtn);
             accordion.append(accordionBtn);
             accordion.append(content);
 
             gridI = gridI+1;
             console.log(gridI)
           }
-
-/*
-          for(let j = 2; j < keys.length; ++j){ //the 4 accordions are created. the for loop iterates the object itself
-            let section = document.createElement('div');
-            section.className = "accordionSection";
-
-            let accordionBtn = document.createElement('div');
-            accordionBtn.className = "accordionBtn";
-
-            let headline = document.createElement('h3');
-            headline.innerHTML = entries[j-1];
-
-            let content = document.createElement('div');
-            content.className = "accordionContent";
-            content.append(createList(moodsData.Moods[i], keys[j]));
-
-            accordionBtn.append(headline); //all the accordions are appended to an accordion container
-            section.append(accordionBtn);
-            section.append(content);
-            accordion.append(section);
-          }*/
       }
   }
 
   popup.append(accordion); //the accordion and the close button are appended to the dialog
 
   accSwitch()
- // accordionSwitch();/
- // accordionSwitch(accordionBtn);
 }
 
 
@@ -168,49 +145,12 @@ function createList(mood, listId){ //creates an unordered list and fills it usin
 }  
 
 //accordion//
-/*const accordionSection = document.getElementsByClassName('accordionSection');
-const accordionBtn = document.getElementsByClassName('accordionBtn');
-
-function accordionSwitch(which){
-  for (let i=0; i<which.length; i++) {
-  if(which[i].classList.contains("active")){
-      which.addEventListener('click', function () {
-        console.log("145")
-      accordionBtn.style.content = "\25B6";
-      this.classList.remove('active')
-      })
-    }
-  }
-    for (let i=0; i<which.length; i++) {
-      which[i].addEventListener('click', function () {
-      console.log("153")
-      accordionBtn[i].style.content = "\25BC";
-      this.classList.add('active')
-      })
-    }
-}*//*
-function accordionSwitch(){
-  const accordionSection = document.getElementsByClassName('accordionSection');
-  const accordionBtn = document.getElementsByClassName('accordionBtn');
-  for (let i=0; i<accordionBtn.length; i++) {
-    accordionBtn[i].addEventListener('click', function () {
-      console.log(this.style)
-    this.classList.toggle('active')
-    })
-  }
-  for (let i=0; i<accordionSection.length; i++) {
-    accordionSection[i].addEventListener('click', function () {
-    this.classList.toggle('active')
-    })
-  }
-}*/
 function accSwitch(){
-var acc = document.getElementsByClassName("accordionBtn");
-for (let i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
+var accBtn = document.getElementsByClassName("accordionBtn");
+for (let i = 0; i < accBtn.length; i++) {
+  accBtn[i].addEventListener("click", function() {
     this.classList.toggle("active");
     var panel = this.nextElementSibling;
-    //var panel = this.nextElementChild
     if (panel.style.maxHeight) {
       panel.style.maxHeight = null;
     } else {

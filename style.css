@@ -412,73 +412,85 @@ footer{
     gap:5px;
 }
 .headline{
-    vertical-align: middle;
     color: var(--text-color);
+    vertical-align: middle;
+    justify-content: center;
+    display: flex;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.17em;
 }
 .accordionBtn{
     cursor: pointer;
     border-radius: 8px;
     text-align: center;
-    height: 35px;
-    height: 50px;
+    height: 8vh;
     width:26vw;
     background-color: var(--main-color);
     border: solid 1px var(--popup-color);
 
-    border: none;
     text-align: left;
     outline: none;
     font-size: 15px;
     transition: 0.4s;
 }
-  .accordionBtn:after {
+.accordionBtn:after {
     content: '\25B6';
     color: var(--acc-icon);
     font-weight: bold;
     float: right;
     margin-left: 5px;
     position: relative;
-    transition: 0.8s;
+    transition: 0.4s;
     top: -40px;
     right: 20px;
 }
-  .accordionBtn.active:after {
-    content: "\25BC";
+.accordionBtn.active:after {
+   /* content: "\25BC";*//*if the bug comes back take away rotate and use the second content*/
+   transform: rotate(90deg);
 }
-  .accordionContent {
+.accordionContent {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
 }
+/*classes given in JS to position accordions + content in grid*/
 .one{
     grid-area: 1/1;
-    margin-right: 2vw;
+    margin-right: 1vw;
+    margin-left: 1vw;
 }
 .two{
     grid-area: 2/1;
-    margin-right: 2vw;
+    margin-right: 1vw;
+    margin-left: 1vw;
 }
 .three{
     grid-area: 1/2;
+    margin-right: 1vw;
 }
 .four{
     grid-area: 2/2;
+    margin-right: 1vw;
 }
 .five{
     grid-area: 3/1;
-    margin-right: 2vw;
-    margin-top: 2vw;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    margin-top: 1vw;
 }
 .six{
     grid-area: 4/1;
-    margin-right: 2vw;
+    margin-right: 1vw;
+    margin-left: 1vw;
 }
 .seven{
     grid-area: 3/2;
-    margin-top: 2vw;
+    margin-top: 1vw;
+    margin-right: 1vw;
 }
 .eight{
     grid-area: 4/2;
+    margin-right: 1vw;
 }
 
 
