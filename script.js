@@ -328,38 +328,30 @@ document.addEventListener("click", (e) => {
 });
 
 // Toggle the colorPopUp when clicking the toggle button
-
-
-async function toggleColorPopUp(){
-  if(!colorPopUp.classList.contains("show")){
-    show();
-  }
-  else{
+toggleButton.addEventListener("click",() => {
+  if(colorPopUp.classList.contains("show")){
     hide();
   }
-}
+  else{
+    show();
+  }
+});
 
-async function show() {
-  const showColors = new Promise((resolve, reject) => {
-    colorPopUp.style.display = "block";
-    resolve();
-  })
+
+//Show or hide color picker
+async function show() { 
+  colorPopUp.style.display = "block";
   setTimeout(() => {
-    colorPopUp.classList.add("show");
+    colorPopUp.classList.add("show"); //timeout is necessary, otherwise the popup appears instantly
   }, 1);
 }
 
 async function hide() {
-  const hideColors = new Promise((resolve, reject) => {
-    colorPopUp.classList.remove("show");
-    resolve();
-  })
+  colorPopUp.classList.remove("show");
   setTimeout(() => {
-    colorPopUp.style.display = "none";
+    colorPopUp.style.display = "none"; //timeout takes as long as the hiding transition
   }, 600);
 }
-
-toggleButton.addEventListener("click",() => {toggleColorPopUp()});
 
 /*local storage for user preferences*/
 function retrieveLS() {
