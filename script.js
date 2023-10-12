@@ -323,7 +323,7 @@ document.addEventListener("click", (e) => {
   ) {
   } else {
     //The click is outside, close the colorpicker
-    colorPopUp.classList.remove("show");
+    hide();
   }
 });
 
