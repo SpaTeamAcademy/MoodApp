@@ -328,18 +328,38 @@ document.addEventListener("click", (e) => {
 });
 
 // Toggle the colorPopUp when clicking the toggle button
-toggleButton.addEventListener("click", () => {
-  colorPopUp.classList.toggle("show");
-});
+
 
 async function toggleColorPopUp(){
-  if(colorPopUp.classList.contains("show")){
-
+  if(!colorPopUp.classList.contains("show")){
+    show();
   }
   else{
-    
+    hide();
   }
 }
+
+async function show() {
+  const showColors = new Promise((resolve, reject) => {
+    colorPopUp.style.display = "block";
+    resolve();
+  })
+  setTimeout(() => {
+    colorPopUp.classList.add("show");
+  }, 1);
+}
+
+async function hide() {
+  const hideColors = new Promise((resolve, reject) => {
+    colorPopUp.classList.remove("show");
+    resolve();
+  })
+  setTimeout(() => {
+    colorPopUp.style.display = "none";
+  }, 600);
+}
+
+toggleButton.addEventListener("click",() => {toggleColorPopUp()});
 
 /*local storage for user preferences*/
 function retrieveLS() {
