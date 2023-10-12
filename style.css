@@ -393,9 +393,10 @@ footer{
 .popUpBox{
     padding: 20px;
     width:55vw;
+    min-width: 440px;
     border: solid 5px var(--main-color);
     border-radius: 20px;
-    box-shadow: 30 px;
+    box-shadow: 30px;
     /*transition: width 2s;*/
     background-color: var(--popup-background);
     box-shadow: 5px 5px 5px 5px var(--popup-color);
@@ -418,6 +419,7 @@ footer{
     display: flex;
     font-family: "Montserrat", sans-serif;
     font-size: 1.17em;
+    padding-left: 12px;
 }
 .accordionBtn{
     cursor: pointer;
@@ -425,6 +427,9 @@ footer{
     text-align: center;
     height: 8vh;
     width:26vw;
+    min-height: 40px;
+    max-height: max-content;
+    min-width: 200px;
     background-color: var(--main-color);
     border: solid 1px var(--popup-color);
 

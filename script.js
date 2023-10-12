@@ -96,7 +96,7 @@ for(let i = 0; i<colorbuttonList.length; i++){
 
           
           let gridI = 0;/*class given to position accordions + content in grid */
-          
+
           for(let j = 2; j < keys.length; ++j){ //the 4 accordions are created. the for loop iterates the object itself
 
             let accordionBtn = document.createElement('button');
@@ -121,7 +121,6 @@ for(let i = 0; i<colorbuttonList.length; i++){
             accordion.append(content);
 
             gridI = gridI+1;
-            console.log(gridI)
           }
       }
   }
