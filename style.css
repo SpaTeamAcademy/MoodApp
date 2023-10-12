@@ -97,7 +97,24 @@ footer{
     padding-right: auto;
     min-width: 28rem;
 }
+#BackgroundHidden{
+z-index: 4;
+}
 
+.hidden:not(.zoom){
+    /*opacity: 0;*/
+    animation: hide var(--T-time);
+    animation-fill-mode: forwards;
+}
+
+@keyframes hide {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
 
 /* Style for X and Y axis */
 .x-axis {
@@ -637,7 +654,7 @@ footer{
 
 /*zoom*/
 .zoom{
-     opacity: 1;/*evt changing*/
+     opacity: 1;
      z-index: 800;
      display: flex;
 }
@@ -740,3 +757,5 @@ footer{
     border: solid 2px var(--changebtn-border);
     color: var(--text-color);
 }
+
+

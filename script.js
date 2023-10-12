@@ -59,18 +59,24 @@ modal.addEventListener("click", (e) => {
 /*dymamic popup generation*/
 function display(color){ //is called using onclick for now, gets the button's ID as a parameter
 var zoomHere = document.getElementsByClassName("zoom");
-for(let i=0; i<zoomHere.length;i++){
-  zoomHere[i].classList.remove("zoom")
-  }
 
+for(let i=0; i < zoomHere.length;i++){
+  zoomHere[i].classList.remove("zoom")
+}
 
 var zoomed = document.getElementById(color);//needed to know what was clicked, move it and give zoom to it
 const colorbuttonList = document.getElementsByClassName("colorbutton")//needed to give/take the hoverables 
+const toHide = document.getElementsByClassName("visible")
+
 zoomed.classList.add("zoom")
 for(let i = 0; i<colorbuttonList.length; i++){
-  colorbuttonList[i].classList.remove("hoverable")
+  //colorbuttonList[i].classList.remove("hoverable")
+  colorbuttonList[i].classList.replace("hoverable", "hidden")
 }
 
+for(let i=0; i<toHide.length; i++){
+  toHide[i].classList.add("hidden")
+}
 
 //Pop Up
   const popup = document.querySelector(".popUpBox");
@@ -347,10 +353,19 @@ function retrieveLS() {
 function ZoomEnd(){//remove zoom add hoverable and with that return colorbutton to original position
   var zoomed = document.getElementsByClassName("zoom")
   const colorbuttonList = document.getElementsByClassName("colorbutton")
+  const toHide = document.getElementsByClassName("visible")
+ // document.getElementById("BackgroundHidden").style.opacity = 1;
 
   for(let i=0; i<colorbuttonList.length; i++){
-    colorbuttonList[i].classList.add("hoverable")
+    //colorbuttonList[i].classList.add("hoverable")
+    colorbuttonList[i].classList.replace("hidden", "hoverable")
   }
+  
+  for(let i=0; i<toHide.length; i++){
+    //colorbuttonList[i].classList.add("hoverable")
+    toHide[i].classList.remove("hidden")
+  }
+
 
   for(let i=0; i<zoomed.length;i++){
   zoomed[i].classList.remove("zoom")

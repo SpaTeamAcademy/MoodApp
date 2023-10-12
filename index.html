@@ -12,13 +12,15 @@
     <h1>MoodApp</h1>
 
     <input type="checkbox" class="darkModeSwitch" id="darkModeSwitch">
-<div id="spaceTop"></div>
+    <div id="spaceTop"></div>
+    <div id="BackgroundHidden">
+  
 
     <div class="coordinate-system">
-    <div class="x-axis"></div>
-    <div class="y-axis"></div>
+    <div class="x-axis visible"></div>
+    <div class="y-axis visible"></div>
     
-        <p class="axis-label" id="energyHigh">Energie hoch</p>
+        <p class="axis-label visible" id="energyHigh">Energie hoch</p>
         
 
           <div class="colorbutton top-line-grid column-4 hoverable" id="yellow" onclick="display('yellow')">
@@ -38,8 +40,8 @@
           <p class="keywords column-4" id="yellowKeywords"></p>
         </div><br>
 
-        <div class="axis-label" id="negativ">Negativ</div>
-        <div class="axis-label" id="positiv">Positiv</div>
+        <div class="axis-label visible" id="negativ">Negativ</div>
+        <div class="axis-label visible" id="positiv">Positiv</div>
 
         <div class="colorbutton bottom-line-grid column-1 hoverable" id="indigo" onclick="display('indigo')">
           <p class="keywords column-1" id="indigoKeywords"></p>
@@ -57,8 +59,9 @@
         <p class="keywords column-4" id="greenKeywords"></p>
       </div>
 
-       <p class="axis-label" id="energyLow">Energie niedrig</p>
+       <p class="axis-label visible" id="energyLow">Energie niedrig</p>
     </div>
+  </div>
   
 
 
