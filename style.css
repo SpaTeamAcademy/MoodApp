@@ -428,7 +428,7 @@ footer{
     height: 8vh;
     width:26vw;
     min-height: 40px;
-    max-height: max-content;
+    max-height: 60px;
     min-width: 200px;
     background-color: var(--main-color);
     border: solid 1px var(--popup-color);
