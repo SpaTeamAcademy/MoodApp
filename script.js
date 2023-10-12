@@ -84,6 +84,7 @@ for(let i=0; i<toHide.length; i++){
   accordion.className = "accordion";
   popup.innerHTML = "";
   const entries = ["Gefühle", "Beispiele", "Körper", "Gedanken", "Strategien"]; //used for headlines
+  const gridList = ["one", "two", "three", "four", "five", "six", "seven", "eight"]
   /*let closeBtn = document.createElement('button');
   closeBtn.className = "button close-button";
   closeBtn.innerHTML = "schließen";*/
@@ -99,32 +100,40 @@ for(let i=0; i<toHide.length; i++){
           keywords.append(createList(moodsData.Moods[i], "keywords"));
           popup.append(keywords); //the list is appended to the dialog element
 
+          
+          let gridI = 0;/*class given to position accordions + content in grid */
+
           for(let j = 2; j < keys.length; ++j){ //the 4 accordions are created. the for loop iterates the object itself
-            let section = document.createElement('div');
-            section.className = "accordionSection";
 
-            let accordionBtn = document.createElement('div');
-            accordionBtn.className = "accordionBtn";
+            let accordionBtn = document.createElement('button');
+            accordionBtn.className = gridList[gridI];
+            accordionBtn.classList.add("accordionBtn");
 
+            gridI = gridI+1;
+
+        
             let headline = document.createElement('h3');
             headline.innerHTML = entries[j-1];
-
+            headline.className = "headline";
+        
             let content = document.createElement('div');
-            content.className = "accordionContent";
-            content.append(createList(moodsData.Moods[i], keys[j]));
+            content.className = (gridList[gridI])
+            content.classList.add("accordionContent");
 
+            content.append(createList(moodsData.Moods[i], keys[j]));
+        
             accordionBtn.append(headline); //all the accordions are appended to an accordion container
-            section.append(accordionBtn);
-            section.append(content);
-            accordion.append(section);
+            accordion.append(accordionBtn);
+            accordion.append(content);
+
+            gridI = gridI+1;
           }
       }
   }
 
   popup.append(accordion); //the accordion and the close button are appended to the dialog
 
-  accordionSwitch(accordionSection);
-  accordionSwitch(accordionBtn);
+  accSwitch()
 }
 
 
@@ -141,15 +150,19 @@ function createList(mood, listId){ //creates an unordered list and fills it usin
 }  
 
 //accordion//
-const accordionSection = document.getElementsByClassName('accordionSection');
-const accordionBtn = document.getElementsByClassName('accordionBtn');
-
-function accordionSwitch(which){
-    for (let i=0; i<which.length; i++) {
-      which[i].addEventListener('click', function () {
-      this.classList.toggle('active')
-      })
-    }
+function accSwitch(){
+var accBtn = document.getElementsByClassName("accordionBtn");
+for (let i = 0; i < accBtn.length; i++) {
+  accBtn[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
 }
 
 //navigation
