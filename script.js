@@ -70,7 +70,6 @@ const toHide = document.getElementsByClassName("visible")
 
 zoomed.classList.add("zoom")
 for(let i = 0; i<colorbuttonList.length; i++){
-  //colorbuttonList[i].classList.remove("hoverable")
   colorbuttonList[i].classList.replace("hoverable", "hidden")
 }
 
@@ -229,28 +228,66 @@ function colorNavButtons(btn){
   let color;
   let targetBtn;
 
+  let keyword;
+  let child;
+  let p;
+  let copie;
+
   switch (btn){
     case "left":
       targetBtn = getComputedStyle(document.getElementById(colors[y][x-1]));
       color = targetBtn.getPropertyValue("background-color");
+
+      child = document.getElementById(colors[y][x-1]).firstElementChild;
+      keyword = child.firstElementChild;
+      p = document.getElementById("prevKey");
+      p.textContent = keyword.textContent;
+      console.log(p)
+      
       prevBtn.style.backgroundColor = color;
       break;
 
     case "right":
       targetBtn = getComputedStyle(document.getElementById(colors[y][x+1]));
       color = targetBtn.getPropertyValue("background-color");
+
+      child = document.getElementById(colors[y][x+1]).firstElementChild;
+      keyword = child.firstElementChild;
+      p = document.getElementById("nextKey");
+      p.textContent = keyword.textContent;
+      console.log(p)
+      
       nextBtn.style.backgroundColor = color;
       break;
 
     case "up":
       targetBtn = getComputedStyle(document.getElementById(colors[y-1][x]));
       color = targetBtn.getPropertyValue("background-color");
+
+      child = document.getElementById(colors[y-1][x]).firstElementChild;
+      keyword = child.firstElementChild;
+      p = document.getElementById("upKey");
+       p.textContent = keyword.textContent;
+
+      console.log(p)
+
+
+      
       upBtn.style.backgroundColor = color;
       break;
 
     case "down":
       targetBtn = getComputedStyle(document.getElementById(colors[y+1][x]));
       color = targetBtn.getPropertyValue("background-color");
+
+      child = document.getElementById(colors[y+1][x]).firstElementChild;
+      keyword = child.firstElementChild;
+      p = document.getElementById("downKey");
+      p.textContent = keyword.textContent;
+
+      console.log(p)
+
+      
       downBtn.style.backgroundColor = color;
       break;
   }
@@ -367,15 +404,12 @@ function ZoomEnd(){//remove zoom add hoverable and with that return colorbutton 
   var zoomed = document.getElementsByClassName("zoom")
   const colorbuttonList = document.getElementsByClassName("colorbutton")
   const toHide = document.getElementsByClassName("visible")
- // document.getElementById("BackgroundHidden").style.opacity = 1;
 
   for(let i=0; i<colorbuttonList.length; i++){
-    //colorbuttonList[i].classList.add("hoverable")
     colorbuttonList[i].classList.replace("hidden", "hoverable")
   }
   
   for(let i=0; i<toHide.length; i++){
-    //colorbuttonList[i].classList.add("hoverable")
     toHide[i].classList.remove("hidden")
   }
 

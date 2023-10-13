@@ -36,8 +36,8 @@ h1 {
 #spaceTop{
     height: 30vh;
 }
-#spaceBottom{
-    height: 10vh;
+.spaceBottom{
+    height: 5vh;
 }
 footer{
     position: fixed;
@@ -409,6 +409,7 @@ z-index: 4;
 
 .popUpBox{
     padding: 20px;
+    margin: min(80px, 8vh);
     width:55vw;
     min-width: 440px;
     border: solid 5px var(--main-color);
@@ -518,16 +519,15 @@ z-index: 4;
 
 /*Navigation*/
 .navBtn{
-    height:40px;
-    width:40px;
+    height:60px;
+    width:60px;
     border-radius:50%;
     cursor:pointer;
     border:solid var(--colorbtn-border) 2px;
-    opacity: 0.7;
 }
 
 .navBtn:hover{
-    opacity: 1.0;
+    filter: brightness(1.1) saturate(2);
 }
 
 .upBtn{
@@ -553,7 +553,6 @@ z-index: 4;
     grid-column: 1/1;
     margin: auto 20px auto auto;
 }
-
 
 /*Dark Mode*/
 .darkModeSwitch{

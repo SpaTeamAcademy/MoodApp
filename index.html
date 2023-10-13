@@ -13,8 +13,6 @@
 
     <input type="checkbox" class="darkModeSwitch" id="darkModeSwitch">
     <div id="spaceTop"></div>
-    <div id="BackgroundHidden">
-  
 
     <div class="coordinate-system">
     <div class="x-axis visible"></div>
@@ -61,17 +59,25 @@
 
        <p class="axis-label visible" id="energyLow">Energie niedrig</p>
     </div>
-  </div>
   
 
 
-
+    <div class="spaceBottom"></div>
   <dialog class="keywordPopup" id="popup">
+
+    <p class="keywords upKey" id="upKey"></p>
     <button class="upBtn navBtn" id="upBtn"></button>
+
+    <p class="keywords prevKey" id="prevKey"></p>
     <button class="prevBtn navBtn" id="prevBtn"></button>
+
     <div class="popUpBox">
     </div>
+
+    <p class="keywords nextKey" id="nextKey"></p>
     <button class="nextBtn navBtn" id="nextBtn"></button>
+
+    <p class="keywords downKey" id="downKey"></p>
     <button class="downBtn navBtn" id="downBtn"></button>
     
   </dialog>
@@ -117,7 +123,7 @@
 
 </div>
 </body>
-<div id="spaceBottom"></div>
+<div class="spaceBottom"></div>
 <footer>Specialisterne 2023</footer>
 <script src="script.js"></script>
 </html>
