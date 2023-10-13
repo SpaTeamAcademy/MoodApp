@@ -610,6 +610,7 @@ footer{
     border-radius: 8px;
     background-color: var(--colorpicker-back);
     border: solid 2px var(--changebtn-border);
+    height:50px;
 }
 
 .colorChangeBtn{
