@@ -231,18 +231,17 @@ function colorNavButtons(btn){
   let keyword;
   let child;
   let p;
-  let copie;
 
   switch (btn){
     case "left":
       targetBtn = getComputedStyle(document.getElementById(colors[y][x-1]));
       color = targetBtn.getPropertyValue("background-color");
 
+      //for the tooltip getting the right keyword
       child = document.getElementById(colors[y][x-1]).firstElementChild;
       keyword = child.firstElementChild;
       p = document.getElementById("prevKey");
       p.textContent = keyword.textContent;
-      console.log(p)
       
       prevBtn.style.backgroundColor = color;
       break;
@@ -251,11 +250,11 @@ function colorNavButtons(btn){
       targetBtn = getComputedStyle(document.getElementById(colors[y][x+1]));
       color = targetBtn.getPropertyValue("background-color");
 
+      //for the tooltip getting the right keyword
       child = document.getElementById(colors[y][x+1]).firstElementChild;
       keyword = child.firstElementChild;
       p = document.getElementById("nextKey");
       p.textContent = keyword.textContent;
-      console.log(p)
       
       nextBtn.style.backgroundColor = color;
       break;
@@ -264,14 +263,11 @@ function colorNavButtons(btn){
       targetBtn = getComputedStyle(document.getElementById(colors[y-1][x]));
       color = targetBtn.getPropertyValue("background-color");
 
+      //for the tooltip getting the right keyword
       child = document.getElementById(colors[y-1][x]).firstElementChild;
       keyword = child.firstElementChild;
       p = document.getElementById("upKey");
-       p.textContent = keyword.textContent;
-
-      console.log(p)
-
-
+      p.textContent = keyword.textContent;
       
       upBtn.style.backgroundColor = color;
       break;
@@ -280,13 +276,11 @@ function colorNavButtons(btn){
       targetBtn = getComputedStyle(document.getElementById(colors[y+1][x]));
       color = targetBtn.getPropertyValue("background-color");
 
+    //for the tooltip getting the right keyword
       child = document.getElementById(colors[y+1][x]).firstElementChild;
       keyword = child.firstElementChild;
       p = document.getElementById("downKey");
       p.textContent = keyword.textContent;
-
-      console.log(p)
-
       
       downBtn.style.backgroundColor = color;
       break;
@@ -318,6 +312,53 @@ downBtn.addEventListener("click", () => {
   displayBtns();
 });
 
+
+//////for the tooltip
+let tooltip;
+
+//when the mouse is on el. tooltip is visible
+prevBtn.addEventListener("mouseover", () => {
+ tooltip = document.getElementById("prevKey")
+ tooltip.style.opacity = 1;
+});
+
+nextBtn.addEventListener("mouseover", () => {
+  tooltip = document.getElementById("nextKey")
+  tooltip.style.opacity = 1;
+});
+
+upBtn.addEventListener("mouseover", () => {
+  tooltip = document.getElementById("upKey")
+  tooltip.style.opacity = 1;
+});
+
+downBtn.addEventListener("mouseover", () => {
+  tooltip = document.getElementById("downKey")
+  tooltip.style.opacity = 1;
+});
+
+//when the mouse leaves el. tooltip is invisible
+
+prevBtn.addEventListener("mouseleave", () => {
+  tooltip = document.getElementById("prevKey")
+  tooltip.style.opacity = 0;
+ });
+ 
+ nextBtn.addEventListener("mouseleave", () => {
+   tooltip = document.getElementById("nextKey")
+   tooltip.style.opacity = 0;
+ });
+ 
+ upBtn.addEventListener("mouseleave", () => {
+   tooltip = document.getElementById("upKey")
+   tooltip.style.opacity = 0;
+ });
+ 
+ downBtn.addEventListener("mouseleave", () => {
+   tooltip = document.getElementById("downKey")
+   tooltip.style.opacity = 0;
+ });
+ 
 
 //dark mode
 const darkModeSwitch = document.getElementById("darkModeSwitch");

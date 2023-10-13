@@ -106,7 +106,6 @@ z-index: 4;
 }
 
 .hidden:not(.zoom){
-    /*opacity: 0;*/
     animation: hide var(--T-time);
     animation-fill-mode: forwards;
 }
@@ -380,6 +379,55 @@ z-index: 4;
     transition: opacity 0.2s;
 }
 
+/*navBtn keywords*/
+.navBtn:hover{
+    filter: brightness(1.1) saturate(2);
+    transition: opacity 0.2s;
+}
+.navKey::before{
+    content: "";
+    color: var(--keyword-color);
+    position: absolute;
+    transform: scale(2,2);
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--keyword-color) transparent transparent transparent;
+}
+#upKey{
+    grid-row:1/1;
+    grid-column: 2/2;
+    margin: auto auto 20px;
+    margin-top: -90px;
+    opacity: 0;
+}
+#downKey{
+    grid-row: 3/3;
+    grid-column: 2/2;
+    margin-top: -90px;
+    left: 41%;
+    margin-left: 2vw;
+    opacity: 0;
+}
+#prevKey{
+    grid-row: 2/2;
+    grid-column: 1/1;
+    justify-self: center;
+    margin-top: -90px;
+    margin-left: 2vw;
+    opacity: 0;
+}
+#nextKey{
+    grid-row: 2/2;
+    grid-column: 3/3;
+    justify-self: center;
+    margin-top: -90px;
+    margin-right: 2vw;
+    opacity: 0;
+}
+
 
 /* pop up*/
 .keywordPopup {
@@ -525,10 +573,11 @@ z-index: 4;
     cursor:pointer;
     border:solid var(--colorbtn-border) 2px;
 }
-
+/*
 .navBtn:hover{
     filter: brightness(1.1) saturate(2);
-}
+
+}*/
 
 .upBtn{
     grid-row:1/1;
