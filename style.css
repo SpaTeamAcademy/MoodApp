@@ -540,11 +540,12 @@ footer{
 
 /*Dark Mode*/
 .darkModeSwitch{
-    width:80px;
-    height:40px;
+    width:50px;
+    height:25px;
     border-radius:20px;
     appearance: none;
     box-shadow:inset 0 0 5px #7e7e7e;
+    border: 0.5px solid #7e7e7e;
     transition: .5s;
     cursor:pointer;
 }
@@ -554,17 +555,19 @@ footer{
 }
 
 .darkModeSwitch:before{
+    bottom:1.7px;
     content:'☀️';
     position:relative;
     left:0;
-    width:40px;
-    height:40px;
+    width:25px;
+    height:25px;
     border-radius: 50%;
     background-color: white;
     box-shadow:inset 0 0 5px #7e7e7e;
+    border: 0.5px solid #7e7e7e;
     transform:scale(1.1);
     transition: .5s;
-    font-size:20px;
+    font-size:15px;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -573,7 +576,7 @@ footer{
 .darkModeSwitch:checked:before{
     background-color: black;
     content:'🌙';
-    left:40px;
+    left:25px;
 }
 
 /*color change menu*/
@@ -607,10 +610,6 @@ footer{
     border-radius: 8px;
     background-color: var(--colorpicker-back);
     border: solid 2px var(--changebtn-border);
-}
-
-#toggleButton:hover{
-    /*background-color: var(--changebtn-border);*/
 }
 
 .colorChangeBtn{
@@ -774,6 +773,7 @@ footer{
     min-width: 100px;
     padding: 8px;
     color: var(--text-color);
+    margin-right:4px;
 }
 
 .fontBtn {
@@ -794,7 +794,7 @@ footer{
     left:auto;
     position:fixed;
     display:flex;
-    justify-content:space-between;
+    justify-content:flex-end;
     align-items:baseline;
     width:360px;
 }
