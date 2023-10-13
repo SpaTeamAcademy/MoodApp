@@ -420,14 +420,35 @@ document.addEventListener("click", (e) => {
   ) {
   } else {
     //The click is outside, close the colorpicker
-    colorPopUp.classList.remove("show");
+    hide();
   }
 });
 
 // Toggle the colorPopUp when clicking the toggle button
-toggleButton.addEventListener("click", () => {
-  colorPopUp.classList.toggle("show");
+toggleButton.addEventListener("click",() => {
+  if(colorPopUp.classList.contains("show")){
+    hide();
+  }
+  else{
+    show();
+  }
 });
+
+
+//Show or hide color picker
+async function show() { 
+  colorPopUp.style.display = "block";
+  setTimeout(() => {
+    colorPopUp.classList.add("show"); //timeout is necessary, otherwise the popup appears instantly
+  }, 1);
+}
+
+async function hide() {
+  colorPopUp.classList.remove("show");
+  setTimeout(() => {
+    colorPopUp.style.display = "none"; //timeout takes as long as the hiding transition
+  }, 600);
+}
 
 /*local storage for user preferences*/
 function retrieveLS() {
