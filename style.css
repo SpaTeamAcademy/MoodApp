@@ -408,7 +408,7 @@ z-index: 4;
     grid-column: 2/2;
     margin-top: -90px;
     left: 41%;
-    margin-left: 2vw;
+    margin-left: 3vw;
     opacity: 0;
 }
 #prevKey{
@@ -424,7 +424,7 @@ z-index: 4;
     grid-column: 3/3;
     justify-self: center;
     margin-top: -90px;
-    margin-right: 2vw;
+    margin-right: 2.5vw;
     opacity: 0;
 }
 
