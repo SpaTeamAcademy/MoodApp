@@ -605,7 +605,7 @@ footer{
     padding: 10px;
     cursor: pointer;
     border-radius: 8px;
-    background-color: var(--main-color);
+    background-color: var(--colorpicker-back);
     border: solid 2px var(--changebtn-border);
 }
 
@@ -640,7 +640,7 @@ footer{
     padding: 10px;
     cursor: pointer;
     border-radius: 8px;
-    background-color: var(--main-color);
+    background-color: var(--colorpicker-back);
     border: solid 2px var(--changebtn-border);
     margin-top: 15px;
     white-space: nowrap;
@@ -768,7 +768,7 @@ footer{
 /*font size switcher*/
 
 #changeFontsize{
-    background-color: var(--main-color);
+    background-color: var(--colorpicker-back);
     border: solid 2px var(--changebtn-border);
     border-radius: 8px;
     min-width: 100px;
