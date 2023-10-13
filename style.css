@@ -646,7 +646,6 @@ z-index: 4;
 
 /*color change menu*/
 .colorInput {
-    border-radius: 50%;
     cursor: pointer;
     border: solid 2px var(--changebtn-border);
     background-color: var(--main-color);
