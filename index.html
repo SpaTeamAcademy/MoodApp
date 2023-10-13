@@ -12,42 +12,45 @@
     <h1>MoodApp</h1>
 <div id="menu" class="menu">
   <div id="changeFontsize">
-    <button type="button" class="fontBtn" name="fontSmaller" onclick="changeSize('small')">-A</button> 
-    <button type="button" class="fontBtn" name="fontNormal" onclick="changeSize('medium')">A</button> 
-    <button type="button" class="fontBtn" name="fontLarge" onclick="changeSize('large')">A+</button> 
+    <button type="button" class="fontBtn" name="fontSmaller" aria-label="Schrift klein" onclick="changeSize('small')">-A</button> 
+    <button type="button" class="fontBtn" name="fontNormal" aria-label="Schrift mittel" onclick="changeSize('medium')">A</button> 
+    <button type="button" class="fontBtn" name="fontLarge" aria-label="Schrift groß" onclick="changeSize('large')">A+</button> 
   </div>
 
-  <button id="toggleButton">Farben auswählen</button><br>
+  <button id="toggleButton" aria-label="eigene Farben wählen">Farben auswählen</button><br>
   
 
-  <input type="checkbox" class="darkModeSwitch" id="darkModeSwitch">
+  <input type="checkbox" class="darkModeSwitch" id="darkModeSwitch" aria-label="darkmode schalter">
 </div>
 
-<div id="changeColor">
+<div id="changeColor" aria-hidden="true">
+  <fieldset>
+   <legend>farben ändern</legend> 
   <p class="feelingName"></p>
-  <input  type="color" class="colorInput" id="input1" value="#9f39ff"></input>
-  <button type="submit" class="colorChangeBtn" onclick="changeColor('violet', 'input1')">&#10003;</button>
-  <p class="feelingName"></p>
-  <input type="color" class="colorInput" id="input2" value="#ff0000"></input>
-  <button type="submit" class="colorChangeBtn" onclick="changeColor('red', 'input2')">&#10003;</button>
-  <p class="feelingName"></p>
-  <input type="color" class="colorInput" id="input3" value="#ffa500"></input>
-  <button type="submit" class="colorChangeBtn" onclick="changeColor('orange', 'input3')">&#10003;</button>
-  <p class="feelingName"></p>
-  <input type="color" class="colorInput" id="input4" value="#face49"></input>
-  <button type="submit" class="colorChangeBtn" onclick="changeColor('yellow', 'input4')">&#10003;</button><br>
-  <p class="feelingName"></p>
-  <input type="color" class="colorInput" id="input5" value="#004197"></input>
-  <button type="submit" class="colorChangeBtn" onclick="changeColor('indigo', 'input5')">&#10003;</button>
-  <p class="feelingName"></p>
-  <input type="color" class="colorInput" id="input6" value="#2973d7"></input>
-  <button type="submit" class="colorChangeBtn" onclick="changeColor('blue', 'input6')">&#10003;</button>
-  <p class="feelingName"></p>
-  <input type="color" class="colorInput" id="input7" value="#4bbc30"></input>
-  <button type="submit" class="colorChangeBtn" onclick="changeColor('turquoise', 'input7')">&#10003;</button>
-  <p class="feelingName"></p>
-  <input type="color" class="colorInput" id="input8" value="#a3e200"></input>
-  <button type="submit" class="colorChangeBtn" onclick="changeColor('green', 'input8')">&#10003;</button>
+  <input  type="color" class="colorInput" id="input1" value="#9f39ff" aria-hidden="true"></input>
+  <button type="submit" class="colorChangeBtn" onclick="changeColor('violet', 'input1')" aria-hidden="true">&#10003;</button>
+  <p class="feelingName" aria-hidden="true"></p>
+  <input type="color" class="colorInput" id="input2" value="#ff0000" aria-hidden="true"></input>
+  <button type="submit" class="colorChangeBtn" onclick="changeColor('red', 'input2')" aria-hidden="true">&#10003;</button>
+  <p class="feelingName" aria-hidden="true"></p>
+  <input type="color" class="colorInput" id="input3" value="#ffa500" aria-hidden="true"></input>
+  <button type="submit" class="colorChangeBtn" onclick="changeColor('orange', 'input3')" aria-hidden="true">&#10003;</button>
+  <p class="feelingName" aria-hidden="true"></p>
+  <input type="color" class="colorInput" id="input4" value="#face49" aria-hidden="true"></input>
+  <button type="submit" class="colorChangeBtn" onclick="changeColor('yellow', 'input4')" aria-hidden="true">&#10003;</button><br>
+  <p class="feelingName" aria-hidden="true"></p>
+  <input type="color" class="colorInput" id="input5" value="#004197" aria-hidden="true"></input>
+  <button type="submit" class="colorChangeBtn" onclick="changeColor('indigo', 'input5')" aria-hidden="true">&#10003;</button>
+  <p class="feelingName" aria-hidden="true"></p>
+  <input type="color" class="colorInput" id="input6" value="#2973d7" aria-hidden="true"></input>
+  <button type="submit" class="colorChangeBtn" onclick="changeColor('blue', 'input6')" aria-hidden="true">&#10003;</button>
+  <p class="feelingName" aria-hidden="true"></p>
+  <input type="color" class="colorInput" id="input7" value="#4bbc30" aria-hidden="true"></input>
+  <button type="submit" class="colorChangeBtn" onclick="changeColor('turquoise', 'input7')" aria-hidden="true">&#10003;</button>
+  <p class="feelingName" aria-hidden="true"></p>
+  <input type="color" class="colorInput" id="input8" value="#a3e200" aria-hidden="true"></input>
+  <button type="submit" class="colorChangeBtn" onclick="changeColor('green', 'input8')" aria-hidden="true">&#10003;</button>
+</fieldset>
 </div>
     
 <div id="spaceTop"></div>
@@ -56,7 +59,7 @@
     <div class="x-axis visible"></div>
     <div class="y-axis visible"></div>
     
-        <p class="axis-label visible" id="energyHigh">Energie hoch</p>
+        <p class="axis-label visible" id="energyHigh" aria-hidden="true">Energie hoch</p>
         
 
           <div class="colorbutton top-line-grid column-4 hoverable" id="yellow" onclick="display('yellow')">
@@ -64,7 +67,7 @@
           </div>
 
 
-        <div class="colorbutton top-line-grid column-3 hoverable" id="orange" onclick="display('orange')">
+        <div class="colorbutton top-line-grid column-3 hoverable" id="orange"onclick="display('orange')">
           <p class="keywords column-2" id="redKeywords"></p>
         </div>
 
@@ -76,8 +79,8 @@
           <p class="keywords column-4" id="yellowKeywords"></p>
         </div><br>
 
-        <div class="axis-label visible" id="negativ">Negativ</div>
-        <div class="axis-label visible" id="positiv">Positiv</div>
+        <div class="axis-label visible" id="negativ" aria-hidden="true">Negativ</div>
+        <div class="axis-label visible" id="positiv" aria-hidden="true">Positiv</div>
 
         <div class="colorbutton bottom-line-grid column-1 hoverable" id="indigo" onclick="display('indigo')">
           <p class="keywords column-1" id="indigoKeywords"></p>
@@ -95,15 +98,15 @@
         <p class="keywords column-4" id="greenKeywords"></p>
       </div>
 
-       <p class="axis-label visible" id="energyLow">Energie niedrig</p>
+       <p class="axis-label visible" id="energyLow" aria-hidden="true">Energie niedrig</p>
     </div>
   
 
 
     <div class="spaceBottom"></div>
-  <dialog class="keywordPopup" id="popup">
+  <dialog class="keywordPopup" id="popup" aria-label="popup mit mehr informationen in akkordeons">
 
-    <p class="keywords navKey" id="upKey" ></p>
+    <p class="keywords navKey" id="upKey"></p>
     <button class="upBtn navBtn" id="upBtn"></button>
 
     <p class="keywords navKey" id="prevKey"></p>
@@ -124,8 +127,8 @@
 
 
      
-    <button id="clearBtn" class="clearBtn">Daten löschen</button>
-    <div id="clearBtnTooltip" class="clearBtnTooltip">Setzt alle Einstellungen zurück</div> 
+    <button id="clearBtn" class="clearBtn" aria-hidden="true">Daten löschen</button>
+    <div id="clearBtnTooltip" class="clearBtnTooltip" aria-hidden="true">Setzt alle Einstellungen zurück</div> 
 
       
 
