@@ -36,8 +36,8 @@ h1 {
 #spaceTop{
     height: 30vh;
 }
-#spaceBottom{
-    height: 10vh;
+.spaceBottom{
+    height: 5vh;
 }
 footer{
     position: fixed;
@@ -101,7 +101,23 @@ footer{
     padding-right: auto;
     min-width: 28rem;
 }
+#BackgroundHidden{
+z-index: 4;
+}
 
+.hidden:not(.zoom){
+    animation: hide var(--T-time);
+    animation-fill-mode: forwards;
+}
+
+@keyframes hide {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
 
 /* Style for X and Y axis */
 .x-axis {
@@ -363,6 +379,55 @@ footer{
     transition: opacity 0.2s;
 }
 
+/*navBtn keywords*/
+.navBtn:hover{
+    filter: brightness(1.1) saturate(2);
+    transition: opacity 0.2s;
+}
+.navKey::before{
+    content: "";
+    color: var(--keyword-color);
+    position: absolute;
+    transform: scale(2,2);
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--keyword-color) transparent transparent transparent;
+}
+#upKey{
+    grid-row:1/1;
+    grid-column: 2/2;
+    margin: auto auto 20px;
+    margin-top: -90px;
+    opacity: 0;
+}
+#downKey{
+    grid-row: 3/3;
+    grid-column: 2/2;
+    margin-top: -90px;
+    left: 41%;
+    margin-left: 3vw;
+    opacity: 0;
+}
+#prevKey{
+    grid-row: 2/2;
+    grid-column: 1/1;
+    justify-self: center;
+    margin-top: -90px;
+    margin-left: 2vw;
+    opacity: 0;
+}
+#nextKey{
+    grid-row: 2/2;
+    grid-column: 3/3;
+    justify-self: center;
+    margin-top: -90px;
+    margin-right: 2.5vw;
+    opacity: 0;
+}
+
 
 /* pop up*/
 .keywordPopup {
@@ -392,6 +457,7 @@ footer{
 
 .popUpBox{
     padding: 20px;
+    margin: min(80px, 8vh);
     width:55vw;
     min-width: 440px;
     border: solid 5px var(--main-color);
@@ -501,17 +567,17 @@ footer{
 
 /*Navigation*/
 .navBtn{
-    height:40px;
-    width:40px;
+    height:60px;
+    width:60px;
     border-radius:50%;
     cursor:pointer;
     border:solid var(--colorbtn-border) 2px;
-    opacity: 0.7;
 }
-
+/*
 .navBtn:hover{
-    opacity: 1.0;
-}
+    filter: brightness(1.1) saturate(2);
+
+}*/
 
 .upBtn{
     grid-row:1/1;
@@ -536,7 +602,6 @@ footer{
     grid-column: 1/1;
     margin: auto 20px auto auto;
 }
-
 
 /*Dark Mode*/
 .darkModeSwitch{
@@ -687,7 +752,7 @@ footer{
 
 /*zoom*/
 .zoom{
-     opacity: 1;/*evt changing*/
+     opacity: 1;
      z-index: 800;
      display: flex;
 }

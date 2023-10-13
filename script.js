@@ -59,18 +59,23 @@ modal.addEventListener("click", (e) => {
 /*dymamic popup generation*/
 function display(color){ //is called using onclick for now, gets the button's ID as a parameter
 var zoomHere = document.getElementsByClassName("zoom");
-for(let i=0; i<zoomHere.length;i++){
-  zoomHere[i].classList.remove("zoom")
-  }
 
+for(let i=0; i < zoomHere.length;i++){
+  zoomHere[i].classList.remove("zoom")
+}
 
 var zoomed = document.getElementById(color);//needed to know what was clicked, move it and give zoom to it
 const colorbuttonList = document.getElementsByClassName("colorbutton")//needed to give/take the hoverables 
+const toHide = document.getElementsByClassName("visible")
+
 zoomed.classList.add("zoom")
 for(let i = 0; i<colorbuttonList.length; i++){
-  colorbuttonList[i].classList.remove("hoverable")
+  colorbuttonList[i].classList.replace("hoverable", "hidden")
 }
 
+for(let i=0; i<toHide.length; i++){
+  toHide[i].classList.add("hidden")
+}
 
 //Pop Up
   const popup = document.querySelector(".popUpBox");
@@ -223,28 +228,60 @@ function colorNavButtons(btn){
   let color;
   let targetBtn;
 
+  let keyword;
+  let child;
+  let p;
+
   switch (btn){
     case "left":
       targetBtn = getComputedStyle(document.getElementById(colors[y][x-1]));
       color = targetBtn.getPropertyValue("background-color");
+
+      //for the tooltip getting the right keyword
+      child = document.getElementById(colors[y][x-1]).firstElementChild;
+      keyword = child.firstElementChild;
+      p = document.getElementById("prevKey");
+      p.textContent = keyword.textContent;
+      
       prevBtn.style.backgroundColor = color;
       break;
 
     case "right":
       targetBtn = getComputedStyle(document.getElementById(colors[y][x+1]));
       color = targetBtn.getPropertyValue("background-color");
+
+      //for the tooltip getting the right keyword
+      child = document.getElementById(colors[y][x+1]).firstElementChild;
+      keyword = child.firstElementChild;
+      p = document.getElementById("nextKey");
+      p.textContent = keyword.textContent;
+      
       nextBtn.style.backgroundColor = color;
       break;
 
     case "up":
       targetBtn = getComputedStyle(document.getElementById(colors[y-1][x]));
       color = targetBtn.getPropertyValue("background-color");
+
+      //for the tooltip getting the right keyword
+      child = document.getElementById(colors[y-1][x]).firstElementChild;
+      keyword = child.firstElementChild;
+      p = document.getElementById("upKey");
+      p.textContent = keyword.textContent;
+      
       upBtn.style.backgroundColor = color;
       break;
 
     case "down":
       targetBtn = getComputedStyle(document.getElementById(colors[y+1][x]));
       color = targetBtn.getPropertyValue("background-color");
+
+    //for the tooltip getting the right keyword
+      child = document.getElementById(colors[y+1][x]).firstElementChild;
+      keyword = child.firstElementChild;
+      p = document.getElementById("downKey");
+      p.textContent = keyword.textContent;
+      
       downBtn.style.backgroundColor = color;
       break;
   }
@@ -275,6 +312,53 @@ downBtn.addEventListener("click", () => {
   displayBtns();
 });
 
+
+//////for the tooltip
+let tooltip;
+
+//when the mouse is on el. tooltip is visible
+prevBtn.addEventListener("mouseover", () => {
+ tooltip = document.getElementById("prevKey")
+ tooltip.style.opacity = 1;
+});
+
+nextBtn.addEventListener("mouseover", () => {
+  tooltip = document.getElementById("nextKey")
+  tooltip.style.opacity = 1;
+});
+
+upBtn.addEventListener("mouseover", () => {
+  tooltip = document.getElementById("upKey")
+  tooltip.style.opacity = 1;
+});
+
+downBtn.addEventListener("mouseover", () => {
+  tooltip = document.getElementById("downKey")
+  tooltip.style.opacity = 1;
+});
+
+//when the mouse leaves el. tooltip is invisible
+
+prevBtn.addEventListener("mouseleave", () => {
+  tooltip = document.getElementById("prevKey")
+  tooltip.style.opacity = 0;
+ });
+ 
+ nextBtn.addEventListener("mouseleave", () => {
+   tooltip = document.getElementById("nextKey")
+   tooltip.style.opacity = 0;
+ });
+ 
+ upBtn.addEventListener("mouseleave", () => {
+   tooltip = document.getElementById("upKey")
+   tooltip.style.opacity = 0;
+ });
+ 
+ downBtn.addEventListener("mouseleave", () => {
+   tooltip = document.getElementById("downKey")
+   tooltip.style.opacity = 0;
+ });
+ 
 
 //dark mode
 const darkModeSwitch = document.getElementById("darkModeSwitch");
@@ -381,10 +465,16 @@ function retrieveLS() {
 function ZoomEnd(){//remove zoom add hoverable and with that return colorbutton to original position
   var zoomed = document.getElementsByClassName("zoom")
   const colorbuttonList = document.getElementsByClassName("colorbutton")
+  const toHide = document.getElementsByClassName("visible")
 
   for(let i=0; i<colorbuttonList.length; i++){
-    colorbuttonList[i].classList.add("hoverable")
+    colorbuttonList[i].classList.replace("hidden", "hoverable")
   }
+  
+  for(let i=0; i<toHide.length; i++){
+    toHide[i].classList.remove("hidden")
+  }
+
 
   for(let i=0; i<zoomed.length;i++){
   zoomed[i].classList.remove("zoom")
