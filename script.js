@@ -407,8 +407,9 @@ function changeColor(){
   for(let i = 0; i < userColors.length; ++i){
     let currentColor = userColors[i].value;
     localStorage.setItem(colorIds[i], currentColor);
-    retrieveLS();
   }
+
+  retrieveLS();
 }
 
 const colorPopUp = document.getElementById("changeColor");
