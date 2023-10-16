@@ -385,14 +385,16 @@ else{
 
 // customizable colors
 
-//gets userinput and inserts color into the right button
-const userColors = document.getElementsByClassName("colorInput");
-let colorIds = [];
-for(let i = 0; i < userColors.length; ++i){
-  colorIds.push(userColors[i].id.slice(0, -5));
-}
+//gets userinput and inserts colors into the right buttons
+
 
 function changeColor(){
+  const userColors = document.getElementsByClassName("colorInput");
+  let colorIds = [];
+  for(let i = 0; i < userColors.length; ++i){
+    colorIds.push(userColors[i].id.slice(0, -5));
+  }
+
   for(let i = 0; i < userColors.length; ++i){
     let currentColor = userColors[i].value;
     localStorage.setItem(colorIds[i], currentColor);
@@ -463,6 +465,7 @@ function retrieveLS() {
   for(let i of moodsData.Moods){
     if(localStorage.getItem(i.color) != undefined){
       document.getElementById(i.color).style.backgroundColor = localStorage.getItem(i.color);
+      document.getElementById(i.color + "Input").style.backgroundClip = localStorage.getItem(i.color);
     }
   }
   var x = localStorage.getItem("fontSize");
