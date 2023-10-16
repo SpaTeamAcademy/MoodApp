@@ -7,21 +7,22 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
   <title>MoodApp</title>
 </head>
-<body id="body">
+<body>
   <div id="body">
     <h1>MoodApp</h1>
 <div id="menu" class="menu">
   <div id="changeFontsize">
-    <button type="button" class="fontBtn" name="fontSmaller" onclick="changeSize('small')">-A</button> 
-    <button type="button" class="fontBtn" name="fontNormal" onclick="changeSize('medium')">A</button> 
-    <button type="button" class="fontBtn" name="fontLarge" onclick="changeSize('large')">A+</button> 
+    <button type="button" class="fontBtn" name="fontSmaller" aria-label="Schrift klein" onclick="changeSize('small')">-A</button> 
+    <button type="button" class="fontBtn" name="fontNormal" aria-label="Schrift mittel" onclick="changeSize('medium')">A</button> 
+    <button type="button" class="fontBtn" name="fontLarge" aria-label="Schrift groß" onclick="changeSize('large')">A+</button> 
   </div>
 
-  <button id="toggleButton">Farben auswählen</button><br>
+  <button id="toggleButton" aria-label="eigene Farben wählen">Farben auswählen</button><br>
   
 
-  <input type="checkbox" class="darkModeSwitch" id="darkModeSwitch">
+  <input type="checkbox" class="darkModeSwitch" id="darkModeSwitch" aria-label="darkmode schalter">
 </div>
+
 
 <div id="changeColor">
   <div class="colorInputs">
@@ -35,6 +36,8 @@
     <input type="color" class="colorInput" id="greenInput" value="#a3e200"></input>
   </div>
   <button type="submit" class="colorChangeBtn" onclick="changeColor()">Speichern</button>
+
+
 </div>
     
 <div id="spaceTop"></div>
@@ -43,7 +46,7 @@
     <div class="x-axis visible"></div>
     <div class="y-axis visible"></div>
     
-        <p class="axis-label visible" id="energyHigh">Energie hoch</p>
+        <p class="axis-label visible" id="energyHigh" aria-hidden="true">Energie hoch</p>
         
 
           <div class="colorbutton top-line-grid column-4 hoverable" id="yellow" onclick="display('yellow')">
@@ -51,7 +54,7 @@
           </div>
 
 
-        <div class="colorbutton top-line-grid column-3 hoverable" id="orange" onclick="display('orange')">
+        <div class="colorbutton top-line-grid column-3 hoverable" id="orange"onclick="display('orange')">
           <p class="keywords column-2" id="redKeywords"></p>
         </div>
 
@@ -63,8 +66,8 @@
           <p class="keywords column-4" id="yellowKeywords"></p>
         </div><br>
 
-        <div class="axis-label visible" id="negativ">Negativ</div>
-        <div class="axis-label visible" id="positiv">Positiv</div>
+        <div class="axis-label visible" id="negativ" aria-hidden="true">Negativ</div>
+        <div class="axis-label visible" id="positiv" aria-hidden="true">Positiv</div>
 
         <div class="colorbutton bottom-line-grid column-1 hoverable" id="indigo" onclick="display('indigo')">
           <p class="keywords column-1" id="indigoKeywords"></p>
@@ -82,15 +85,15 @@
         <p class="keywords column-4" id="greenKeywords"></p>
       </div>
 
-       <p class="axis-label visible" id="energyLow">Energie niedrig</p>
+       <p class="axis-label visible" id="energyLow" aria-hidden="true">Energie niedrig</p>
     </div>
   
 
 
     <div class="spaceBottom"></div>
-  <dialog class="keywordPopup" id="popup">
+  <dialog class="keywordPopup" id="popup" aria-label="popup mit mehr informationen in akkordeons">
 
-    <p class="keywords navKey" id="upKey" ></p>
+    <p class="keywords navKey" id="upKey"></p>
     <button class="upBtn navBtn" id="upBtn"></button>
 
     <p class="keywords navKey" id="prevKey"></p>
@@ -111,8 +114,8 @@
 
 
      
-    <button id="clearBtn" class="clearBtn">Daten löschen</button>
-    <div id="clearBtnTooltip" class="clearBtnTooltip">Setzt alle Einstellungen zurück</div> 
+    <button id="clearBtn" class="clearBtn" aria-hidden="true">Daten löschen</button>
+    <div id="clearBtnTooltip" class="clearBtnTooltip" aria-hidden="true">Setzt alle Einstellungen zurück</div> 
 
       
 
