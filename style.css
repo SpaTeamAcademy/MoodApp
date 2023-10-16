@@ -67,7 +67,7 @@ footer{
     --text-color:black;
     --keyword-color:grey;
     --popup-color:grey;
-    --popup-background:lightgrey;
+    --popup-background:#e6e6e6;
     --backdrop:grey;
     --colorbtn-border:grey;
     --changebtn-border:grey;
@@ -248,6 +248,10 @@ z-index: 4;
     filter: brightness(1.1) saturate(2);
 }
 
+.colorbutton.zoom{
+    border: none;
+}
+
 #violet{
     background-color: #6900cc;
 }
@@ -369,7 +373,7 @@ z-index: 4;
     color: var(--main-color);
     text-align: center;
     border-radius: 8px;
-    z-index: 1;/*sets it infront of everything*/
+    z-index: 1;
     padding-bottom: 0.5px;
     padding-left: 10px;
     padding-right: 10px;
@@ -439,7 +443,14 @@ z-index: 4;
  align-items: center;
  grid-template-columns: 1fr 7fr 1fr;
  grid-template-rows:1fr 4fr 1fr;
+ animation: PopUpAnimation calc(var(--T-time));
 }
+
+@keyframes PopUpAnimation{
+    0% {transform: scale(0)} 
+    100% {transform: scale(1)}
+}
+
 .keywordPopup::backdrop {
  background: var(--backdrop);
  opacity: 0.7;
@@ -456,6 +467,9 @@ z-index: 4;
 }
 
 .popUpBox{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     padding: 20px;
     margin: min(80px, 8vh);
     width:55vw;
@@ -470,6 +484,20 @@ z-index: 4;
     grid-row:2/2
 }
 
+.keywordsUL{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+
+.keywordsLI{
+    padding: 8px;
+    font-size: 20px;
+    white-space: nowrap;
+}
 
 /*accordion*/
 .accordion{
