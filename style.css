@@ -690,9 +690,6 @@ z-index: 4;
     right:5px;
     left:auto;
 }
-.feelingName {
-    display: inline-block;
-}
 
 .colorInputs{
     display:grid;
@@ -700,10 +697,6 @@ z-index: 4;
     grid-template-rows: 1fr 1fr;
     grid-column-gap:5px;
     grid-row-gap:5px;
-}
-
-.feelingName{
-    display: none;
 }
 
 #violetInput{

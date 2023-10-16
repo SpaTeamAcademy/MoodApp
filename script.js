@@ -402,17 +402,6 @@ function changeColor(){
   }
 }
 
-//toggles visibility of color change option
-/*function showColors() {
-  var x = document.getElementById("changeColor");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}*/
-
-
 const colorPopUp = document.getElementById("changeColor");
 const toggleButton = document.getElementById("toggleButton");
 
