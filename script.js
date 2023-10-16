@@ -386,10 +386,18 @@ else{
 // customizable colors
 
 //gets userinput and inserts color into the right button
-function changeColor(id, input){
-  let userColor = document.getElementById(input).value;
-    document.getElementById(id).style.backgroundColor = userColor;
-    localStorage.setItem(id, userColor);
+const userColors = document.getElementsByClassName("colorInput");
+let colorIds = [];
+for(let i = 0; i < userColors.length; ++i){
+  colorIds.push(userColors[i].id.slice(0, -5));
+}
+
+function changeColor(){
+  for(let i = 0; i < userColors.length; ++i){
+    let currentColor = userColors[i].value;
+    localStorage.setItem(colorIds[i], currentColor);
+    retrieveLS();
+  }
 }
 
 //toggles visibility of color change option
