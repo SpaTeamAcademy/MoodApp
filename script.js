@@ -454,7 +454,7 @@ function retrieveLS() {
   for(let i of moodsData.Moods){
     if(localStorage.getItem(i.color) != undefined){
       document.getElementById(i.color).style.backgroundColor = localStorage.getItem(i.color);
-      document.getElementById(i.color + "Input").style.backgroundClip = localStorage.getItem(i.color);
+      document.getElementById(i.color + "Input").style.backgroundColor = localStorage.getItem(i.color);
     }
   }
   var x = localStorage.getItem("fontSize");
