@@ -721,8 +721,7 @@ z-index: 4;
     background-color: var(--main-color);
     border: solid 2px var(--changebtn-border);
     margin-top: 5px;
-    right:5px;
-    left:auto;
+    left:35%;
 }
 
 .colorInputs{
