@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
   <title>MoodApp</title>
 </head>
-<body id="body">
+<body>
   <div id="body">
     <h1>MoodApp</h1>
 <div id="menu" class="menu">
@@ -23,31 +23,21 @@
   <input type="checkbox" class="darkModeSwitch" id="darkModeSwitch" aria-label="darkmode schalter">
 </div>
 
-<div id="changeColor" aria-hidden="true">
-  <p class="feelingName"></p>
-  <input  type="color" class="colorInput" id="input1" value="#9f39ff" aria-hidden="true"></input>
-  <button type="submit" class="colorChangeBtn" onclick="changeColor('violet', 'input1')" aria-hidden="true">&#10003;</button>
-  <p class="feelingName" aria-hidden="true"></p>
-  <input type="color" class="colorInput" id="input2" value="#ff0000" aria-hidden="true"></input>
-  <button type="submit" class="colorChangeBtn" onclick="changeColor('red', 'input2')" aria-hidden="true">&#10003;</button>
-  <p class="feelingName" aria-hidden="true"></p>
-  <input type="color" class="colorInput" id="input3" value="#ffa500" aria-hidden="true"></input>
-  <button type="submit" class="colorChangeBtn" onclick="changeColor('orange', 'input3')" aria-hidden="true">&#10003;</button>
-  <p class="feelingName" aria-hidden="true"></p>
-  <input type="color" class="colorInput" id="input4" value="#face49" aria-hidden="true"></input>
-  <button type="submit" class="colorChangeBtn" onclick="changeColor('yellow', 'input4')" aria-hidden="true">&#10003;</button><br>
-  <p class="feelingName" aria-hidden="true"></p>
-  <input type="color" class="colorInput" id="input5" value="#004197" aria-hidden="true"></input>
-  <button type="submit" class="colorChangeBtn" onclick="changeColor('indigo', 'input5')" aria-hidden="true">&#10003;</button>
-  <p class="feelingName" aria-hidden="true"></p>
-  <input type="color" class="colorInput" id="input6" value="#2973d7" aria-hidden="true"></input>
-  <button type="submit" class="colorChangeBtn" onclick="changeColor('blue', 'input6')" aria-hidden="true">&#10003;</button>
-  <p class="feelingName" aria-hidden="true"></p>
-  <input type="color" class="colorInput" id="input7" value="#4bbc30" aria-hidden="true"></input>
-  <button type="submit" class="colorChangeBtn" onclick="changeColor('turquoise', 'input7')" aria-hidden="true">&#10003;</button>
-  <p class="feelingName" aria-hidden="true"></p>
-  <input type="color" class="colorInput" id="input8" value="#a3e200" aria-hidden="true"></input>
-  <button type="submit" class="colorChangeBtn" onclick="changeColor('green', 'input8')" aria-hidden="true">&#10003;</button>
+
+<div id="changeColor">
+  <div class="colorInputs">
+    <input  type="color" class="colorInput" id="violetInput" value="#6900cc"></input>
+    <input type="color" class="colorInput" id="redInput" value="#ff6666"></input>
+    <input type="color" class="colorInput" id="orangeInput" value="#ffb833"></input>
+    <input type="color" class="colorInput" id="yellowInput" value="#ffff80"></input>
+    <input type="color" class="colorInput" id="indigoInput" value="#1e3e7a"></input>
+    <input type="color" class="colorInput" id="blueInput" value="#2973d7"></input>
+    <input type="color" class="colorInput" id="turquoiseInput" value="#4bbc30"></input>
+    <input type="color" class="colorInput" id="greenInput" value="#a3e200"></input>
+  </div>
+  <button type="submit" class="colorChangeBtn" onclick="changeColor()">Speichern</button>
+
+
 </div>
     
 <div id="spaceTop"></div>
