@@ -81,7 +81,7 @@ footer{
     --popup-color:#000000;
     --popup-background:#292929;
     --backdrop:#000000;
-    --colorbtn-border:#f3f3f3;
+    --colorbtn-border: var(--changebtn-border);
     --changebtn-border:#7e7e7e;
     --colorpicker-back:#292929;
 }
@@ -333,7 +333,7 @@ z-index: 4;
     left: -12px;
     bottom: -80px;
 }
-#violetKeywords::before, #redKeywords::before, #orangeKeywords:before, #yellowKeywords::before{
+#violetKeywords::before, #redKeywords::before, #orangeKeywords::before, #yellowKeywords::before{
     content: "";
     color: var(--keyword-color);
     position: absolute;
@@ -344,6 +344,7 @@ z-index: 4;
     border-width: 5px;
     border-style: solid;
     border-color: var(--keyword-color) transparent transparent transparent;
+    z-index: -1;
 }
 #indigoKeywords::before, #blueKeywords::before, #turquoiseKeywords::before, #greenKeywords::before{
     content: "";
@@ -357,6 +358,7 @@ z-index: 4;
     border-width: 5px;
     border-style: solid;
     border-color: var(--keyword-color) transparent transparent transparent;
+    z-index: -1;
 }
 
 
@@ -412,7 +414,6 @@ z-index: 4;
     grid-column: 2/2;
     margin-top: -90px;
     left: 41%;
-    margin-left: 3vw;
     opacity: 0;
 }
 #prevKey{
@@ -443,7 +444,10 @@ z-index: 4;
  align-items: center;
  grid-template-columns: 1fr 7fr 1fr;
  grid-template-rows:1fr 4fr 1fr;
- animation: PopUpAnimation calc(var(--T-time));
+ animation: PopUpAnimation var(--T-time);
+}
+.spacePopUp{
+    height: 25vh;
 }
 
 @keyframes PopUpAnimation{
@@ -471,13 +475,13 @@ z-index: 4;
     flex-wrap: wrap;
     align-items: center;
     padding: 20px;
-    margin: min(80px, 8vh);
+    margin-left: 10vw;
+    margin-right: 10vw;
     width:55vw;
     min-width: 440px;
     border: solid 5px var(--main-color);
     border-radius: 20px;
     box-shadow: 30px;
-    /*transition: width 2s;*/
     background-color: var(--popup-background);
     box-shadow: 5px 5px 5px 5px var(--popup-color);
     grid-column: 2/2;
@@ -485,6 +489,7 @@ z-index: 4;
 }
 
 .keywordsUL{
+    /*font-weight: bold;*/
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -494,6 +499,7 @@ z-index: 4;
 }
 
 .keywordsLI{
+    font-weight: bolder;
     padding: 8px;
     font-size: 20px;
     white-space: nowrap;
@@ -535,6 +541,7 @@ z-index: 4;
 .accordionBtn:after {
     content: '\25B6';
     color: var(--acc-icon);
+    font-size: 17px;
     font-weight: bold;
     float: right;
     margin-left: 5px;
@@ -542,6 +549,7 @@ z-index: 4;
     transition: 0.4s;
     top: -40px;
     right: 20px;
+    -webkit-text-stroke: 1.2px var(--popup-color);
 }
 .accordionBtn.active:after {
    /* content: "\25BC";*//*if the bug comes back take away rotate and use the second content*/
