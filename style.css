@@ -966,6 +966,23 @@ z-index: 4;
 }
 
 /*Colorbtn*/
+.top-line-grid.chaos {
+    transform: translateY(-100vh);
+    animation: fall 3.5s forwards;
+    animation-iteration-count: 1;
+}
+
+.bottom-line-grid.chaos {
+    transform: translateY(100vh);
+    animation: fall 3.5s forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes fall {
+    100% {
+        transform: translateY(0);
+    }
+}
 #red, #blue {
     animation-delay: 0.3s;
 }
@@ -976,12 +993,15 @@ z-index: 4;
     animation-delay: 0.9s;
 }
 .colorbutton.hoverable.chaos:hover{
+    /*button border*/
+    animation: chaosBorder 2.1s  ease-in-out;
+
     /*button turn*/
     transform: rotate(720deg) translate(25px,8px);
     transition: transform 2s;
 
     /*button border*/
-    animation: chaosBorder 2.1s  ease-in-out;
+   /* animation: chaosBorder 2.1s  ease-in-out;*/
 }
 @keyframes chaosBorder {
     0%{border-width: 4px;}
@@ -1007,7 +1027,7 @@ h1.chaos{
     -webkit-text-fill-color: transparent;  
     animation: move 60s linear infinite;
 }
-  @keyframes move {
+@keyframes move {
     to {
       background-position: 4500vh;
     }
