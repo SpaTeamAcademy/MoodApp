@@ -1,4 +1,5 @@
 let moodsData;
+const popup = document.querySelector(".popUpBox");
 
 //fetches moods.json so we can access the data
 fetch("./moods.json")
@@ -52,9 +53,6 @@ modal.addEventListener("click", (e) => {
   ZoomEnd();
   };
 });
-//close modal by using button//
-//closeModal.addEventListener("click", closeDialog);
-
 
 /*dymamic popup generation*/
 function display(color){ //is called using onclick for now, gets the button's ID as a parameter
@@ -78,7 +76,6 @@ for(let i=0; i<toHide.length; i++){
 }
 
 //Pop Up
-  const popup = document.querySelector(".popUpBox");
   let accordion = document.createElement('div');
   accordion.className = "accordion";
   popup.innerHTML = "";
@@ -95,10 +92,7 @@ for(let i=0; i<toHide.length; i++){
       if(moodsData.Moods[i].color === color){ //checks which of the objects matches the ID
           const keys = Object.keys(moodsData.Moods[i]);
   
-          let keywords = document.createElement('ul');//the keywords list is created, which is not an accordion
-          keywords.append(createList(moodsData.Moods[i], "keywords"));
-          popup.append(keywords); //the list is appended to the dialog element
-
+          createKeywords(moodsData.Moods[i], "keywords");
           
           let gridI = 0;/*class given to position accordions + content in grid */
 
@@ -132,9 +126,23 @@ for(let i=0; i<toHide.length; i++){
 
   popup.append(accordion); //the accordion and the close button are appended to the dialog
 
-  accSwitch()
+  accSwitch();
+  insertColor(color);
 }
 
+//creates an unordered list for keywords and fills it using the specified values
+function createKeywords(mood, listId){
+  let list = document.createElement('ul');
+  list.classList.add("keywordsUL");
+
+  for(let i in mood[listId]){
+    let el = document.createElement('li');
+    el.classList.add("keywordsLI");
+    el.innerText = mood[listId][i];
+    list.appendChild(el);
+  }
+  popup.append(list);
+}
 
 function createList(mood, listId){ //creates an unordered list and fills it using the specified values
   let list = document.createElement('ul');
@@ -385,23 +393,24 @@ else{
 
 // customizable colors
 
-//gets userinput and inserts color into the right button
-function changeColor(id, input){
-  let userColor = document.getElementById(input).value;
-    document.getElementById(id).style.backgroundColor = userColor;
-    localStorage.setItem(id, userColor);
-}
+//gets userinput and inserts colors into the right buttons
 
-//toggles visibility of color change option
-/*function showColors() {
-  var x = document.getElementById("changeColor");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
+
+
+function changeColor(){
+  const userColors = document.getElementsByClassName("colorInput");
+  let colorIds = [];
+  for(let i = 0; i < userColors.length; ++i){
+    colorIds.push(userColors[i].id.slice(0, -5));
   }
-}*/
 
+  for(let i = 0; i < userColors.length; ++i){
+    let currentColor = userColors[i].value;
+    localStorage.setItem(colorIds[i], currentColor);
+  }
+
+  retrieveLS();
+}
 
 const colorPopUp = document.getElementById("changeColor");
 const toggleButton = document.getElementById("toggleButton");
@@ -455,6 +464,7 @@ function retrieveLS() {
   for(let i of moodsData.Moods){
     if(localStorage.getItem(i.color) != undefined){
       document.getElementById(i.color).style.backgroundColor = localStorage.getItem(i.color);
+      document.getElementById(i.color + "Input").value = localStorage.getItem(i.color);
     }
   }
   var x = localStorage.getItem("fontSize");
@@ -493,3 +503,31 @@ function changeSize(size) {
   content.style.fontSize = size; 
   localStorage.setItem("fontSize", size);
 } 
+
+/*get color into the pop up - border, triangles in accordion, keywords*/
+function insertColor(color) {
+  
+  let target = getComputedStyle(document.getElementById(color));
+  let col = target.getPropertyValue("background-color");
+  let colorVar = '--acc-icon';
+
+  /*insert color into each accordion triangle*/
+  let accordionBtns = document.getElementsByClassName("accordionBtn");
+  for (let i = 0; i < accordionBtns.length; i++) {
+    accordionBtns[i].style.color = col;
+  };
+
+  /*insert color into border of popup*/
+  let keywordPopUp = document.getElementsByClassName("popUpBox");
+  for (let i = 0; i < keywordPopUp.length; i++) {
+    keywordPopUp[i].style.borderColor = col;
+  };
+
+  /*setting a CSS property using JS*/
+  document.documentElement.style.setProperty(colorVar, col);
+  /*adding text shadow to each keyword*/
+  let keywords = document.getElementsByClassName("keywordsLI");
+  for (let i = 0; i < keywords.length; i++) {
+   keywords[i].style.textShadow = `5px 5px 6px var(${colorVar})`;
+}
+}
