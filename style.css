@@ -641,6 +641,7 @@ z-index: 4;
     border: 0.5px solid #7e7e7e;
     transition: .5s;
     cursor:pointer;
+    margin-right:7px;
 }
 
 .darkModeSwitch:checked{
