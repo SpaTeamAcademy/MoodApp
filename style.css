@@ -20,8 +20,12 @@
     /*icons accordion*/
     --acc-icon: rgb(0000)
 }
-body {
+
+*{
     font-family: "Montserrat", sans-serif;
+}
+
+body {
     background-color: var(--main-color);
     color: var(--text-color);
 }
@@ -914,7 +918,7 @@ z-index: 4;
     background-color: var(--colorpicker-back);
     border: solid 2px var(--changebtn-border);
     border-radius: 8px;
-    min-width: 110px;
+    min-width: 120px;
     color: var(--text-color);
     margin-right:4px;
     height:48.4px;
