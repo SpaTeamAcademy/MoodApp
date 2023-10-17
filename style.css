@@ -720,7 +720,7 @@ z-index: 4;
     border-radius: 8px;
     background-color: var(--colorpicker-back);
     border: solid 2px var(--changebtn-border);
-    margin-top: 5px;
+    margin-top: 10px;
     left:35%;
 }
 
