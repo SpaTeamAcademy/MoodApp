@@ -525,5 +525,4 @@ function insertColor(color) {
 
   /*setting a CSS property using JS*/
   document.documentElement.style.setProperty(colorVar, col);
-
 }
