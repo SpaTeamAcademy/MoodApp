@@ -946,9 +946,9 @@ z-index: 4;
 
 .colorbutton.hoverable:hover{
     /*button turn*/
-    transform: rotate(720deg) translate 25px,8px;
+    transform: rotate(720deg) translate(25px,8px);
     transition: transform 2s;
-    
+
     /*button border*/
     animation: chaosBorder 2.1s  ease-in-out;
 }
