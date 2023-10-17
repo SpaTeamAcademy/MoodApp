@@ -12,6 +12,8 @@
     <h1>MoodApp</h1>
     <button class="rainbowBtn" id="funMode">Chaos Modus</button>
 <div id="menu" class="menu">
+  <input type="checkbox" class="darkModeSwitch" id="darkModeSwitch" aria-label="darkmode schalter">
+  
   <div id="changeFontsize">
     <button type="button" class="fontBtn" name="fontSmaller" aria-label="Schrift klein" onclick="changeSize('small')">-A</button> 
     <button type="button" class="fontBtn" name="fontNormal" aria-label="Schrift mittel" onclick="changeSize('medium')">A</button> 
@@ -19,9 +21,6 @@
   </div>
 
   <button id="toggleButton" aria-label="eigene Farben wählen">Farben auswählen</button><br>
-  
-
-  <input type="checkbox" class="darkModeSwitch" id="darkModeSwitch" aria-label="darkmode schalter">
 </div>
 
 
@@ -92,6 +91,7 @@
 
     <div class="spaceBottom"></div>
   <dialog class="keywordPopup" id="popup" aria-label="popup mit mehr informationen in akkordeons">
+    <div class="spacePopUp"></div>
 
     <p class="keywords navKey" id="upKey"></p>
     <button class="upBtn navBtn" id="upBtn"></button>

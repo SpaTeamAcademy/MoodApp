@@ -20,8 +20,12 @@
     /*icons accordion*/
     --acc-icon: rgb(0000)
 }
-body {
+
+*{
     font-family: "Montserrat", sans-serif;
+}
+
+body {
     background-color: var(--main-color);
     color: var(--text-color);
 }
@@ -81,7 +85,7 @@ footer{
     --popup-color:#000000;
     --popup-background:#292929;
     --backdrop:#000000;
-    --colorbtn-border:#f3f3f3;
+    --colorbtn-border: var(--changebtn-border);
     --changebtn-border:#7e7e7e;
     --colorpicker-back:#292929;
 }
@@ -333,7 +337,7 @@ z-index: 4;
     left: -12px;
     bottom: -80px;
 }
-#violetKeywords::before, #redKeywords::before, #orangeKeywords:before, #yellowKeywords::before{
+#violetKeywords::before, #redKeywords::before, #orangeKeywords::before, #yellowKeywords::before{
     content: "";
     color: var(--keyword-color);
     position: absolute;
@@ -344,6 +348,7 @@ z-index: 4;
     border-width: 5px;
     border-style: solid;
     border-color: var(--keyword-color) transparent transparent transparent;
+    z-index: -1;
 }
 #indigoKeywords::before, #blueKeywords::before, #turquoiseKeywords::before, #greenKeywords::before{
     content: "";
@@ -357,6 +362,7 @@ z-index: 4;
     border-width: 5px;
     border-style: solid;
     border-color: var(--keyword-color) transparent transparent transparent;
+    z-index: -1;
 }
 
 
@@ -412,7 +418,6 @@ z-index: 4;
     grid-column: 2/2;
     margin-top: -90px;
     left: 41%;
-    margin-left: 3vw;
     opacity: 0;
 }
 #prevKey{
@@ -445,6 +450,9 @@ z-index: 4;
  grid-template-rows:1fr 4fr 1fr;
  animation: PopUpAnimation var(--T-time);
 }
+.spacePopUp{
+    height: 25vh;
+}
 
 @keyframes PopUpAnimation{
     0% {transform: scale(0)} 
@@ -471,13 +479,13 @@ z-index: 4;
     flex-wrap: wrap;
     align-items: center;
     padding: 20px;
-    margin: min(80px, 8vh);
+    margin-left: 10vw;
+    margin-right: 10vw;
     width:55vw;
     min-width: 440px;
     border: solid 5px var(--main-color);
     border-radius: 20px;
     box-shadow: 30px;
-    /*transition: width 2s;*/
     background-color: var(--popup-background);
     box-shadow: 5px 5px 5px 5px var(--popup-color);
     grid-column: 2/2;
@@ -485,6 +493,7 @@ z-index: 4;
 }
 
 .keywordsUL{
+    /*font-weight: bold;*/
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -494,6 +503,7 @@ z-index: 4;
 }
 
 .keywordsLI{
+    font-weight: bolder;
     padding: 8px;
     font-size: 20px;
     white-space: nowrap;
@@ -535,6 +545,7 @@ z-index: 4;
 .accordionBtn:after {
     content: '\25B6';
     color: var(--acc-icon);
+    font-size: 17px;
     font-weight: bold;
     float: right;
     margin-left: 5px;
@@ -542,6 +553,7 @@ z-index: 4;
     transition: 0.4s;
     top: -40px;
     right: 20px;
+    -webkit-text-stroke: 1.2px var(--popup-color);
 }
 .accordionBtn.active:after {
    /* content: "\25BC";*//*if the bug comes back take away rotate and use the second content*/
@@ -641,6 +653,7 @@ z-index: 4;
     border: 0.5px solid #7e7e7e;
     transition: .5s;
     cursor:pointer;
+    margin-right:7px;
 }
 
 .darkModeSwitch:checked{
@@ -682,7 +695,7 @@ z-index: 4;
     right: 20px;
     top: 75px;
     position: absolute;
-    background-color: var(--colorpicker-back);
+    background-color: var(--popup-background);
     border: solid 2px var(--changebtn-border);
     border-radius: 8px;
     min-width: 160px;
@@ -703,7 +716,8 @@ z-index: 4;
     border-radius: 8px;
     background-color: var(--colorpicker-back);
     border: solid 2px var(--changebtn-border);
-    height:50px;
+    height:48.4px;
+    box-sizing:border-box;
 }
 
 .colorChangeBtn{
@@ -712,11 +726,10 @@ z-index: 4;
     padding: 5px;
     cursor: pointer;
     border-radius: 8px;
-    background-color: var(--main-color);
+    background-color: var(--colorpicker-back);
     border: solid 2px var(--changebtn-border);
-    margin-top: 5px;
-    right:5px;
-    left:auto;
+    margin-top: 10px;
+    left:35%;
 }
 
 .colorInputs{
@@ -776,7 +789,7 @@ z-index: 4;
     right:1vw;
     left:auto;
     width:130px;
-    height:40px;
+    height:48.4px;
     color: var(--text-color);
     padding: 10px;
     cursor: pointer;
@@ -912,16 +925,21 @@ z-index: 4;
     background-color: var(--colorpicker-back);
     border: solid 2px var(--changebtn-border);
     border-radius: 8px;
-    min-width: 100px;
-    padding: 8px;
+    min-width: 120px;
     color: var(--text-color);
     margin-right:4px;
+    height:48.4px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8px;
+    box-sizing:border-box;
 }
 
 .fontBtn {
     width: 30%;
     color: grey;
-    padding: 5px;
+    padding:5px;
     cursor: pointer;
     border-radius: 8px;
     background-color: var(--main-color);
@@ -936,6 +954,8 @@ z-index: 4;
     position:fixed;
     display:flex;
     justify-content:flex-end;
+    align-items:center;
+    width:fit-content;
     align-items:baseline;
     width:360px;
 }
