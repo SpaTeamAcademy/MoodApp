@@ -943,15 +943,13 @@ z-index: 4;
 
 
 /*Chaos*/
-:root{
-    --chaosTime: 25px,8px;
-}
-
 
 .colorbutton.hoverable:hover{
-    transform: rotate(720deg) translate(var(--chaosTime));
+    /*button turn*/
+    transform: rotate(720deg) translate 25px,8px;
     transition: transform 2s;
-   
+    
+    /*button border*/
     animation: chaosBorder 2.1s  ease-in-out;
 }
  
