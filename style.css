@@ -704,7 +704,8 @@ z-index: 4;
     border-radius: 8px;
     background-color: var(--colorpicker-back);
     border: solid 2px var(--changebtn-border);
-    height:50px;
+    height:48.4px;
+    box-sizing:border-box;
 }
 
 .colorChangeBtn{
@@ -777,7 +778,7 @@ z-index: 4;
     right:1vw;
     left:auto;
     width:130px;
-    height:40px;
+    height:48.4px;
     color: var(--text-color);
     padding: 10px;
     cursor: pointer;
@@ -913,16 +914,21 @@ z-index: 4;
     background-color: var(--colorpicker-back);
     border: solid 2px var(--changebtn-border);
     border-radius: 8px;
-    min-width: 100px;
-    padding: 8px;
+    min-width: 110px;
     color: var(--text-color);
     margin-right:4px;
+    height:48.4px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8px;
+    box-sizing:border-box;
 }
 
 .fontBtn {
     width: 30%;
     color: grey;
-    padding: 5px;
+    padding:5px;
     cursor: pointer;
     border-radius: 8px;
     background-color: var(--main-color);
@@ -938,6 +944,6 @@ z-index: 4;
     position:fixed;
     display:flex;
     justify-content:flex-end;
-    align-items:baseline;
-    width:360px;
+    align-items:center;
+    width:fit-content;
 }
