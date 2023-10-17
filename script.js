@@ -531,3 +531,21 @@ function insertColor(color) {
    keywords[i].style.textShadow = `5px 5px 6px var(${colorVar})`;
 }
 }
+
+/*Chaos mode*/
+/Fun Mode/
+const funModeButton = document.getElementById("funMode");
+const colorbutton = document.querySelectorAll(".colorbutton");
+const allEl = document.body.getElementsByTagName("*");
+
+funModeButton.addEventListener('click', function() {
+  console.log("funModeButton was clicked");
+ for(let i=0; i<allEl.length; i++){
+  allEl[i].classList.toggle("chaos")
+ }
+
+/*
+  colorbutton.forEach(function(button) {
+    button.classList.add("animatedBtns");
+  });*/
+});

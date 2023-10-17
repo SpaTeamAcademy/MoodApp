@@ -930,7 +930,6 @@ z-index: 4;
 }
 
 /*Menu Bar*/
-
 .menu{
     right:10px;
     left:auto;
@@ -943,8 +942,40 @@ z-index: 4;
 
 
 /*Chaos*/
+/*btn*/
+.rainbowBtn {
+    position: absolute;
+    cursor: pointer;
+    bottom: 1vh;
+    padding: 8px 16px;
+    color: var(--text-color);
+    background-color: var(--colorpicker-back);
+    border: solid 2px var(--changebtn-border);
+    border-radius: 8px;
+}
+.rainbowBtn:hover{
+    color: white;
+    background-image: linear-gradient(to right, 
+    #E7484F, #F68B1D, #FCED00,#009E4F,#00AAC3,#732982);
+    animation: slider 5s linear infinite alternate;
+}
+ @keyframes slider {
+    to {
+      background-position: 20vw;
+    }
+}
 
-.colorbutton.hoverable:hover{
+/*Colorbtn*/
+#red, #blue {
+    animation-delay: 0.3s;
+}
+#orange, #turquoise {
+    animation-delay: 0.6s;
+}
+#yellow, #green {
+    animation-delay: 0.9s;
+}
+.colorbutton.hoverable.chaos:hover{
     /*button turn*/
     transform: rotate(720deg) translate(25px,8px);
     transition: transform 2s;
@@ -952,7 +983,6 @@ z-index: 4;
     /*button border*/
     animation: chaosBorder 2.1s  ease-in-out;
 }
- 
 @keyframes chaosBorder {
     0%{border-width: 4px;}
     10%{border-color: #fb0094}
@@ -965,4 +995,33 @@ z-index: 4;
     80%{border-color: #00ff00}
     90%{border-color: #ffff00}
     100%{border-color: #ff0000}
+}
+
+/*h1*/
+h1.chaos{
+  /*  animation: chaosText 8s infinite;*/
+    
+    background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet); 
+    background-clip: initial;/*just as fallback*/
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  
+    animation: move 60s linear infinite;
+}
+  @keyframes move {
+    to {
+      background-position: 4500vh;
+    }
+}
+@keyframes chaosText {
+    0%{}
+    10%{color: #fb0094}
+    20%{color: #0000ff}
+    30%{color: #00ff00}
+    40%{color: #ffff00}
+    50%{color: #ff0000}
+    60%{color: #fb0094}
+    70%{color: #0000ff}
+    80%{color: #00ff00}
+    90%{color: #ffff00}
+    100%{color: #ff0000}
 }
