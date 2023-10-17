@@ -883,7 +883,7 @@ z-index: 4;
     transform: rotate(720deg) translate(var(--chaosTime));
     transition: transform 2s;
    
-    animation: chaosBorder 4s  ease-in-out;
+    animation: chaosBorder 2.1s  ease-in-out;
 }
  
 @keyframes chaosBorder {
