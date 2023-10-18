@@ -555,9 +555,9 @@ function chaosMode() {
 });
 
 function wait() {
-  timeout = setTimeout(aniEnd,3700);
+  timeout = setTimeout(aniEnd,4210);
 }
-function aniEnd (){
+function aniEnd(){
   for(let i=0; i<colorbutton.length; i++){
     colorbutton[i].classList.remove("animatedBtns");
   };
