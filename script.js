@@ -537,15 +537,28 @@ function insertColor(color) {
 const funModeButton = document.getElementById("funMode");
 const colorbutton = document.querySelectorAll(".colorbutton");
 const allEl = document.body.getElementsByTagName("*");
+let timeout;
 
-funModeButton.addEventListener('click', function() {
-  console.log("funModeButton was clicked");
- for(let i=0; i<allEl.length; i++){
-  allEl[i].classList.toggle("chaos")
- }
+funModeButton.addEventListener('click', 
+function chaosMode() {
+  //console.log("funModeButton was clicked");
 
-/*
   colorbutton.forEach(function(button) {
     button.classList.add("animatedBtns");
-  });*/
+  });
+
+  for(let i=0; i<allEl.length; i++){
+    allEl[i].classList.toggle("chaos")
+  }
+
+ wait()
 });
+
+function wait() {
+  timeout = setTimeout(aniEnd,3700);
+}
+function aniEnd (){
+  for(let i=0; i<colorbutton.length; i++){
+    colorbutton[i].classList.remove("animatedBtns");
+  };
+}
