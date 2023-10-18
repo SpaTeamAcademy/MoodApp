@@ -24,6 +24,7 @@ body {
     font-family: "Montserrat", sans-serif;
     background-color: var(--main-color);
     color: var(--text-color);
+    transition: background-color 0.5s ease;
 }
 h1 {
     /*position: static;*/
@@ -72,6 +73,14 @@ footer{
     --colorbtn-border:grey;
     --changebtn-border:grey;
     --colorpicker-back:lightgrey;
+    --violet-init:#b495d0;
+    --red-init: #e69898;
+    --orange-init:#f2c063;
+    --yellow-init: #f5f58a;
+    --indigo-init: #869cc6;
+    --blue-init:#96c8fd;
+    --turquoise-init:#9ae4e5;
+    --green-init: #a8f5b1
 }
 
 .darkMode{
@@ -81,9 +90,18 @@ footer{
     --popup-color:#000000;
     --popup-background:#292929;
     --backdrop:#000000;
-    --colorbtn-border:#f3f3f3;
-    --changebtn-border:#7e7e7e;
+    --colorbtn-border:#373737;
+    --changebtn-border:#e4e2e2;
     --colorpicker-back:#292929;
+    --violet-init: #5f2d8b;
+    --red-init: #b51c1c;
+    --orange-init:#d1982e;
+    --yellow-init: #d4d416;
+    --indigo-init: #1e3e7a;
+    --blue-init:#2e93ff;
+    --turquoise-init:#008c8f;
+    --green-init: #45a83e;
+    transition: background-color 0.5s ease;
 }
 
 /*coordinate system*/
@@ -253,28 +271,28 @@ z-index: 4;
 }
 
 #violet{
-    background-color: #6900cc;
+    background-color: var(--violet-init);
 }
 #red{
-    background-color: #ff6666;
+    background-color: var(--red-init);
 }
 #orange{
-    background-color:  #ffb833;
+    background-color:  var(--orange-init);
 }
 #yellow{
-    background-color: 	#ffff80;
+    background-color: var(--yellow-init);
 }
 #indigo{
-    background-color: #1e3e7a;
+    background-color: var(--indigo-init);
 }
 #blue{
-    background-color: #2973d7;
+    background-color: var(--blue-init);
 }
 #turquoise{
-    background-color: #4bbc30;
+    background-color: var(--turquoise-init);
 }
 #green{
-    background-color: #a3e200;
+    background-color: var(--green-init);
 }
 
 /*text*/

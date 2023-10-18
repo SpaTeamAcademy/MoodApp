@@ -10,6 +10,7 @@ fetch("./moods.json")
     //console.log(moodsData);
     showKeywords();
     retrieveLS();
+    initColorpicker(document.documentElement);
 })
 .catch(function (error){
     console.error("Something went wrong with retrieving the moods.");
@@ -373,7 +374,7 @@ const darkModeSwitch = document.getElementById("darkModeSwitch");
 
 darkModeSwitch.addEventListener("click", () => { //toggles the theme when the switch is clicked, also saves theme to localstorage
   document.body.classList.toggle("darkMode");
-
+  initColorpicker(document.querySelector(".darkMode"))
   if(document.body.classList.contains("darkMode")){
     localStorage.setItem("darkMode", "true");
   }
@@ -531,3 +532,24 @@ function insertColor(color) {
    keywords[i].style.textShadow = `5px 5px 6px var(${colorVar})`;
 }
 }
+
+/*initiate colorpicker*/
+function initColorpicker(element){
+violet = getComputedStyle(element).getPropertyValue('--violet-init');
+red = getComputedStyle(element).getPropertyValue('--red-init');
+orange = getComputedStyle(element).getPropertyValue('--orange-init');
+yellow = getComputedStyle(element).getPropertyValue('--yellow-init');
+indigo = getComputedStyle(element).getPropertyValue('--indigo-init');
+blue = getComputedStyle(element).getPropertyValue('--blue-init');
+turquoise = getComputedStyle(element).getPropertyValue('--turquoise-init');
+green = getComputedStyle(element).getPropertyValue('--green-init');
+
+document.getElementById("violetInput").value = violet;
+document.getElementById("redInput").value = red;
+document.getElementById("orangeInput").value = orange;
+document.getElementById("yellowInput").value = yellow;
+document.getElementById("indigoInput").value = indigo;
+document.getElementById("blueInput").value = blue;
+document.getElementById("turquoiseInput").value = turquoise;
+document.getElementById("greenInput").value = green;}
+
