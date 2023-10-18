@@ -9,8 +9,8 @@ fetch("./moods.json")
 }).then(() => {
     //console.log(moodsData);
     showKeywords();
-    retrieveLS();
     initColorpicker(document.documentElement);
+    retrieveLS();
 })
 .catch(function (error){
     console.error("Something went wrong with retrieving the moods.");
@@ -374,12 +374,15 @@ const darkModeSwitch = document.getElementById("darkModeSwitch");
 
 darkModeSwitch.addEventListener("click", () => { //toggles the theme when the switch is clicked, also saves theme to localstorage
   document.body.classList.toggle("darkMode");
-  initColorpicker(document.querySelector(".darkMode"))
   if(document.body.classList.contains("darkMode")){
     localStorage.setItem("darkMode", "true");
+    initColorpicker(document.querySelector(".darkMode"))
+    retrieveLS();
   }
   else{
     localStorage.setItem("darkMode", "false");
+    initColorpicker(document.documentElement);
+    retrieveLS();
   }
 });
 
@@ -407,9 +410,10 @@ function changeColor(){
 
   for(let i = 0; i < userColors.length; ++i){
     let currentColor = userColors[i].value;
+    if(localStorage.getItem(colorIds[i]) != currentColor){
     localStorage.setItem(colorIds[i], currentColor);
+    console.log(colorIds[i]+" set to "+ currentColor)}
   }
-
   retrieveLS();
 }
 
@@ -533,23 +537,23 @@ function insertColor(color) {
 }
 }
 
-/*initiate colorpicker*/
-function initColorpicker(element){
-violet = getComputedStyle(element).getPropertyValue('--violet-init');
-red = getComputedStyle(element).getPropertyValue('--red-init');
-orange = getComputedStyle(element).getPropertyValue('--orange-init');
-yellow = getComputedStyle(element).getPropertyValue('--yellow-init');
-indigo = getComputedStyle(element).getPropertyValue('--indigo-init');
-blue = getComputedStyle(element).getPropertyValue('--blue-init');
-turquoise = getComputedStyle(element).getPropertyValue('--turquoise-init');
-green = getComputedStyle(element).getPropertyValue('--green-init');
 
-document.getElementById("violetInput").value = violet;
-document.getElementById("redInput").value = red;
-document.getElementById("orangeInput").value = orange;
-document.getElementById("yellowInput").value = yellow;
-document.getElementById("indigoInput").value = indigo;
-document.getElementById("blueInput").value = blue;
-document.getElementById("turquoiseInput").value = turquoise;
-document.getElementById("greenInput").value = green;}
+/*initiate colorpicker*/
+let colorList = ["violet", "red", "orange", "yellow", "indigo", "blue", "turquoise", "green"];
+
+function getInitColors(element){
+  let initColors = [];
+  for(let i = 0; i < colorList.length; i++){
+    let initColor = getComputedStyle(element).getPropertyValue('--' + colorList[i] + '-init')
+    initColors.push(initColor)
+  }
+  return initColors;
+}
+
+function initColorpicker(element){
+let initColors = getInitColors(element);
+
+for(let i = 0; i < colorList.length; i++){
+  document.getElementById(colorList[i]+"Input").value = initColors[i];
+}}
 
