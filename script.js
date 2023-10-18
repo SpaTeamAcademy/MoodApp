@@ -538,10 +538,17 @@ const funModeButton = document.getElementById("funMode");
 const colorbutton = document.querySelectorAll(".colorbutton");
 const allEl = document.body.getElementsByTagName("*");
 let timeout;
+let text2 = document.getElementById("h1");
+let normText = "MoodApp";
 
 funModeButton.addEventListener('click', 
 function chaosMode() {
-  //console.log("funModeButton was clicked");
+  if(text2.textContent === "ChaosApp"){
+    text2.textContent = "MoodApp";
+  }
+  else if(text2.textContent === "MoodApp"){
+  text2.textContent = "ChaosApp";
+  }
 
   colorbutton.forEach(function(button) {
     button.classList.add("animatedBtns");
