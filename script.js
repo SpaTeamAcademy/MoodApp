@@ -533,22 +533,29 @@ function insertColor(color) {
 }
 
 /*Chaos mode*/
-/Fun Mode/
+/*Fun Mode*/
 const funModeButton = document.getElementById("funMode");
 const colorbutton = document.querySelectorAll(".colorbutton");
 const allEl = document.body.getElementsByTagName("*");
 let timeout;
-let text2 = document.getElementById("h1");
-let normText = "MoodApp";
+
+let chaosActive = false;
 
 funModeButton.addEventListener('click', 
 function chaosMode() {
+  chaosActive = !chaosActive;
+
+  randomizeCursor();
+
+let text2 = document.getElementById("h1");
+
   if(text2.textContent === "ChaosApp"){
     text2.textContent = "MoodApp";
   }
   else if(text2.textContent === "MoodApp"){
   text2.textContent = "ChaosApp";
   }
+
 
   colorbutton.forEach(function(button) {
     button.classList.add("animatedBtns");
@@ -568,4 +575,20 @@ function aniEnd(){
   for(let i=0; i<colorbutton.length; i++){
     colorbutton[i].classList.remove("animatedBtns");
   };
+}
+
+function randomizeCursor(){ //if chaos mode is active, the cursor is changed every 2 seconds
+  const cursors = ["default", "pointer", "grab", "grabbing", "move", "not-allowed", "progress", "wait"];
+  const body = document.getElementsByTagName("body")[0];
+  if(chaosActive){
+    let change = setInterval(() => {
+      let current = cursors[Math.floor(Math.random() * cursors.length)];
+      body.style.cursor = current;
+
+      if(!chaosActive){
+        clearInterval(change);
+        body.style.cursor = "default";
+      }
+    }, 500);
+  }
 }
