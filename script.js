@@ -7,7 +7,6 @@ fetch("./moods.json")
 .then(data =>{
     moodsData = data;
 }).then(() => {
-    //console.log(moodsData);
     showKeywords();
     retrieveLS();
 })
