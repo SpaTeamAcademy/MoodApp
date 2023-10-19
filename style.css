@@ -965,6 +965,7 @@ z-index: 4;
 
 /*Chaosbtn*/
 .rainbowBtn {
+    appearance: none;
     position: absolute;
     cursor: pointer;
     bottom: 1vh;
@@ -974,11 +975,15 @@ z-index: 4;
     border: solid 2px var(--changebtn-border);
     border-radius: 8px;
 }
-.rainbowBtn:hover{
+.rainbowBtn:before {
+    content: 'Chaos Modus';
+}
+.rainbowBtn:hover,
+.rainbowBtn:checked {
     color: white;
     background-image: linear-gradient(to right, 
     #E7484F, #F68B1D, #FCED00,#009E4F,#00AAC3,#732982);
-    animation: slider 5s linear infinite;
+    animation: slider 7s linear infinite alternate;
 }
  @keyframes slider {
     to {
