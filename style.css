@@ -1,15 +1,15 @@
 /*general*/
 :root{
     /*colorbutton*/
-    --yellow-translate:  -610%,-170%;
-    --orange-translate:  -480%,-170%;
-    --red-translate:  -320%,-170%;
-    --violet-translate:  -180%,-170%;
+    --yellow-translate:  -540%,-120%;
+    --orange-translate:  -400%,-120%;
+    --red-translate:  -240%,-120%;
+    --violet-translate:  -100%,-120%;
     
-    --indigo-translate:  -180%,-290%;
-    --blue-translate:  -320%,-290%;
-    --turquoise-translate:  -480%,-290%;
-    --green-translate:  -610%,-290%;
+    --indigo-translate:  -100%,-250%;
+    --blue-translate:  -240%,-250%;
+    --turquoise-translate:  -400%,-250%;
+    --green-translate:  -540%,-250%;
 
     --size-Btn: 2,2; /*size fulscreen*/
     --T-time: 1.5s;/*transition time*/
@@ -890,32 +890,47 @@ z-index: 4;
 @media ( width <= 1130px) {
     :root{
          /*colorbutton*/
-        --yellow-translate:  -520%,-150%;
-        --orange-translate:  -380%,-150%;
-        --red-translate:  -220%,-150%;
-        --violet-translate:  -130%,-250%;
+        --yellow-translate:  -470%,-120%;
+        --orange-translate:  -330%,-120%;
+        --red-translate:  -165%,-120%;
+        --violet-translate:  -25%,-120%;
     
-        --indigo-translate:  -90%,-270%;
-        --blue-translate:  -220%,-270%;
-        --turquoise-translate:  -380%,-270%;
-        --green-translate:  -520%,-270%;
+        --indigo-translate:  -25%,-260%;
+        --blue-translate:  -165%,-260%;
+        --turquoise-translate:  -330%,-260%;
+        --green-translate:  -470%,-260%;
 
-        --size-Btn: 2.5,2.5; /*size fulscreen*/
+        --width-popup: 40ch;
+}}
+
+@media ( width <= 860px) {
+    :root{
+         /*colorbutton*/
+        --yellow-translate:  -450%,-140%;
+        --orange-translate:  -300%,-140%;
+        --red-translate:  -135%,-110%;
+        --violet-translate:  15%,-110%;
+    
+        --indigo-translate:  15%,-260%;
+        --blue-translate:  -135%,-260%;
+        --turquoise-translate:  -300%,-240%;
+        --green-translate:  -450%,-260%;
+
         --width-popup: 40ch;
 }}
 
 @media (width >= 1350px) {
     :root{
         /*colorbutton*/
-        --yellow-translate:  -600%,-180%;
-        --orange-translate:  -480%,-180%;
-        --red-translate:  -310%,-180%;
-        --violet-translate:  -180%,-180%;
+        --yellow-translate:  -670%,-120%;
+        --orange-translate:  -500%,-120%;
+        --red-translate:  -310%,-120%;
+        --violet-translate:  -140%,-120%;
     
-        --indigo-translate:  -180%,-305%;
-        --blue-translate:  -310%,-305%;
-        --turquoise-translate:  -480%,-305%;
-        --green-translate:  -600%,-305%;
+        --indigo-translate:  -140%,-250%;
+        --blue-translate:  -310%,-250%;
+        --turquoise-translate:  -500%,-250%;
+        --green-translate:  -670%,-250%;
 } 
 }
 
