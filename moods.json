@@ -2,75 +2,76 @@
   "Moods": [
     {
       "color": "yellow",
-      "keywords": ["Glücklich", "Freude", "Beschwingt", "Humorvoll", "Stolz"],
+      "keywords": ["Glück", "Freude", "Beschwingtheit", "Humor", "Stolz"],
       "examples": [
-        "Ich habe viel Energie, ich könnte Bäume ausreißen",
-        "Ich würde am liebsten herumspringen oder laufen",
-        "Ich empfinde gerade viel Spaß oder muss lachen",
-        "Ich bin zufrieden mit meiner Leistung"
+        "Ich habe viel Energie, ich könnte Bäume ausreißen.",
+        "Ich würde am Liebsten herumspringen oder -laufen.",
+        "Ich empfinde gerade viel Spaß oder muss lachen.",
+        "Ich bin zufrieden mit meiner Leistung."
       ],
       "body": [
-        "angenehme Wärme im ganzen Körper",
+        "Angenehme Wärme im ganzen Körper",
         "Muskeln können leicht angespannt sein",
-        "wohliges Kribbeln"
+        "Wohliges Kribbeln"
       ],
       "mind": [
-        "Ich habe viele Ideen und bin inspiriert",
-        "Ich denke an eine Situation/Person, die mich positiv stimmt",
-        "Ich denke an lustige Sachen"
+        "Viele Ideen und Inspiration",
+        "Positive Situation oder Personen",
+        "Lustige oder fröhliche Gedanken"
       ],
       "strategy": [
         "Energie verwenden, um Erledigungen zu meistern",
         "Gefühl mit jemanden teilen",
-        "etwas Schönes machen, dass mir gut tut"
+        "Etwas Schönes machen, das mir gut tut"
       ]
     },
     {
       "color": "orange",
-      "keywords": ["Aufgeregt", "Erwartungsvoll", "Überrascht", "Neugierig"],
+      "keywords": ["Aufregung", "Ungeduld", "Neugierde", "Spannung"],
       "examples": [
-        "Es fällt mir schwer still zu sitzen",
-        "Ich spüre eine freudige Spannung",
-        "Ich kann kaum erwarten, dass es losgeht",
-        "Ich fühle mich motiviert"
+        "Es fällt mir schwer still zu sitzen.",
+        "Ich spüre eine freudige Spannung.",
+        "Ich kann kaum erwarten, dass es losgeht.",
+        "Ich fühle mich motiviert."
       ],
       "body": [
-        "erhöhte Herzfrequenz",
+        "Erhöhte Herzfrequenz",
         "Kribbeln oder Zittern im Körper",
-        "schwitzige Hände",
-        "einzelne Muskeln sind aktiv oder angespannt"
+        "Schwitzige Hände",
+        "Einzelne Muskeln sind aktiv oder angespannt"
       ],
       "mind": [
-        "Ich habe viele Gedanken gleichzeitig",
-        "Meine Ideen überschlagen sich",
-        "Ich bin wissbegierig"
+        "Viele Gedanken gleichzeitig",
+        "Ideen überschlagen sich",
+        "Wissbegierig"
       ],
       "strategy": [
         "Mit Fidget Toys spielen",
         "Meditation, Atemübungen",
-        "Motivation nutzen um Dinge zu erledigen"
+        "Motivation nutzen, um Dinge zu erledigen"
       ]
     },
     {
       "color": "red",
-      "keywords": ["Verärgert", "Irritiert", "Wütend", "Verletzt"],
+      "keywords": ["Ärger", "Irritation", "Wut", "Stress"],
       "examples": [
-        "Ich würde am liebsten mit Gegenständen werfen",
-        "Ich habe das Bedürfnis zu schreien oder zu schimpfen",
-        "Ich fühle einen inneren Druck",
-        "Ich koche innerlich, ich könnte explodieren"
+        "Ich würde am Liebsten mit Gegenständen werfen.",
+        "Ich habe das Bedürfnis zu schreien oder zu schimpfen.",
+        "Ich fühle einen inneren Druck.",
+        "Ich koche innerlich, ich könnte explodieren."
       ],
       "body": [
-        "hohe Herzfrequenz",
+        "Hohe Herzfrequenz",
         "Gesicht und/oder Schultern fühlen sich heiß an",
         "Muskeln sind stark angespannt",
         "Kiefer steht unter Spannung",
         "Zittern oder Krampfen"
       ],
       "mind": [
-        "Ich kann kaum klar denken",
-        "Meine Gedanken drehen sich um das Thema, das mich verärgert hat",
-        "Ich habe Schwierigkeiten mich zu konzentrieren oder anderen zuzuhören"
+        "Kaum klare Gedanken fassbar",
+        "Gedanken drehen sich um ein bestimmtes Thema",
+        "Konzentrationsschwierigkeiten",
+        "Zuhören oder Lesen fällt schwer"
       ],
       "strategy": [
         "Ärger auf ein Papier schreiben und dieses zerreisen oder zerknüllen",
@@ -82,23 +83,23 @@
     },
     {
       "color": "violet",
-      "keywords": ["Ängstlich", "Ekel", "Abscheu", "Scham"],
+      "keywords": ["Angst", "Ekel", "Abscheu", "Scham"],
       "examples": [
-        "Ich möchte gewisse Dinge lieber meiden",
-        "Ich finde eine Situation oder Person unerträglich",
-        "Ich will mich mit etwas nicht auseinandersetzen"
+        "Ich möchte gewisse Dinge lieber meiden.",
+        "Es fällt mir schwer, eine Person oder Situation auszuhalten.",
+        "Ich will mich mit etwas nicht auseinandersetzen."
       ],
       "body": [
-        "erhöhte Herzfrequenz",
+        "Erhöhte Herzfrequenz",
         "Schwierigkeiten beim Atmen",
         "Engegefühl in Brust oder Hals",
         "Erstarren oder Unwohlsein",
         "Übelkeit"
       ],
       "mind": [
-        "Ich bin nicht bereit mich gedanklich mit gewissen Themen zu beschäftigen",
-        "Es fällt mir schwer andere Perspektiven einzunehmen",
-        "Ich denke zu viel über etwas nach, obwohl ich das gar nicht möchte"
+        "Gedankenstarre oder negativer Gedankenkreis",
+        "Tunnelblick",
+        "Konzentrationsschwierigkeiten"
       ],
       "strategy": [
         "Die Situation verlassen",
@@ -110,56 +111,53 @@
     },
     {
       "color": "indigo",
-      "keywords": ["Traurig", "Unsicher", "Einsam", "Lustlos", "Gleichgültig"],
+      "keywords": ["Trauer", "Unsicherheit", "Lustlosigkeit", "Einsamkeit"],
       "examples": [
-        "Ich fühle mich alleine gelassen oder innerlich leer",
-        "Es fällt mir schwer meinen Verpflichtungen nachzugehen",
-        "Ich habe kein Interesse an Tätigkeiten, die mir sonst Freude bereiten",
-        "Mir ist zum Weinen zumute"
+        "Ich fühle mich unsicher, alleine gelassen oder innerlich leer.",
+        "Es fällt mir schwer meinen Verpflichtungen nachzugehen.",
+        "Ich habe kein Interesse an Tätigkeiten, die mir sonst Freude bereiten.",
+        "Mir ist zum Weinen zumute."
       ],
       "body": [
         "Müdigkeit oder Erschöpfung",
         "Schmerzen in der Brust",
-        "der ganze Körper kann sich kühl anfühlen",
+        "Der ganze Körper kann sich kühl anfühlen",
         "Glieder und Schultern sind schwer",
-        "gesenkter Blick",
-        "Übelkeit"
+        "Gesenkter Blick"
       ],
       "mind": [
-        "Meine Gedanken fühlen sich träge an",
-        "Ich denke an Situationen oder Personen die mich negativ stimmen",
-        "Meine Gedanken drehen sich um schlechte Erfahrungen, die ich gemacht habe",
-        "Es fällt mir schwer positive Gedanken zu fassen",
-        "Ich fühle mich unsicher und verzweifelt"
+        "Träge Gedanken oder negativer Gedankenkreis",
+        "Gedanken drehen sich ungewollt um bestimmte Situtionen oder Personen",
+        "Fokus auf negative Erfahrungen oder Konsequenzen"
       ],
       "strategy": [
         "Bewegen, Spazieren",
         "Musik hören oder machen",
-        "sich etwas Besonderes gönnen, z.B. gutes Essen",
-        "stimmungsaufhellende Gerüche z.B. Zitrus, Minze",
-        "mit jemandem darüber reden"
+        "Sich etwas Besonderes gönnen, z.B. gutes Essen",
+        "Stimmungsaufhellende Gerüche z.B. Zitrus, Minze",
+        "Mit jemandem darüber reden"
       ]
     },
     {
       "color": "blue",
-      "keywords": ["Frustiert", "Gelangweilt", "Ungeduldig", "Gestresst"],
+      "keywords": ["Frustration", "Langeweile", "Ungeduld", "Unmut"],
       "examples": [
-        "Ich bin mit einer Situation oder Person unzufrieden",
-        "Ich würde mich gerne zurückziehen oder alleine sein",
-        "Es fällt mir schwer zu warten oder ich bin unruhig",
-        "Ich lenke mich von meinen Aufgaben ab"
+        "Ich bin mit einer Situation oder Person unzufrieden.",
+        "Ich würde mich gerne zurückziehen oder alleine sein.",
+        "Es fällt mir schwer zu warten oder ich bin unruhig.",
+        "Ich lenke mich von meinen Aufgaben ab."
       ],
       "body": [
-        "erhöhte Herzfrequenz",
-        "einzelne Muskeln sind aktiv oder angespannt",
-        "tiefes Atmen oder Seufzen",
+        "Erhöhte Herzfrequenz",
+        "Einzelne Muskeln sind aktiv oder angespannt",
+        "Tiefes Atmen oder Seufzen",
         "Zittern oder Herumzappeln",
-        "grummeliger Gesichtsausdruck"
+        "Grummeliger Gesichtsausdruck"
       ],
       "mind": [
-        "Es fällt mir schwer mich zu konzentrieren",
-        "Eine Situation oder Person lenkt meine Gedanken immer wieder ab",
-        "Mein Fokus liegt darauf ein akutes Problem zu lösen"
+        "Konzentrationsschwierigkeiten",
+        "Ablenkende Gedanken",
+        "Fokus auf ein akutes Problem"
       ],
       "strategy": [
         "Die Situation verlassen oder verändern",
@@ -169,50 +167,50 @@
     },
     {
       "color": "turquoise",
-      "keywords": ["Aufmerksam", "Interessiert", "Motiviert"],
+      "keywords": ["Aufmerksamkeit", "Interesse", "Motivation", "Konzentration"],
       "examples": [
-        "Ich bin einer neuen Situation oder Person gegenüber positiv gestimmt",
-        "Ich bin bereit etwas zu lernen oder zu erledigen",
-        "Ich kann einer Aufgabe mit Bestimmtheit nachgehen"
+        "Ich bin einer neuen Situation oder Person gegenüber positiv gestimmt.",
+        "Ich bin bereit etwas zu lernen oder zu erledigen.",
+        "Ich kann einer Aufgabe mit Bestimmtheit nachgehen."
       ],
-      "body": ["ruhiger Herzrythmus", "entspannte Muskulatur", "ruhiger Atem"],
+      "body": ["Ruhiger Herzrythmus", "Entspannte Muskulatur", "Ruhiger Atem"],
       "mind": [
-        "Ich kann mich gut auf eine Aufgabe konzentrieren",
-        "Meine Gedanken lassen sich nur selten oder kaum ablenken",
-        "Ich bin kreativ oder habe ungewöhnliche Ideen"
+        "Hohe Konzentration oder Hyperfokus",
+        "Kreativität und ungewöhnliche Ideen",
+        "Organisiert und Strukturiert"
       ],
       "strategy": [
         "Konzentration nutzen",
         "Planen/Strukturieren von Aufgaben",
-        "etwas neues Lernen"
+        "Etwas neues Lernen"
       ]
     },
     {
       "color": "green",
-      "keywords": ["Gelassen", "Zufrieden", "Ausgeglichen", "Harmonie"],
+      "keywords": ["Gelassenheit", "Zufriedenheit", "Besonnenheit", "Harmonie"],
       "examples": [
-        "Ich fühle mich sorglos oder unbekümmert",
-        "Es fällt mir leicht zu kommunizieren oder mich mit anderen auszutauschen",
-        "Ich verspüre Vertrauen oder Dankbarkeit",
-        "Ich habe großes Interesse an Tätigkeiten, die mir Freude bereiten"
+        "Ich fühle mich sorglos oder unbekümmert.",
+        "Es fällt mir leicht zu kommunizieren oder mich mit anderen auszutauschen.",
+        "Ich verspüre Vertrauen oder Dankbarkeit.",
+        "Ich habe großes Interesse an Tätigkeiten, die mir Freude bereiten."
       ],
       "body": [
         "Muskeln sind entspannt und ruhig",
-        "angenehme Wärme im ganzen Körper",
-        "freies Atmen",
+        "Angenehme Wärme im ganzen Körper",
+        "Freies Atmen",
         "Leichtigkeit in Schultern und Rücken"
       ],
       "mind": [
-        "Ich denke an Situationen oder Personen, die mich positiv stimmen",
-        "Ich bin offen und unvoreingenommen",
-        "Es fällt mir leicht andere Perspektiven einzunehmen",
-        "Ich habe inspirierende Ideen und kann mich gut konzentrieren"
+        "Fröhliche oder positive Gedanken",
+        "Offen und unvoreingenommen",
+        "systemisches und übergreifendes Denken",
+        "Inspiration und Konzentrationsfähigkeit"
       ],
       "strategy": [
         "Hobbies oder Interessen nachgehen",
         "Kreative Tätigkeiten",
         "Das Gefühl genießen",
-        "Unangenehme Dinge erledigen"
+        "Zwischenmenschliche Angelegenheiten"
       ]
     }
   ]
