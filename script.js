@@ -551,8 +551,6 @@ function chaosMode() {
 let text2 = document.getElementById("h1");
 let normText = "MoodApp";
 
-funModeButton.addEventListener('click', 
-function chaosMode() {
   if(text2.textContent === "ChaosApp"){
     text2.textContent = "MoodApp";
   }
