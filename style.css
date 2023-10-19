@@ -934,6 +934,21 @@ z-index: 4;
 } 
 }
 
+@media (width >= 1600px) {
+    :root{
+        /*colorbutton*/
+        --yellow-translate:  -770%,-60%;
+        --orange-translate:  -560%,-60%;
+        --red-translate:  -330%,-60%;
+        --violet-translate:  -140%,-60%;
+    
+        --indigo-translate:  -140%,-185%;
+        --blue-translate:  -330%,-185%;
+        --turquoise-translate:  -560%,-185%;
+        --green-translate:  -770%,-185%;
+} 
+}
+
 /*font size switcher*/
 
 #changeFontsize{
