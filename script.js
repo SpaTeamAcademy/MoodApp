@@ -543,13 +543,11 @@ let chaosActive = false;
 
 funModeButton.addEventListener('click', 
 function chaosMode() {
-  //console.log("funModeButton was clicked");
   chaosActive = !chaosActive;
 
   randomizeCursor();
 
 let text2 = document.getElementById("h1");
-let normText = "MoodApp";
 
   if(text2.textContent === "ChaosApp"){
     text2.textContent = "MoodApp";
