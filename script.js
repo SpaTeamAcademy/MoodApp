@@ -525,4 +525,70 @@ function insertColor(color) {
 
   /*setting a CSS property using JS*/
   document.documentElement.style.setProperty(colorVar, col);
+  /*adding text shadow to each keyword*//*
+  let keywords = document.getElementsByClassName("keywordsLI");
+  for (let i = 0; i < keywords.length; i++) {
+   keywords[i].style.textShadow = `5px 5px 6px var(${colorVar})`;
+}*/
+}
+
+/*Chaos mode*/
+/*Fun Mode*/
+const funModeButton = document.getElementById("funMode");
+const colorbutton = document.querySelectorAll(".colorbutton");
+const allEl = document.body.getElementsByTagName("*");
+let timeout;
+
+let chaosActive = false;
+
+funModeButton.addEventListener('click', 
+function chaosMode() {
+  chaosActive = !chaosActive;
+
+  randomizeCursor();
+
+let text2 = document.getElementById("h1");
+
+  if(text2.textContent === "ChaosApp"){
+    text2.textContent = "MoodApp";
+  }
+  else if(text2.textContent === "MoodApp"){
+  text2.textContent = "ChaosApp";
+  }
+
+
+  colorbutton.forEach(function(button) {
+    button.classList.add("animatedBtns");
+  });
+
+  for(let i=0; i<allEl.length; i++){
+    allEl[i].classList.toggle("chaos")
+  }
+
+ wait()
+});
+
+function wait() {
+  timeout = setTimeout(aniEnd,4210);
+}
+function aniEnd(){
+  for(let i=0; i<colorbutton.length; i++){
+    colorbutton[i].classList.remove("animatedBtns");
+  };
+}
+
+function randomizeCursor(){ //if chaos mode is active, the cursor is changed every 2 seconds
+  const cursors = ["default", "pointer", "grab", "grabbing", "move", "not-allowed", "progress", "wait"];
+  const body = document.getElementsByTagName("body")[0];
+  if(chaosActive){
+    let change = setInterval(() => {
+      let current = cursors[Math.floor(Math.random() * cursors.length)];
+      body.style.cursor = current;
+
+      if(!chaosActive){
+        clearInterval(change);
+        body.style.cursor = "default";
+      }
+    }, 500);
+  }
 }

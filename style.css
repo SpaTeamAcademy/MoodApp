@@ -948,7 +948,6 @@ z-index: 4;
 }
 
 /*Menu Bar*/
-
 .menu{
     right:10px;
     left:auto;
@@ -957,4 +956,106 @@ z-index: 4;
     justify-content:flex-end;
     align-items:center;
     width:fit-content;
+    align-items:baseline;
+    width:360px;
+}
+
+
+/*Chaos*/
+
+/*Chaosbtn*/
+.rainbowBtn {
+    appearance: none;
+    position: absolute;
+    cursor: pointer;
+    bottom: 1vh;
+    padding: 8px 16px;
+    color: var(--text-color);
+    background-color: var(--colorpicker-back);
+    border: solid 2px var(--changebtn-border);
+    border-radius: 8px;
+}
+.rainbowBtn:before {
+    content: 'Chaos Modus';
+}
+.rainbowBtn:hover,
+.rainbowBtn:checked {
+    color: white;
+    background-image: linear-gradient(to right, 
+    #E7484F, #F68B1D, #FCED00,#009E4F,#00AAC3,#732982);
+    animation: slider 7s linear infinite alternate;
+}
+ @keyframes slider {
+    to {
+      background-position: 20vw;
+    }
+}
+
+/*Colorbtn*/
+.top-line-grid.animatedBtns{
+    transform: translateY(-100vh);
+    animation: fall 3.5s forwards;
+    animation-iteration-count: 1;
+}
+.bottom-line-grid.animatedBtns{
+    transform: translateY(100vh);
+    animation: fall 3.5s forwards;
+    animation-iteration-count: 1;
+}
+@keyframes fall {
+    100% {
+        transform: translateY(0);
+    }
+}
+.animatedBtns#red, .animatedBtns#blue {
+    animation-delay: 0.3s;
+}
+.animatedBtns#orange, .animatedBtns#turquoise {
+    animation-delay: 0.6s;
+}
+.animatedBtns#yellow, .animatedBtns#green {
+    animation-delay: 0.9s;
+}
+.colorbutton.hoverable.chaos:hover{
+    /*button border and turn*/
+    animation: chaosBorderTurn 2.5s;
+}
+@keyframes chaosBorderTurn {
+    0%{border-width: 2px;}
+    10%{border-color: /*#fb0094*/ red;
+        border-width: 2.5px;}
+    20%{border-color: /*#0000ff*/ orange;
+        border-width: 3px;}
+    30%{border-color: /*#00ff00*/ yellow;
+        border-width: 3.5px;}
+    40%{border-color:/* #ffff00*/ lightgreen;
+        border-width: 4px;}
+    50%{border-color: /*#ff0000*/ darkgreen;
+        border-width: 4.5px;}
+    60%{border-color: /*#fb0094*/ lightblue;
+        border-width: 4px;}
+    70%{border-color: /*#0000ff*/ darkblue;
+        border-width: 3.5px;}
+    80%{border-color: /*#00ff00*/ indigo;
+        border-width: 3px;}
+    90%{border-color: /*#ffff00*/ violet;
+        border-width: 2.5px;}
+    100%{border-color:/* #ff0000*/ pink;
+    transform: rotate(720deg) translate(25px,8px);
+    border-width: 2px;
+    }
+}
+
+/*h1*/
+h1.chaos{
+    background-image: linear-gradient(to right, rgb(255, 107, 112),  red,orange,yellow,lightgreen,green,darkgreen,lightblue,blue,darkblue,indigo,violet,pink); 
+    background-clip: initial;/*just as fallback*/
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  
+    animation: move 100s linear infinite;
+}
+@keyframes move {
+    to {
+      background-position: 4500vh;
+    }
 }
