@@ -567,7 +567,7 @@ function aniEnd (){
   };
 }
 
-function randomizeCursor(){
+function randomizeCursor(){ //if chaos mode is active, the cursor is changed every 2 seconds
   const cursors = ["default", "pointer", "grab", "grabbing", "move", "not-allowed", "progress", "wait"];
   const body = document.getElementsByTagName("body")[0];
   if(chaosActive){
