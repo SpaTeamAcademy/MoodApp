@@ -525,11 +525,11 @@ function insertColor(color) {
 
   /*setting a CSS property using JS*/
   document.documentElement.style.setProperty(colorVar, col);
-  /*adding text shadow to each keyword*/
+  /*adding text shadow to each keyword*//*
   let keywords = document.getElementsByClassName("keywordsLI");
   for (let i = 0; i < keywords.length; i++) {
    keywords[i].style.textShadow = `5px 5px 6px var(${colorVar})`;
-}
+}*/
 }
 
 /*Chaos mode*/
